@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name="aboutActivity"></activity>
+        <activity android:name="AverseActivity"></activity>
     </application>
 
 </manifest>
