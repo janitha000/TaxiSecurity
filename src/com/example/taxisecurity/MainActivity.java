@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.os.Build;
 
 public class MainActivity extends Activity {
@@ -24,6 +26,24 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        
+        //Buttons on Main Activity
+        Button TimeButton = (Button) findViewById(R.id.Button01);
+        Button AverseButton = (Button) findViewById(R.id.Button02);
+        Button policeButton = (Button) findViewById(R.id.Button03);
+        Button helpButton = (Button) findViewById(R.id.Button04);
+        
+        //Averse Button click Listener
+        AverseButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent averseIntent = new Intent(MainActivity.this, AverseActivity.class);
+				startActivity(averseIntent);
+				
+			}
+		});
+        
     }
 
 
