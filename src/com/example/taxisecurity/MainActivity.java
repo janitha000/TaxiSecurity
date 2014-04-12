@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.os.Build;
 
 public class MainActivity extends Activity {
@@ -24,6 +25,13 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        
+        Button TimeButton = (Button) findViewById(R.id.Button01);
+        Button AverseButton = (Button) findViewById(R.id.Button02);
+        Button policeButton = (Button) findViewById(R.id.Button03);
+        Button helpButton = (Button) findViewById(R.id.Button04);
+        
+        
     }
 
 
