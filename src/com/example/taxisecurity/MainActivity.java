@@ -3,6 +3,7 @@ package com.example.taxisecurity;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -44,7 +45,8 @@ public class MainActivity extends Activity {
             return true;
         }
         else if (id == R.id.action_about) {
-			
+			Intent aboutIntent = new Intent(MainActivity.this, aboutActivity.class);
+			startActivity(aboutIntent);
 		}
         return super.onOptionsItemSelected(item);
     }
