@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent averseIntent = new Intent(MainActivity.this, AverseActivity.class);
 				startActivity(averseIntent);
+				//hello
 				
 			}
 		});
