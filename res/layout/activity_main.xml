@@ -6,21 +6,22 @@
     tools:context="com.example.taxisecurity.MainActivity"
     tools:ignore="MergeRootFrame" >
 
+ 
     <Button
         android:id="@+id/Button01"
-        android:layout_width="214dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="150dp"
-        android:text="@string/averse" />
-
-    <Button
-        android:id="@+id/Button02"
         android:layout_width="222dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:text="@string/time_allocator" />
+    
+     <Button
+        android:id="@+id/Button02"
+        android:layout_width="214dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:text="@string/averse" />
 
     <Button
         android:id="@+id/Button03"

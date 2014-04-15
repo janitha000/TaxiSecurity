@@ -33,6 +33,18 @@ public class MainActivity extends Activity {
         Button policeButton = (Button) findViewById(R.id.Button03);
         Button helpButton = (Button) findViewById(R.id.Button04);
         
+      //Time Button click Listener
+        TimeButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent averseIntent = new Intent(MainActivity.this, timeAllocatorActivity.class);
+				startActivity(averseIntent);
+				
+				
+			}
+		});
+        
         //Averse Button click Listener
         AverseButton.setOnClickListener(new OnClickListener() {
 			
@@ -40,7 +52,31 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent averseIntent = new Intent(MainActivity.this, AverseActivity.class);
 				startActivity(averseIntent);
-				//hello
+				
+				
+			}
+		});
+        
+      //Police Button click Listener
+      policeButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent averseIntent = new Intent(MainActivity.this, policeDetailActivity.class);
+				startActivity(averseIntent);
+				
+				
+			}
+		});
+        
+      //Help Button click Listener
+        helpButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent averseIntent = new Intent(MainActivity.this, helpActivity.class);
+				startActivity(averseIntent);
+				
 				
 			}
 		});

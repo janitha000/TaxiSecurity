@@ -24,6 +24,9 @@
         </activity>
         <activity android:name="aboutActivity"></activity>
         <activity android:name="AverseActivity"></activity>
+        <activity android:name="timeAllocatorActivity"></activity>
+        <activity android:name="policeDetailActivity"></activity>
+        <activity android:name="helpActivity"></activity>
     </application>
 
 </manifest>
