@@ -32,6 +32,19 @@ public class MainActivity extends Activity {
         Button AverseButton = (Button) findViewById(R.id.Button02);
         Button policeButton = (Button) findViewById(R.id.Button03);
         Button helpButton = (Button) findViewById(R.id.Button04);
+        Button mapb = (Button) findViewById(R.id.button1);
+        
+        //map button, testing sadaha pamanayi!! meka passe delete karanawa
+        	mapb.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent averseIntent = new Intent(MainActivity.this, mapActivity.class);
+				startActivity(averseIntent);
+				
+				
+			}
+		});
         
       //Time Button click Listener
         TimeButton.setOnClickListener(new OnClickListener() {
@@ -123,5 +136,7 @@ public class MainActivity extends Activity {
             return rootView;
         }
     }
+    
+   
 
 }
