@@ -35,6 +35,7 @@ public class MainActivity extends Activity {
         Button mapb = (Button) findViewById(R.id.button1);
         
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
+        //meka add kale Vindya
         	mapb.setOnClickListener(new OnClickListener() {
 			
 			@Override
