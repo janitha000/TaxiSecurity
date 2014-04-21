@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
         
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
         //meka add kale Vindya
+        //mekath 
         	mapb.setOnClickListener(new OnClickListener() {
 			
 			@Override
