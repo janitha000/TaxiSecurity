@@ -50,6 +50,22 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 		showMap();
 }
 
+	public void showMap(){
+		// Create the LocationRequest object
+        mLocationRequest = LocationRequest.create();
+        // Use high accuracy
+        mLocationRequest.setPriority(
+                LocationRequest.PRIORITY_HIGH_ACCURACY);
+        // Set the update interval to 5 seconds
+        mLocationRequest.setInterval(UPDATE_INTERVAL);
+        // Set the fastest update interval to 1 second
+        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+		
+       mLocationClient = new LocationClient(this, this, this);
+        mLocationClient.connect();
+        
+	}
+	
 	@Override
 	public void onConnectionFailed(ConnectionResult arg0) {
 		// TODO Auto-generated method stub
@@ -97,21 +113,7 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 		
 	}
 	
-	public void showMap(){
-		// Create the LocationRequest object
-        mLocationRequest = LocationRequest.create();
-        // Use high accuracy
-        mLocationRequest.setPriority(
-                LocationRequest.PRIORITY_HIGH_ACCURACY);
-        // Set the update interval to 5 seconds
-        mLocationRequest.setInterval(UPDATE_INTERVAL);
-        // Set the fastest update interval to 1 second
-        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
-		
-       mLocationClient = new LocationClient(this, this, this);
-        mLocationClient.connect();
-        
-	}
+	
 	
 	@Override
 	protected void onStop() {
