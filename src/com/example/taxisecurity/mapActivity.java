@@ -66,6 +66,10 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
         
 	}
 	
+	public void showPoliceMap(){
+		
+	}
+	
 	@Override
 	public void onConnectionFailed(ConnectionResult arg0) {
 		// TODO Auto-generated method stub
