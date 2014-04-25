@@ -11,15 +11,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.os.Build;
 
 public class MainActivity extends Activity {
+	
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
@@ -35,8 +40,7 @@ public class MainActivity extends Activity {
         Button mapb = (Button) findViewById(R.id.button1);
         
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
-        //meka add kale Vindya
-        //mekath 
+        
         	mapb.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -59,7 +63,7 @@ public class MainActivity extends Activity {
 				
 			}
 		});
-        
+        //edited by vindya
         //Averse Button click Listener
         AverseButton.setOnClickListener(new OnClickListener() {
 			

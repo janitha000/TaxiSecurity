@@ -10,5 +10,20 @@
     <string name="help">Help</string>
     <string name="about">About Us</string>
     <string name="enter_your_destination_here">Enter your destination here</string>
+    <string name="enter_destination">Enter Destination</string>
+    
+    <string-array name="Address">
+        <item >Nugegoda</item>
+        <item >Kohuwala</item>
+        <item >Maharagama</item>
+        <item >Kottawa</item>
+        <item >Borella</item>
+        <item >Kirulapana</item>
+        <item >Pannipitiya</item>
+        <item >Wijeramaya</item>
+        <item >Delkanda</item>
+        <item >Thunmulla</item>
+    </string-array>
+    
 
 </resources>

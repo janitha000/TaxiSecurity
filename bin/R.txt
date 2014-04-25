@@ -1,3 +1,4 @@
+int array Address 0x7f0a0000
 int attr adSize 0x7f010000
 int attr adSizes 0x7f010001
 int attr adUnitId 0x7f010002
@@ -62,8 +63,9 @@ int id Button01 0x7f060007
 int id Button02 0x7f060008
 int id Button03 0x7f060009
 int id Button04 0x7f06000a
-int id action_about 0x7f06000f
-int id action_settings 0x7f06000e
+int id action_about 0x7f060010
+int id action_settings 0x7f06000f
+int id autoComplete 0x7f06000e
 int id button1 0x7f06000b
 int id container 0x7f060006
 int id hybrid 0x7f060004
@@ -71,8 +73,8 @@ int id map 0x7f06000c
 int id none 0x7f060000
 int id normal 0x7f060001
 int id satellite 0x7f060002
-int id search 0x7f06000d
 int id terrain 0x7f060003
+int id text1 0x7f06000d
 int id textView1 0x7f060005
 int integer google_play_services_version 0x7f080000
 int layout activity_about 0x7f030000
@@ -80,7 +82,7 @@ int layout activity_main 0x7f030001
 int layout activity_map 0x7f030002
 int layout averse 0x7f030003
 int layout fragment_main 0x7f030004
-int menu main 0x7f0b0000
+int menu main 0x7f0c0000
 int string about 0x7f070022
 int string action_settings 0x7f07001d
 int string app_name 0x7f07001b
@@ -111,14 +113,15 @@ int string common_google_play_services_update_text 0x7f070008
 int string common_google_play_services_update_title 0x7f070007
 int string common_signin_button_text 0x7f070012
 int string common_signin_button_text_long 0x7f070013
+int string enter_destination 0x7f070024
 int string enter_your_destination_here 0x7f070023
 int string help 0x7f070021
 int string location_client_powered_by_google 0x7f07001a
 int string police_details 0x7f070020
 int string search_hint 0x7f07001c
 int string time_allocator 0x7f07001e
-int style AppBaseTheme 0x7f0a0000
-int style AppTheme 0x7f0a0001
+int style AppBaseTheme 0x7f0b0000
+int style AppTheme 0x7f0b0001
 int[] styleable AdsAttrs { 0x7f010000, 0x7f010001, 0x7f010002 }
 int styleable AdsAttrs_adSize 0
 int styleable AdsAttrs_adSizes 1
