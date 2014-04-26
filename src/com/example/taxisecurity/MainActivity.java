@@ -38,6 +38,7 @@ public class MainActivity extends Activity {
         Button policeButton = (Button) findViewById(R.id.Button03);
         Button helpButton = (Button) findViewById(R.id.Button04);
         Button mapb = (Button) findViewById(R.id.button1);
+        Button serviceb = (Button) findViewById(R.id.button2);
         
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
         
@@ -51,6 +52,17 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+        	
+        	//Service Button click Listener , passe delete karanawa, test karanna witharai
+            serviceb.setOnClickListener(new OnClickListener() {
+    			
+    			@Override
+    			public void onClick(View v) {
+    				startService(new Intent(MainActivity.this,smsService.class));
+    				
+    				
+    			}
+    		});
         
       //Time Button click Listener
         TimeButton.setOnClickListener(new OnClickListener() {
