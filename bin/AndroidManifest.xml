@@ -47,7 +47,7 @@
         <activity android:name="helpActivity"></activity>
         <activity android:name="mapActivity"></activity>
         <service android:name="smsService"></service>
-        <activity android:name="testServiceActivity"></activity>
+        
     </application>
 
 </manifest>
