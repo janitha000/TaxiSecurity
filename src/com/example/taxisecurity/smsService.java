@@ -74,6 +74,6 @@ public class smsService extends Service {
     }
     
     
-	 
+	 //winadi 1n 1ta locations updates yanna puluwan widihata hadanna
 
 }
