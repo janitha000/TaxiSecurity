@@ -123,6 +123,7 @@ int string search_hint 0x7f07001c
 int string time_allocator 0x7f07001e
 int style AppBaseTheme 0x7f0b0000
 int style AppTheme 0x7f0b0001
+int style Theme_Transparent 0x7f0b0002
 int[] styleable AdsAttrs { 0x7f010000, 0x7f010001, 0x7f010002 }
 int styleable AdsAttrs_adSize 0
 int styleable AdsAttrs_adSizes 1

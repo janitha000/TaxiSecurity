@@ -47,7 +47,7 @@
         <activity android:name="helpActivity"></activity>
         <activity android:name="mapActivity"></activity>
         <service android:name="smsService"></service>
-        
+        <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
     </application>
 
 </manifest>
