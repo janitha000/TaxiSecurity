@@ -1,18 +1,26 @@
 package com.example.taxisecurity;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Binder;
+import android.content.IntentFilter;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.widget.Toast;
 
-public class smsService extends Service {
+public class smsService extends Service  {
+	SmsManager smsManager;
+	AlarmManager am;
+	PendingIntent pi;
+	
+	String phoneNo = "0716544588";
+	String sms = "Janitha";
 	
 
 	@Override
@@ -25,9 +33,18 @@ public class smsService extends Service {
     public void onCreate() {
           super.onCreate();
           Toast.makeText(this,"Service created ...", Toast.LENGTH_LONG).show();
-          //sendSMS();
-          showRecordingNotification();
+          smsManager = SmsManager.getDefault();
+          setup();
+          
     }
+	
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) {
+		//sendOneSMS(phoneNo,sms);
+		sendMultipleSMS();
+        showRecordingNotification();
+		return super.onStartCommand(intent, flags, startId);
+	}
     
     @Override
     public void onDestroy() {
@@ -56,12 +73,10 @@ public class smsService extends Service {
     		notificationManager.notify(SERVER_DATA_RECEIVED, notification);
     }
     
-    public void sendSMS(){
-    	String phoneNo = "0716544588";
-		String sms = "This is a test message";
-
+    public void sendOneSMS(String phoneNo,  String sms){
+    	
 		try {
-			SmsManager smsManager = SmsManager.getDefault();
+			
 			smsManager.sendTextMessage(phoneNo, null, sms, null, null);
 			Toast.makeText(getApplicationContext(), "SMS Sent!",
 					Toast.LENGTH_LONG).show();
@@ -73,7 +88,29 @@ public class smsService extends Service {
 		}
     }
     
+    public void sendMultipleSMS() {
+    	am.set( AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 
+    			1000 * 5, pi );
+    	Toast.makeText(this, "Alarm Set", Toast.LENGTH_LONG).show();
+    	 
+	}
+    
     
 	 //winadi 1n 1ta locations updates yanna puluwan widihata hadanna
+    
+    private void setup() {
+        BroadcastReceiver br = new BroadcastReceiver() {
+               @Override
+               public void onReceive(Context c, Intent i) {
+                      Toast.makeText(c, "Rise and Shine!", Toast.LENGTH_LONG).show();
+                      }
+               };
+        registerReceiver(br, new IntentFilter("com.example.taxisecurity") );
+        pi = PendingIntent.getBroadcast( this, 0, new Intent("com.example.taxisecurity"),0 );
+        am = (AlarmManager)(this.getSystemService( Context.ALARM_SERVICE ));
+  }
 
+    //alarmmanager stop ekath hadanna
+    
+    //sms service destroy ekath hadanna
 }

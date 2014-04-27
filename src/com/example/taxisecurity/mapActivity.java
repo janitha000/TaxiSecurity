@@ -15,6 +15,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 
+import android.R.string;
+import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
@@ -28,6 +30,7 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 	
 	GoogleMap Mmap;
 	boolean showMapActivated;
+	Location location;
 	
 	// Milliseconds per second
     private static final int MILLISECONDS_PER_SECOND = 1000;
@@ -163,6 +166,8 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 		}
 		super.onStop();
 	}
+	
+
 
 }
 
