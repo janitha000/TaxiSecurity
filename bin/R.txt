@@ -62,18 +62,19 @@ int id Button01 0x7f060007
 int id Button02 0x7f060008
 int id Button03 0x7f060009
 int id Button04 0x7f06000a
-int id action_about 0x7f060010
-int id action_settings 0x7f06000f
-int id autoComplete 0x7f06000e
+int id action_about 0x7f060011
+int id action_settings 0x7f060010
+int id autoComplete 0x7f06000f
 int id button1 0x7f06000b
+int id button2 0x7f06000c
 int id container 0x7f060006
 int id hybrid 0x7f060004
-int id map 0x7f06000c
+int id map 0x7f06000d
 int id none 0x7f060000
 int id normal 0x7f060001
 int id satellite 0x7f060002
 int id terrain 0x7f060003
-int id text1 0x7f06000d
+int id text1 0x7f06000e
 int id textView1 0x7f060005
 int integer google_play_services_version 0x7f080000
 int layout activity_about 0x7f030000
@@ -119,8 +120,14 @@ int string location_client_powered_by_google 0x7f07001a
 int string police_details 0x7f070020
 int string search_hint 0x7f07001c
 int string time_allocator 0x7f07001e
+<<<<<<< HEAD
 int style AppBaseTheme 0x7f0a0000
 int style AppTheme 0x7f0a0001
+=======
+int style AppBaseTheme 0x7f0b0000
+int style AppTheme 0x7f0b0001
+int style Theme_Transparent 0x7f0b0002
+>>>>>>> 5020ca44703afcf7e49a11fb12706ad01f5265ed
 int[] styleable AdsAttrs { 0x7f010000, 0x7f010001, 0x7f010002 }
 int styleable AdsAttrs_adSize 0
 int styleable AdsAttrs_adSizes 1

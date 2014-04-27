@@ -16,6 +16,7 @@
      <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+     <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -45,7 +46,12 @@
         <activity android:name="policeDetailActivity"></activity>
         <activity android:name="helpActivity"></activity>
         <activity android:name="mapActivity"></activity>
+<<<<<<< HEAD
         <activity android:name="PlacesAutocompleteActivity"></activity>
+=======
+        <service android:name="smsService"></service>
+        <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
+>>>>>>> 5020ca44703afcf7e49a11fb12706ad01f5265ed
     </application>
 
 </manifest>
