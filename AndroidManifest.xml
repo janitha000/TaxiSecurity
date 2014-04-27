@@ -45,6 +45,7 @@
         <activity android:name="policeDetailActivity"></activity>
         <activity android:name="helpActivity"></activity>
         <activity android:name="mapActivity"></activity>
+        <activity android:name="PlacesAutocompleteActivity"></activity>
     </application>
 
 </manifest>
