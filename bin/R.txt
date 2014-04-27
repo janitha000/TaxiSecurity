@@ -120,14 +120,9 @@ int string location_client_powered_by_google 0x7f07001a
 int string police_details 0x7f070020
 int string search_hint 0x7f07001c
 int string time_allocator 0x7f07001e
-<<<<<<< HEAD
 int style AppBaseTheme 0x7f0a0000
 int style AppTheme 0x7f0a0001
-=======
-int style AppBaseTheme 0x7f0b0000
-int style AppTheme 0x7f0b0001
-int style Theme_Transparent 0x7f0b0002
->>>>>>> 5020ca44703afcf7e49a11fb12706ad01f5265ed
+int style Theme_Transparent 0x7f0a0002
 int[] styleable AdsAttrs { 0x7f010000, 0x7f010001, 0x7f010002 }
 int styleable AdsAttrs_adSize 0
 int styleable AdsAttrs_adSizes 1

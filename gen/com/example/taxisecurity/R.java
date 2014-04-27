@@ -389,12 +389,8 @@ containing a value of this type.
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-<<<<<<< HEAD
         public static final int AppTheme=0x7f0a0001;
-=======
-        public static final int AppTheme=0x7f0b0001;
-        public static final int Theme_Transparent=0x7f0b0002;
->>>>>>> 5020ca44703afcf7e49a11fb12706ad01f5265ed
+        public static final int Theme_Transparent=0x7f0a0002;
     }
     public static final class xml {
         public static final int activity_averse=0x7f040000;
