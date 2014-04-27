@@ -3,6 +3,7 @@ package com.example.taxisecurity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
@@ -25,6 +26,7 @@ public class endSMSActivity extends Activity {
 	        	//password eka SQLite walin aragena compare karanna one
 	        	if(value.equals(password)){
 	        	finish(); //Stops the transparent Activity (Do not remove)
+	        	stopService(new Intent(endSMSActivity.this, smsService.class)); //stops the smsService
 	        	}
 	        	else {
 	         // re appear wenna hadanna

@@ -18,6 +18,7 @@ public class smsService extends Service  {
 	SmsManager smsManager;
 	AlarmManager am;
 	PendingIntent pi;
+	BroadcastReceiver br;
 	
 	String phoneNo = "0716544588";
 	String sms = "Janitha";
@@ -34,7 +35,8 @@ public class smsService extends Service  {
           super.onCreate();
           Toast.makeText(this,"Service created ...", Toast.LENGTH_LONG).show();
           smsManager = SmsManager.getDefault();
-          setup();
+          //setup();
+          sendMultipleSMS();
           
     }
 	
@@ -48,6 +50,9 @@ public class smsService extends Service  {
     
     @Override
     public void onDestroy() {
+    	
+    	unregisterReceiver(alarmReceiver);
+        Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
           super.onDestroy();
           Toast.makeText(this, "Service destroyed ...", Toast.LENGTH_LONG).show();
     }
@@ -88,29 +93,52 @@ public class smsService extends Service  {
 		}
     }
     
+    public static final String ACTION_NAME = "com.helloworld.MYACTION";
+    private IntentFilter myFilter = new IntentFilter(ACTION_NAME);
+    
     public void sendMultipleSMS() {
-    	am.set( AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 
-    			1000 * 5, pi );
-    	Toast.makeText(this, "Alarm Set", Toast.LENGTH_LONG).show();
+    	registerReceiver(alarmReceiver, myFilter);
+    	AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Intent intent = new Intent(ACTION_NAME);   
+        int i=0;
+        while(i<5){
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, i,
+        intent, PendingIntent.FLAG_ONE_SHOT);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (5 * 1000), pendingIntent);
+        i++;
+        }
+        
+        //Toast.makeText(this, "Alarm set", Toast.LENGTH_LONG).show();
     	 
 	}
+    
+    BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Toast.makeText(context, "Alarm worked", Toast.LENGTH_LONG).show();          
+        }
+    };
     
     
 	 //winadi 1n 1ta locations updates yanna puluwan widihata hadanna
     
-    private void setup() {
-        BroadcastReceiver br = new BroadcastReceiver() {
-               @Override
-               public void onReceive(Context c, Intent i) {
-                      Toast.makeText(c, "Rise and Shine!", Toast.LENGTH_LONG).show();
-                      }
-               };
-        registerReceiver(br, new IntentFilter("com.example.taxisecurity") );
-        pi = PendingIntent.getBroadcast( this, 0, new Intent("com.example.taxisecurity"),0 );
-        am = (AlarmManager)(this.getSystemService( Context.ALARM_SERVICE ));
-  }
+//    private void setup() {
+//        br = new BroadcastReceiver() {
+//               @Override
+//               public void onReceive(Context c, Intent i) {
+//                      Toast.makeText(c, "Rise and Shine!", Toast.LENGTH_LONG).show();
+//                      }
+//               };
+//        registerReceiver(br, new IntentFilter("com.example.taxisecurity") );
+//        pi = PendingIntent.getBroadcast( this, 0, new Intent("com.example.taxisecurity"),0 );
+//        am = (AlarmManager)(this.getSystemService( Context.ALARM_SERVICE ));
+//  }
 
     //alarmmanager stop ekath hadanna
     
+    
     //sms service destroy ekath hadanna
+    
+    
 }

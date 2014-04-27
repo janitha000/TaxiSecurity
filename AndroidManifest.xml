@@ -18,6 +18,7 @@
      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
      <uses-permission android:name="android.permission.SEND_SMS"/>
      <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -53,7 +54,11 @@
         <service android:name="smsService"></service>
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
 
-        <receiver android:name=".smsAlarmReciever"/> 
+        <receiver android:name=".smsAlarmReciever" android:enabled="true">
+<intent-filter>
+          <action android:name="android.intent.action.PHONE_STATE"></action>
+      </intent-filter>
+ </receiver>
 
     </application>
 
