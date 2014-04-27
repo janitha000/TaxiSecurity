@@ -81,7 +81,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent averseIntent = new Intent(MainActivity.this, AverseActivity.class);
+				Intent averseIntent = new Intent(MainActivity.this, PlacesAutocompleteActivity.class);
 				startActivity(averseIntent);
 				
 				

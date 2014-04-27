@@ -47,9 +47,16 @@
         <activity android:name="policeDetailActivity"></activity>
         <activity android:name="helpActivity"></activity>
         <activity android:name="mapActivity"></activity>
+<<<<<<< HEAD
+        <activity android:name="PlacesAutocompleteActivity"></activity>
+=======
         <service android:name="smsService"></service>
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
+<<<<<<< HEAD
         <receiver android:name=".smsAlarmReciever"/> 
+=======
+>>>>>>> 5020ca44703afcf7e49a11fb12706ad01f5265ed
+>>>>>>> 6abcf39c28238c25b43b99d161208ad75f95a98a
     </application>
 
 </manifest>

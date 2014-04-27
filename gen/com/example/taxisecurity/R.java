@@ -8,9 +8,6 @@
 package com.example.taxisecurity;
 
 public final class R {
-    public static final class array {
-        public static final int Address=0x7f0a0000;
-    }
     public static final class attr {
         /** 
     The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
@@ -251,11 +248,11 @@ containing a value of this type.
         public static final int activity_about=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_map=0x7f030002;
-        public static final int averse=0x7f030003;
-        public static final int fragment_main=0x7f030004;
+        public static final int fragment_main=0x7f030003;
+        public static final int list_item=0x7f030004;
     }
     public static final class menu {
-        public static final int main=0x7f0c0000;
+        public static final int main=0x7f0b0000;
     }
     public static final class string {
         public static final int about=0x7f070022;
@@ -388,12 +385,16 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0b0000;
+        public static final int AppBaseTheme=0x7f0a0000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
+<<<<<<< HEAD
+        public static final int AppTheme=0x7f0a0001;
+=======
         public static final int AppTheme=0x7f0b0001;
         public static final int Theme_Transparent=0x7f0b0002;
+>>>>>>> 5020ca44703afcf7e49a11fb12706ad01f5265ed
     }
     public static final class xml {
         public static final int activity_averse=0x7f040000;

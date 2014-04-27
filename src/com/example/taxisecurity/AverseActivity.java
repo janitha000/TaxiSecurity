@@ -16,11 +16,15 @@ public class AverseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.averse);
+		//setContentView(R.layout.averse);
 		//Edit by Vindya
-		String[] colors = getResources().getStringArray(R.array.Address);
-		adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,colors);
+		//String[] colors = getResources().getStringArray(R.array.Address);
+		//adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,colors);
 		autoComplete = (AutoCompleteTextView) findViewById(R.id.autoComplete);
+		//**********New edition for add google places by vindya
+		
+		
+		
 		// set adapter for the auto complete fields
 		autoComplete.setAdapter(adapter);
 		// specify the minimum type of characters before drop-down list is shown
