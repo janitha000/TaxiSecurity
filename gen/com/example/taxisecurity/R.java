@@ -250,6 +250,7 @@ containing a value of this type.
         public static final int activity_map=0x7f030002;
         public static final int fragment_main=0x7f030003;
         public static final int list_item=0x7f030004;
+        public static final int policedetail=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
@@ -360,6 +361,7 @@ containing a value of this type.
          */
         public static final int location_client_powered_by_google=0x7f07001a;
         public static final int police_details=0x7f070020;
+        public static final int police_station_theory=0x7f070025;
         public static final int search_hint=0x7f07001c;
         public static final int time_allocator=0x7f07001e;
     }

@@ -45,7 +45,7 @@
         <activity android:name="aboutActivity"></activity>
         <activity android:name="AverseActivity"></activity>
         <activity android:name="timeAllocatorActivity"></activity>
-        <activity android:name="policeDetailActivity"></activity>
+        <activity android:name="Police_Details"></activity>
         <activity android:name="helpActivity"></activity>
         <activity android:name="mapActivity"></activity>
 
@@ -54,15 +54,12 @@
         <service android:name="smsService"></service>
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
 
-<<<<<<< HEAD
-=======
         <receiver android:name=".smsAlarmReciever" android:enabled="true">
 <intent-filter>
           <action android:name="android.intent.action.PHONE_STATE"></action>
       </intent-filter>
  </receiver>
 
->>>>>>> 1b38173d222e40500a11fd957c2f4813a125b551
     </application>
 
 </manifest>

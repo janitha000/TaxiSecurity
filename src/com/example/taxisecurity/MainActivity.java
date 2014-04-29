@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent averseIntent = new Intent(MainActivity.this, policeDetailActivity.class);
+				Intent averseIntent = new Intent(MainActivity.this, Police_Details.class);
 				startActivity(averseIntent);
 				
 				
