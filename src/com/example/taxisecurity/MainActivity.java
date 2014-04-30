@@ -23,7 +23,9 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.loginform);
+       setContentView(R.layout.activity_main);
+        
         
 
         if (savedInstanceState == null) {
@@ -32,6 +34,8 @@ public class MainActivity extends Activity {
                     .commit();
         }
         
+        
+        
         //Buttons on Main Activity
         Button TimeButton = (Button) findViewById(R.id.Button01);
         Button AverseButton = (Button) findViewById(R.id.Button02);
@@ -39,7 +43,8 @@ public class MainActivity extends Activity {
         Button helpButton = (Button) findViewById(R.id.Button04);
         Button mapb = (Button) findViewById(R.id.button1);
         Button serviceb = (Button) findViewById(R.id.button2);
-        
+        /*me button 1th only testing. installation 1di weda karanna nemi hadala thiyenne,thawa modify karanna one,second activity 1 demme output 1k balanna*/
+        Button register = (Button) findViewById(R.id.button3);
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
         
         	mapb.setOnClickListener(new OnClickListener() {
@@ -106,6 +111,17 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent averseIntent = new Intent(MainActivity.this, helpActivity.class);
+				startActivity(averseIntent);
+				
+				
+			}
+		});
+        
+ register.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent averseIntent = new Intent(MainActivity.this, SharedPreference.class);
 				startActivity(averseIntent);
 				
 				

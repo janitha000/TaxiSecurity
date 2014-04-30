@@ -48,9 +48,10 @@
         <activity android:name="Police_Details"></activity>
         <activity android:name="helpActivity"></activity>
         <activity android:name="mapActivity"></activity>
-
+        
+		<activity android:name="SharedPreference"></activity>
         <activity android:name="PlacesAutocompleteActivity"></activity>
-
+		<activity android:name="Second"></activity>
         <service android:name="smsService"></service>
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
 

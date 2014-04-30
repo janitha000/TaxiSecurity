@@ -39,6 +39,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
+		
 		// TODO Auto-generated method stub
 		String CREATE_POLICE_TABLE = "CREATE TABLE " + TABLE_POLICE + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
