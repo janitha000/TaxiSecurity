@@ -1,9 +1,12 @@
 package com.example.taxisecurity;
 
-import android.app.Activity;
 import android.R.layout;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.PendingIntent.CanceledException;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -29,12 +32,16 @@ public class timeAllocatorActivity extends Activity implements View.OnClickListe
 	private boolean blink; 
 	private boolean error=false;
 	
+	Notification noti; 
+	NotificationManager nmgr; public static final int NOTIFICATION_ID = 0; 
+
+	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_timer);
-
+		int minutes= 0;
 		buttonStartTime = (Button) findViewById(R.id.btnStartTime);
 		buttonStopTime = (Button) findViewById(R.id.btnStopTime);
 		buttonExtend = (Button) findViewById(R.id.btnExtendTime);
@@ -46,6 +53,13 @@ public class timeAllocatorActivity extends Activity implements View.OnClickListe
 		buttonStartTime.setOnClickListener(this);
 		buttonStopTime.setOnClickListener(this);
 		buttonExtend.setOnClickListener(this);
+		nmgr = (NotificationManager)getSystemService(NOTIFICATION_SERVICE); 
+		noti = new Notification(R.drawable.ic_launcher,"Time Allocator is Set", System.currentTimeMillis()); 
+		Intent intent = new Intent(this,timeAllocatorActivity.class); 
+		intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+		PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0); 
+		noti.setLatestEventInfo(this, "Event Header","Time Allocator is Set", pIntent);
+
 
 
 	}
@@ -53,6 +67,7 @@ public class timeAllocatorActivity extends Activity implements View.OnClickListe
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.btnStartTime) {
+			nmgr.notify(NOTIFICATION_ID,noti);
 			textViewShowTime.setTextAppearance(getApplicationContext(),
 					R.style.normalText);
 			
@@ -122,7 +137,7 @@ public class timeAllocatorActivity extends Activity implements View.OnClickListe
 	}
 	private void setTimer() {
 		int hours = 0;
-		int minutes= 0;
+		int minutes=0;
 		int time= 0;
 		
 		if (!edtHours.getText().toString().equals("") && !edtMinutes.getText().toString().equals("") ) {
@@ -141,6 +156,7 @@ public class timeAllocatorActivity extends Activity implements View.OnClickListe
 				Toast.makeText(timeAllocatorActivity.this, "Please Enter Travel Time...",
 				Toast.LENGTH_LONG).show();						
 		}
+		char c=(char) minutes;
 		
 		totalTimeCountInMilliseconds = 60 * time * 1000;
 		timeBlinkInMilliseconds = 50 * 1000;
