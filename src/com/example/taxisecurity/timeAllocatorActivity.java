@@ -1,11 +1,15 @@
 package com.example.taxisecurity;
 
+
 import android.R.layout;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.PendingIntent.CanceledException;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -25,7 +29,7 @@ public class timeAllocatorActivity extends Activity implements View.OnClickListe
 	private CountDownTimer countDownTimer; 
 	private TextView textViewRemaining;	
 	private TextView textViewShowTime;
-	
+	final Context context=this;
 	private long totalTimeCountInMilliseconds; 
 	private long timeRemaining;										
 	private long timeBlinkInMilliseconds;
@@ -185,7 +189,7 @@ public class timeAllocatorActivity extends Activity implements View.OnClickListe
 			}
 			@Override
 			public void onFinish() {
-				if(totalTimeCountInMilliseconds!=0)
+				/*if(totalTimeCountInMilliseconds!=0)
 					textViewShowTime.setText("Time up!");
 				else 
 					textViewShowTime.setText("");
@@ -194,7 +198,40 @@ public class timeAllocatorActivity extends Activity implements View.OnClickListe
 					buttonStartTime.setVisibility(View.VISIBLE);
 					buttonStopTime.setVisibility(View.GONE);
 					edtMinutes.setVisibility(View.VISIBLE);
-					edtHours.setVisibility(View.VISIBLE);
+					edtHours.setVisibility(View.VISIBLE);*/
+				textViewShowTime.setText("Time up!");
+				AlertDialog.Builder alt_bld = new AlertDialog.Builder(context);
+				alt_bld.setMessage("are you alright ?")
+				.setCancelable(false)
+				.setPositiveButton("No!", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+				// Action for 'Yes' Button
+					dialog.cancel();
+					
+				}
+				})
+				.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+				//  Action for 'NO' Button
+					dialog.cancel();
+					Intent intent = new Intent(timeAllocatorActivity.this, MainActivity.class);
+					//startActivity(averseIntent);
+					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					intent.putExtra("EXIT", true);
+					startActivity(intent);
+				    finish();
+					//System.exit(1);
+
+				
+				}
+				});
+				AlertDialog alert = alt_bld.create();
+				// Title for AlertDialog
+				alert.setTitle("harida");
+				// Icon for AlertDialog
+				alert.setIcon(R.drawable.ic_launcher);
+				alert.show();
+				
 				}
 		}.start();
 
