@@ -82,7 +82,7 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements
 	    StringBuilder jsonResults = new StringBuilder();
 	    try {
 	        StringBuilder sb = new StringBuilder(PLACES_API_BASE + TYPE_AUTOCOMPLETE + OUT_JSON);
-	        sb.append("?sensor=false&key=" + API_KEY);
+	        sb.append("?sensor=true&key=" + API_KEY);
 	        sb.append("&components=country:lk");
 	        sb.append("&input=" + URLEncoder.encode(input, "utf8"));
 
