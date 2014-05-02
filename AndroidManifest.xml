@@ -44,14 +44,20 @@
         </activity>
         <activity android:name="aboutActivity"></activity>
         <activity android:name="AverseActivity"></activity>
-        <activity android:name="timeAllocatorActivity"></activity>
-        <activity android:name="policeDetailActivity"></activity>
+        <activity android:name="timeAllocatorActivity"
+            android:launchMode="singleTop"
+            ></activity>
+        <activity android:name="Police_Details"></activity>
         <activity android:name="helpActivity"></activity>
         <activity android:name="mapActivity"></activity>
-
+        
+		<activity android:name="SharedPreference"></activity>
         <activity android:name="PlacesAutocompleteActivity"></activity>
-
-        <service android:name="smsService"></service>
+        <activity android:name="loginActivity"></activity>
+        <activity android:name="contactsActivity"></activity>
+        
+		<activity android:name="Second"></activity>
+		<service android:name="smsService"></service>
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
 
 
