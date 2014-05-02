@@ -12,7 +12,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.os.SystemClock;
 import android.telephony.SmsManager;
 import android.widget.Toast;
@@ -26,6 +28,34 @@ public class smsService extends Service  {
 	String phoneNo = "0716544588";
 	String sms = "Janitha";
 	
+	Timer timerSendSMS = new Timer();
+
+    class taskSendSMS extends TimerTask {
+        @Override
+        public void run() {
+            hSendSMS.sendEmptyMessage(0);
+        }
+    };
+    
+    Handler hSendSMS = new Handler() {
+    	public void handleMessage(Message msg) {
+    		procSendSMS();
+            
+    	};
+    };
+    
+    public void procSendSMS() {
+        try {
+        	Toast.makeText(this, "Alarm set", Toast.LENGTH_LONG).show();
+
+        } catch (Exception e) {
+
+        }
+    }
+    
+    
+
+    
 	
 	
 
@@ -48,7 +78,21 @@ public class smsService extends Service  {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		//sendOneSMS(phoneNo,sms);
-		sendMultipleSMS();
+		//sendMultipleSMS();
+		try {
+            long intervalSendSMS = 10*1000;
+
+            timerSendSMS = new Timer();
+
+            timerSendSMS.schedule(new taskSendSMS(), 0, intervalSendSMS);
+
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "error running service: " + e.getMessage(),
+                    Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "error running service: " + e.getMessage(),
+                    Toast.LENGTH_SHORT).show();
+        }
         showRecordingNotification();
 		return super.onStartCommand(intent, flags, startId);
 	}
@@ -57,8 +101,10 @@ public class smsService extends Service  {
     public void onDestroy() {
     	Toast.makeText(this, "onDestroy Called", Toast.LENGTH_LONG).show();
     	stop=true;
-    	alarmManager.cancel(pendingIntent);
-    	unregisterReceiver(alarmReceiver);
+    	timerSendSMS.cancel();
+        timerSendSMS.purge();
+    	//alarmManager.cancel(pendingIntent);
+    	//unregisterReceiver(alarmReceiver);
         Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
           super.onDestroy();
           Toast.makeText(this, "Service destroyed ...", Toast.LENGTH_LONG).show();
@@ -117,7 +163,7 @@ public class smsService extends Service  {
 //        		i++;
 //        	
 //        } //loop eken eliyata paninne naa :(
-        
+      
         //Toast.makeText(this, "Alarm set", Toast.LENGTH_LONG).show();
     	
     	
@@ -129,13 +175,13 @@ public class smsService extends Service  {
 		return stop;
 	}
 
-	BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Toast.makeText(context, "Alarm worked", Toast.LENGTH_LONG).show();          
-        }
-    };
+//	BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
+//
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            Toast.makeText(context, "Alarm worked", Toast.LENGTH_LONG).show();          
+//        }
+//    };
     
 
 
