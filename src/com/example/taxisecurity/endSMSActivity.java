@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 public class endSMSActivity extends Activity {
-
+	
 	String password = "janitha";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,9 @@ public class endSMSActivity extends Activity {
 	        	//password eka SQLite walin aragena compare karanna one
 	        	if(value.equals(password)){
 	        	finish(); //Stops the transparent Activity (Do not remove)
-	        	stopService(new Intent(endSMSActivity.this, smsService.class)); //stops the smsService
+	        	Intent stopIntent = new Intent(endSMSActivity.this, smsService.class);
+//	        	stopIntent.putExtra("stop", "true");
+	        	stopService(stopIntent); //stops the smsService
 	        	}
 	        	else {
 	         // re appear wenna hadanna

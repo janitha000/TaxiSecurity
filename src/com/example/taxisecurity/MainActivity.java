@@ -145,6 +145,9 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+ 	if (getIntent().getBooleanExtra("EXIT", false)) {
+ 		finish();
+	}
         
     }
 
