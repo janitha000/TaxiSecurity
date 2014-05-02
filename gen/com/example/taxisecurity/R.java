@@ -230,7 +230,7 @@ containing a value of this type.
         public static final int TextView01=0x7f060007;
         public static final int action_about=0x7f06002d;
         public static final int action_settings=0x7f06002c;
-        public static final int autoComplete=0x7f060020;
+        public static final int autoComplete=0x7f06001f;
         public static final int btnExtendOK=0x7f060019;
         public static final int btnExtendTime=0x7f06001e;
         public static final int btnStartTime=0x7f060018;
@@ -261,7 +261,7 @@ containing a value of this type.
         public static final int second_text_pass=0x7f06002b;
         public static final int tab=0x7f060028;
         public static final int terrain=0x7f060003;
-        public static final int text1=0x7f06001f;
+        public static final int text1=0x7f060020;
         public static final int textRemaining=0x7f06001c;
         public static final int textView1=0x7f060005;
         public static final int textView2=0x7f060023;

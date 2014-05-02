@@ -1,5 +1,5 @@
 <!-- res/layout/list_item.xml -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <!-- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     
    	android:layout_width="match_parent"
@@ -12,9 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_destination"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium" /> -->
 
-    <AutoCompleteTextView
+    <AutoCompleteTextView xmlns:android="http://schemas.android.com/apk/res/android"
       android:id="@+id/autoComplete"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -23,5 +23,8 @@
       android:ems="8" />
     
 
-</RelativeLayout>
+<!--   </RelativeLayout> -->
+
+
+
 

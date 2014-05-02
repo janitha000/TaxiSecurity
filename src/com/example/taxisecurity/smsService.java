@@ -170,10 +170,10 @@ public class smsService extends Service  {
     	 
 	}
     
-    private boolean checkStop() {
-    	
-		return stop;
-	}
+//    private boolean checkStop() {
+//    	
+//		return stop;
+//	}
 
 //	BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
 //
