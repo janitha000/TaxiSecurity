@@ -1,5 +1,8 @@
 package com.example.taxisecurity;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -23,6 +26,8 @@ public class smsService extends Service  {
 	String phoneNo = "0716544588";
 	String sms = "Janitha";
 	
+	
+	
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -36,7 +41,7 @@ public class smsService extends Service  {
           Toast.makeText(this,"Service created ...", Toast.LENGTH_LONG).show();
           smsManager = SmsManager.getDefault();
           //setup();
-          sendMultipleSMS();
+          //sendMultipleSMS();
           
     }
 	
@@ -100,20 +105,22 @@ public class smsService extends Service  {
     
     public void sendMultipleSMS() {
     	
-    	registerReceiver(alarmReceiver, myFilter);
-    	alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        Intent intent = new Intent(ACTION_NAME);   
-        int i=0;
-        while(i<5){
-        	
-        		pendingIntent = PendingIntent.getBroadcast(this, i,
-        				intent, PendingIntent.FLAG_ONE_SHOT);
-        		alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (5 * 1000), pendingIntent);
-        		i++;
-        	
-        } //loop eken eliyata paninne naa :(
+//    	registerReceiver(alarmReceiver, myFilter);
+//    	alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+//        Intent intent = new Intent(ACTION_NAME);   
+//        int i=0;
+//        while(i<5){
+//        	
+//        		pendingIntent = PendingIntent.getBroadcast(this, i,
+//        				intent, PendingIntent.FLAG_ONE_SHOT);
+//        		alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (5 * 1000), pendingIntent);
+//        		i++;
+//        	
+//        } //loop eken eliyata paninne naa :(
         
         //Toast.makeText(this, "Alarm set", Toast.LENGTH_LONG).show();
+    	
+    	
     	 
 	}
     
