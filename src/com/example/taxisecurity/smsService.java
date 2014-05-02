@@ -16,10 +16,10 @@ import android.widget.Toast;
 
 public class smsService extends Service  {
 	SmsManager smsManager;
-	AlarmManager am;
-	PendingIntent pi;
-	BroadcastReceiver br;
+	AlarmManager alarmManager;
+	PendingIntent pendingIntent;
 	
+	Boolean stop = false;
 	String phoneNo = "0716544588";
 	String sms = "Janitha";
 	
@@ -50,7 +50,9 @@ public class smsService extends Service  {
     
     @Override
     public void onDestroy() {
-    	
+    	Toast.makeText(this, "onDestroy Called", Toast.LENGTH_LONG).show();
+    	stop=true;
+    	alarmManager.cancel(pendingIntent);
     	unregisterReceiver(alarmReceiver);
         Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
           super.onDestroy();
@@ -93,26 +95,34 @@ public class smsService extends Service  {
 		}
     }
     
-    public static final String ACTION_NAME = "com.helloworld.MYACTION";
+    public static final String ACTION_NAME = "com.example.taxisecurity.MYACTION";
     private IntentFilter myFilter = new IntentFilter(ACTION_NAME);
     
     public void sendMultipleSMS() {
+    	
     	registerReceiver(alarmReceiver, myFilter);
-    	AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+    	alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent intent = new Intent(ACTION_NAME);   
         int i=0;
         while(i<5){
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, i,
-        intent, PendingIntent.FLAG_ONE_SHOT);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (5 * 1000), pendingIntent);
-        i++;
-        }
+        	
+        		pendingIntent = PendingIntent.getBroadcast(this, i,
+        				intent, PendingIntent.FLAG_ONE_SHOT);
+        		alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (5 * 1000), pendingIntent);
+        		i++;
+        	
+        } //loop eken eliyata paninne naa :(
         
         //Toast.makeText(this, "Alarm set", Toast.LENGTH_LONG).show();
     	 
 	}
     
-    BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
+    private boolean checkStop() {
+    	
+		return stop;
+	}
+
+	BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
 
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -120,25 +130,12 @@ public class smsService extends Service  {
         }
     };
     
-    
-	 //winadi 1n 1ta locations updates yanna puluwan widihata hadanna
-    
-//    private void setup() {
-//        br = new BroadcastReceiver() {
-//               @Override
-//               public void onReceive(Context c, Intent i) {
-//                      Toast.makeText(c, "Rise and Shine!", Toast.LENGTH_LONG).show();
-//                      }
-//               };
-//        registerReceiver(br, new IntentFilter("com.example.taxisecurity") );
-//        pi = PendingIntent.getBroadcast( this, 0, new Intent("com.example.taxisecurity"),0 );
-//        am = (AlarmManager)(this.getSystemService( Context.ALARM_SERVICE ));
-//  }
 
-    //alarmmanager stop ekath hadanna
+
+    //alarmmanager stop ekath hadanna ?????
     
     
-    //sms service destroy ekath hadanna
+    
     
     
 }

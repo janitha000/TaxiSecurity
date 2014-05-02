@@ -54,11 +54,6 @@
         <service android:name="smsService"></service>
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
 
-        <receiver android:name=".smsAlarmReciever" android:enabled="true">
-<intent-filter>
-          <action android:name="android.intent.action.PHONE_STATE"></action>
-      </intent-filter>
- </receiver>
 
     </application>
 
