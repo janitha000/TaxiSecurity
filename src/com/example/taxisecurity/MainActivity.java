@@ -1,10 +1,13 @@
 package com.example.taxisecurity;
 
+import java.util.HashMap;
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,19 +17,28 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.os.Build;
 
 public class MainActivity extends Activity {
 	
 
-
+	 // User Session Manager Class
+   // UserSessionManager session;
+     
+    // Button Logout
+    //Button btnLogout;
+    
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    	 
+    	 super.onCreate(savedInstanceState);
         //setContentView(R.layout.loginform);
        setContentView(R.layout.activity_main);
         
-        
+     
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
@@ -34,8 +46,13 @@ public class MainActivity extends Activity {
                     .commit();
         }
         
+      //**********New Installation login form*****************
         
         
+           
+    //*************End of editing**********************
+
+       
         //Buttons on Main Activity
         Button TimeButton = (Button) findViewById(R.id.Button01);
         Button AverseButton = (Button) findViewById(R.id.Button02);
@@ -46,6 +63,7 @@ public class MainActivity extends Activity {
         /*me button 1th only testing. installation 1di weda karanna nemi hadala thiyenne,thawa modify karanna one,second activity 1 demme output 1k balanna*/
         Button register = (Button) findViewById(R.id.button3);
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
+        
         
         	mapb.setOnClickListener(new OnClickListener() {
 			
