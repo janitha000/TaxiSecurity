@@ -31,7 +31,7 @@ Filterable {
 	private static final String TYPE_AUTOCOMPLETE = "/autocomplete";
 	private static final String OUT_JSON = "/json";
 
-	private static final String API_KEY = "AIzaSyDTFmADpBU3hSUGsdKoBFOsyVKhe4w67jI";
+	private static final String API_KEY = "AIzaSyA6PRAmQ1EzqX4KcBHIdlIT6_-unbm3n7U";
 	private ArrayList<String> resultList;
 	
 	
