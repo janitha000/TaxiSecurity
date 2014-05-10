@@ -59,6 +59,7 @@
 		<activity android:name="Second"></activity>
 		<service android:name="smsService"></service>
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
+        
 
 
     </application>

@@ -33,11 +33,11 @@ public class PlacesAutocompleteActivity extends Activity implements OnItemClickL
 
     
 	
-	/*public void onItemClick(AdapterView<?> adapterView , View view , int position ,long id) {
-		String str = (String) adapterView.getItemAtPosition(position);
-        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
-
-	}*/
+//	public void onItemClick(AdapterView<?> adapterView , View view , int position ,long id) {
+//		String str = (String) adapterView.getItemAtPosition(position);
+//        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+//
+//	}
 		// TODO Auto-generated method stub
 
 	}

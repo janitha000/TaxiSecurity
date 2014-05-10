@@ -1,8 +1,10 @@
 package com.example.taxisecurity;
 
+import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.R.string;
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -12,6 +14,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -19,12 +25,16 @@ import android.os.SystemClock;
 import android.telephony.SmsManager;
 import android.widget.Toast;
 
-public class smsService extends Service  {
+public class smsService extends Service implements LocationListener  {
 	SmsManager smsManager;
 	AlarmManager alarmManager;
 	PendingIntent pendingIntent;
+	String SLocation ="Not Working";
 	
-	Boolean stop = false;
+	
+	LocationManager mLocationManager;
+	
+	
 	String phoneNo = "0716544588";
 	String sms = "Janitha";
 	
@@ -46,8 +56,9 @@ public class smsService extends Service  {
     
     public void procSendSMS() {
         try {
-        	Toast.makeText(this, "Alarm set", Toast.LENGTH_LONG).show();
-
+        	//sendOneSMS("0716544588",  "test sms");
+        	String loc =getLocation();
+        	Toast.makeText(this, loc, Toast.LENGTH_LONG).show();
         } catch (Exception e) {
 
         }
@@ -70,15 +81,15 @@ public class smsService extends Service  {
           super.onCreate();
           Toast.makeText(this,"Service created ...", Toast.LENGTH_LONG).show();
           smsManager = SmsManager.getDefault();
-          //setup();
-          //sendMultipleSMS();
+          
+          
+          
           
     }
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		//sendOneSMS(phoneNo,sms);
-		//sendMultipleSMS();
+		
 		try {
             long intervalSendSMS = 10*1000;
 
@@ -100,7 +111,7 @@ public class smsService extends Service  {
     @Override
     public void onDestroy() {
     	Toast.makeText(this, "onDestroy Called", Toast.LENGTH_LONG).show();
-    	stop=true;
+    	
     	timerSendSMS.cancel();
         timerSendSMS.purge();
     	//alarmManager.cancel(pendingIntent);
@@ -146,46 +157,138 @@ public class smsService extends Service  {
 		}
     }
     
-    public static final String ACTION_NAME = "com.example.taxisecurity.MYACTION";
-    private IntentFilter myFilter = new IntentFilter(ACTION_NAME);
-    
-    public void sendMultipleSMS() {
-    	
-//    	registerReceiver(alarmReceiver, myFilter);
-//    	alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-//        Intent intent = new Intent(ACTION_NAME);   
-//        int i=0;
-//        while(i<5){
-//        	
-//        		pendingIntent = PendingIntent.getBroadcast(this, i,
-//        				intent, PendingIntent.FLAG_ONE_SHOT);
-//        		alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (5 * 1000), pendingIntent);
-//        		i++;
-//        	
-//        } //loop eken eliyata paninne naa :(
-      
-        //Toast.makeText(this, "Alarm set", Toast.LENGTH_LONG).show();
-    	
-    	
-    	 
-	}
-    
-//    private boolean checkStop() {
-//    	
-//		return stop;
-//	}
+   public String getLocation(){
+	   Toast.makeText(this, "getLocation called", Toast.LENGTH_LONG).show();
+	   Location location = null;
+	   
+	       
+	   mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+	   
+	        // getting GPS status
+	        Boolean isGPSEnabled = mLocationManager
+	                .isProviderEnabled(LocationManager.GPS_PROVIDER);
+	        //Toast.makeText(this, isGPSEnabled.toString(), Toast.LENGTH_LONG).show();
 
-//	BroadcastReceiver alarmReceiver = new BroadcastReceiver() {
-//
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            Toast.makeText(context, "Alarm worked", Toast.LENGTH_LONG).show();          
-//        }
-//    };
-    
+	        // getting network status
+	        Boolean isNetworkEnabled = mLocationManager
+	                .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+
+	        if (!isGPSEnabled && !isNetworkEnabled) {
+	            // no network provider is enabled
+	        	
+	        } else {
+	            //this.canGetLocation = true;
+	            if (isNetworkEnabled) {
+	                mLocationManager.requestLocationUpdates(
+	                        LocationManager.NETWORK_PROVIDER,
+	                        5*1000,
+	                        0,  this);
+	                //Log.d("Network", "Network Enabled");
+	                if (mLocationManager != null) {
+	                    location = mLocationManager
+	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+	                    if (location != null) {
+	                    	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
+	                    }
+	                }
+	            }
+	            // if GPS Enabled get lat/long using GPS Services
+	            if (isGPSEnabled) {
+	            	
+	                if (location == null) {
+	                	
+	                    mLocationManager.requestLocationUpdates(
+	                            LocationManager.GPS_PROVIDER,
+	                            5*1000,
+	                            0, this);
+	                    
+	                    //Log.d("GPS", "GPS Enabled");
+	                    if (mLocationManager != null) {
+	                    	
+	                        location = mLocationManager
+	                                .getLastKnownLocation(LocationManager.GPS_PROVIDER);
+	                        
+	                        	
+	                        if (location != null) {
+	                        	
+	                        	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
+	                        }
+	                    }
+	                }
+	                
+	            }
+	        }
+	        //not sure 
+	        mLocationManager.removeUpdates(this);
+	        //Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
+			return SLocation;
+	   
+       
+//       Location location = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+//       if(location == null)
+//    	   Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
+//       if(location != null && location.getTime() > Calendar.getInstance().getTimeInMillis() - 2 * 60 * 1000) {
+//    	   
+//       }
+//       else {
+//           mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) this);
+//           
+//       }
+//       
+//       SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
+//       mLocationManager.removeUpdates((LocationListener) this);
+       
+   }
 
 
-    //alarmmanager stop ekath hadanna ?????
+
+
+
+
+
+@Override
+public void onLocationChanged(Location location) {
+	// TODO Auto-generated method stub
+	
+}
+
+
+
+
+
+
+
+@Override
+public void onStatusChanged(String provider, int status, Bundle extras) {
+	// TODO Auto-generated method stub
+	
+}
+
+
+
+
+
+
+
+@Override
+public void onProviderEnabled(String provider) {
+	// TODO Auto-generated method stub
+	
+}
+
+
+
+
+
+
+
+@Override
+public void onProviderDisabled(String provider) {
+	// TODO Auto-generated method stub
+	
+}
+   
+
     
     
     

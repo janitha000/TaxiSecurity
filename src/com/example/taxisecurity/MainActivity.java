@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
@@ -29,7 +30,7 @@ public class MainActivity extends Activity {
         //setContentView(R.layout.loginform);
        setContentView(R.layout.activity_main);
         
-     
+
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()

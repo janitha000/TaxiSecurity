@@ -60,8 +60,8 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 		Mmap= ((MapFragment) this.getFragmentManager().findFragmentById(R.id.map)).getMap();
 		Mmap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 		Mmap.setMyLocationEnabled(true);
-		//showMap();
-		showPoliceMap();
+		showMap();
+		//showPoliceMap();
 }
 
 	public void showMap(){
