@@ -53,7 +53,10 @@
         
 		<activity android:name="SharedPreference"></activity>
         <activity android:name="PlacesAutocompleteActivity"></activity>
-        <activity android:name="loginActivity"></activity>
+        <activity android:name="loginActivity">
+            
+        </activity>
+        	
         <activity android:name="contactsActivity"></activity>
         
 		<activity android:name="Second"></activity>

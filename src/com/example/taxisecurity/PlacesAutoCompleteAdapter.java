@@ -20,8 +20,12 @@ import android.widget.Filter;
 import android.widget.Filterable;
 
 public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements
-		Filterable {
+Filterable {
 	private static final String LOG_TAG = "ExampleApp";
+
+    //private static final String PLACES_API_BASE = "https://maps.googleapis.com/maps/api/place";
+
+    //private static final String LOG_TAG = "TaxiSecurity";
 
 	private static final String PLACES_API_BASE = "https://maps.googleapis.com/maps/api/place";
 	private static final String TYPE_AUTOCOMPLETE = "/autocomplete";
@@ -83,7 +87,7 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements
 	    try {
 	        StringBuilder sb = new StringBuilder(PLACES_API_BASE + TYPE_AUTOCOMPLETE + OUT_JSON);
 	        sb.append("?sensor=true&key=" + API_KEY);
-	        sb.append("&components=country:lk");
+	        sb.append("&components=country:uk");
 	        sb.append("&input=" + URLEncoder.encode(input, "utf8"));
 
 	        URL url = new URL(sb.toString());
