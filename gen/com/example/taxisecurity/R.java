@@ -231,10 +231,10 @@ containing a value of this type.
         public static final int action_about=0x7f06002e;
         public static final int action_settings=0x7f06002d;
         public static final int autoComplete=0x7f060020;
-        public static final int btnExtendOK=0x7f06001a;
-        public static final int btnExtendTime=0x7f06001f;
-        public static final int btnStartTime=0x7f060019;
-        public static final int btnStopTime=0x7f06001b;
+        public static final int btnExtendOK=0x7f060019;
+        public static final int btnExtendTime=0x7f06001e;
+        public static final int btnStartTime=0x7f06001f;
+        public static final int btnStopTime=0x7f06001a;
         public static final int btn_ok=0x7f06000c;
         public static final int button1=0x7f060009;
         public static final int button2=0x7f060012;
@@ -252,7 +252,7 @@ containing a value of this type.
         public static final int edtname=0x7f06000a;
         public static final int edtpwd=0x7f06000b;
         public static final int hybrid=0x7f060004;
-        public static final int layoutRemaining=0x7f06001c;
+        public static final int layoutRemaining=0x7f06001b;
         public static final int map=0x7f060015;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
@@ -263,12 +263,12 @@ containing a value of this type.
         public static final int tab=0x7f060029;
         public static final int terrain=0x7f060003;
         public static final int text1=0x7f060021;
-        public static final int textRemaining=0x7f06001d;
+        public static final int textRemaining=0x7f06001c;
         public static final int textView1=0x7f060005;
         public static final int textView2=0x7f060024;
         public static final int textView3=0x7f060026;
         public static final int textview_Register=0x7f060022;
-        public static final int tvTimeCount=0x7f06001e;
+        public static final int tvTimeCount=0x7f06001d;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;
