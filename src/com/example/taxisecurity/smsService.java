@@ -179,21 +179,6 @@ public class smsService extends Service implements LocationListener  {
 	        	
 	        } else {
 	            //this.canGetLocation = true;
-	            if (isNetworkEnabled) {
-	                mLocationManager.requestLocationUpdates(
-	                        LocationManager.NETWORK_PROVIDER,
-	                        5*1000,
-	                        0,  this);
-	                //Log.d("Network", "Network Enabled");
-	                if (mLocationManager != null) {
-	                    location = mLocationManager
-	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-	                    if (location != null) {
-	                    	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
-	                    }
-	                }
-	            }
-	            // if GPS Enabled get lat/long using GPS Services
 	            if (isGPSEnabled) {
 	            	
 	                if (location == null) {
@@ -215,10 +200,45 @@ public class smsService extends Service implements LocationListener  {
 	                        	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
 	                        	
 	                        }
+	                        else
+	                        {
+	                        	mLocationManager.requestLocationUpdates(
+	        	                        LocationManager.NETWORK_PROVIDER,
+	        	                        5*1000,
+	        	                        0,  this);
+	        	                //Log.d("Network", "Network Enabled");
+	        	                if (mLocationManager != null) {
+	        	                    location = mLocationManager
+	        	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+	        	                    if (location != null) {
+	        	                    	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
+	        	                    	Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
+	        	                    }
+	        	                } 
+	        	            
+	                        }
 	                    }
 	                }
-	                
 	            }
+	            // if GPS Enabled get lat/long using GPS Services
+//	            else if(isNetworkEnabled) {
+//	                mLocationManager.requestLocationUpdates(
+//	                        LocationManager.NETWORK_PROVIDER,
+//	                        5*1000,
+//	                        0,  this);
+//	                //Log.d("Network", "Network Enabled");
+//	                if (mLocationManager != null) {
+//	                    location = mLocationManager
+//	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+//	                    if (location != null) {
+//	                    	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
+//	                    	Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
+//	                    }
+//	                } 
+//	            
+//	            
+//	                
+//	            }
 	        }
 	        //not sure 
 	        
