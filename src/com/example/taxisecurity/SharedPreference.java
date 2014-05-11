@@ -17,11 +17,27 @@ public class SharedPreference extends Activity {
 	  Button btn_ok;
 	  EditText et_name, et_pass, et_email;
 	  public static final String PREFS_NAME = "MyPrefsFile";
+	private static final int INSTRUCTIONS_CODE = 0;
 	  @Override
 	protected void onCreate(Bundle savedInstanceState) {
+		  
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		
+		/******* Test edit here*/
+		pref = getSharedPreferences("prefs", 0);
+	    boolean firstRun = pref.getBoolean("firstRun", true);
+	    if ( firstRun )
+	    {
+	        // here run your first-time instructions, for example :
+	        startActivityForResult(
+	             new Intent(getBaseContext(), loginActivity.class),
+	             INSTRUCTIONS_CODE);
+
+	    }
+	 
+	    /**************end of test edit*/
 		et_name = (EditText) findViewById(R.id.edtname);
 	    et_pass = (EditText) findViewById(R.id.edtpwd);
 	   // et_email = (EditText) findViewById(R.id.editText_mail);
@@ -69,6 +85,16 @@ public class SharedPreference extends Activity {
 	        }
 	    });
 	   }
+	// when your InstructionsActivity ends, do not forget to set the firstRun boolean
+	    protected void onActivityResult(int requestCode, int resultCode,
+	            Intent data) {
+	        if (requestCode == INSTRUCTIONS_CODE) {
+	            SharedPreferences settings = getSharedPreferences("prefs", 0);
+	            SharedPreferences.Editor editor = settings.edit();
+	            editor.putBoolean("firstRun", true);
+	            editor.commit();
+	        }
+	    }
 	} 
 	  
 	  

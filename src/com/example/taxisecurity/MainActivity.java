@@ -47,8 +47,8 @@ public class MainActivity extends Activity {
         //Buttons on Main Activity
         Button TimeButton = (Button) findViewById(R.id.Button01);
         Button AverseButton = (Button) findViewById(R.id.Button02);
-        Button policeButton = (Button) findViewById(R.id.Button03);
-        Button helpButton = (Button) findViewById(R.id.Button04);
+        Button policeButton = (Button) findViewById(R.id.Button04);
+        Button helpButton = (Button) findViewById(R.id.Button03);
         Button mapb = (Button) findViewById(R.id.button1);
         Button serviceb = (Button) findViewById(R.id.button2);
         /*me button 1th only testing. installation 1di weda karanna nemi hadala thiyenne,thawa modify karanna one,second activity 1 demme output 1k balanna*/
@@ -107,7 +107,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent averseIntent = new Intent(MainActivity.this, Police_Details.class);
+				Intent averseIntent = new Intent(MainActivity.this, DisplayList.class);
 				startActivity(averseIntent);
 				
 				
