@@ -29,15 +29,6 @@
             android:ems="10"
             android:hint="minutes"
             android:inputType="phone" />
-
-        <Button
-            android:id="@+id/btnStartTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="Start Timer" />
         <Button
             android:id="@+id/btnExtendOK"
             android:layout_width="match_parent"
@@ -96,5 +87,14 @@
 	            android:gravity="center"
 	            android:text="Extend Timer"
 	            android:visibility="gone" />
+
+		 <Button
+		     android:id="@+id/btnStartTime"
+		     android:layout_width="wrap_content"
+		     android:layout_height="wrap_content"
+		     android:layout_margin="5dp"
+		     android:gravity="center"
+		     android:text="Start Timer" />
+
 	</LinearLayout>
 </LinearLayout>
