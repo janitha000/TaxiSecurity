@@ -54,7 +54,7 @@ public class smsService extends Service implements LocationListener  {
     	};
     };
     
-    public void procSendSMS() {
+    public void procSendSMS() {  //********* loc eka null da kiyala check karala balala yawanna
         try {
         	//sendOneSMS("0716544588",  "test sms");
         	String loc =getLocation();
@@ -114,6 +114,7 @@ public class smsService extends Service implements LocationListener  {
     	
     	timerSendSMS.cancel();
         timerSendSMS.purge();
+        mLocationManager.removeUpdates(this);
     	//alarmManager.cancel(pendingIntent);
     	//unregisterReceiver(alarmReceiver);
         Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
@@ -199,7 +200,7 @@ public class smsService extends Service implements LocationListener  {
 	                	
 	                    mLocationManager.requestLocationUpdates(
 	                            LocationManager.GPS_PROVIDER,
-	                            5*1000,
+	                            1000,
 	                            0, this);
 	                    
 	                    //Log.d("GPS", "GPS Enabled");
@@ -212,6 +213,7 @@ public class smsService extends Service implements LocationListener  {
 	                        if (location != null) {
 	                        	
 	                        	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
+	                        	
 	                        }
 	                    }
 	                }
@@ -219,7 +221,7 @@ public class smsService extends Service implements LocationListener  {
 	            }
 	        }
 	        //not sure 
-	        mLocationManager.removeUpdates(this);
+	        
 	        //Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
 			return SLocation;
 	   
