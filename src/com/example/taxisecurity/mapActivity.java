@@ -60,8 +60,8 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 		Mmap= ((MapFragment) this.getFragmentManager().findFragmentById(R.id.map)).getMap();
 		Mmap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 		Mmap.setMyLocationEnabled(true);
-		//showMap();
-		showPoliceMap();
+		showMap();
+		//showPoliceMap();
 }
 
 	public void showMap(){
@@ -93,7 +93,18 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 		   CameraPosition cameraPosition = new CameraPosition.Builder().target(startPoint).tilt(60).zoom(6).bearing(0).
 		        build();
 		   Mmap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-		   
+		   //edit by vindya
+		   Intent intent = getIntent();
+		   if (intent != null) {
+		       if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+		           if (intent.getData() != null) {
+		               int selectedPosition = Integer.parseInt(intent.getData().getHost());
+		               String[] policeLocations = getResources().getStringArray(R.id.Name);
+		               String location = policeLocations[selectedPosition];
+		               //...
+		           }
+		       }
+		   } 
 	}
 	
 	@Override

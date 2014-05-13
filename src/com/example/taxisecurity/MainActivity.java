@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -101,7 +102,13 @@ public class MainActivity extends Activity {
 				
 			}
 		});
-        
+        Database_Handler db= new Database_Handler(this);
+     // Inserting Contacts
+        Log.d("Insert: ", "Inserting ..");
+        db.addContact(new Contact("Kuruduwaththa", "0112234564"));
+        db.addContact(new Contact("Maharagama", "0112253427"));
+        db.addContact(new Contact("Kirulapana", "0112243675"));
+        db.addContact(new Contact("Pettah", "0114354234"));
       //Police Button click Listener
       policeButton.setOnClickListener(new OnClickListener() {
 			

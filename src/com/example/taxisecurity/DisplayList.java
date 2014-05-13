@@ -2,9 +2,13 @@ package com.example.taxisecurity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 //import android.view.Menu;
@@ -26,12 +30,7 @@ public class DisplayList extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list1);
         Database_Handler db = new Database_Handler(this);
-        // Inserting Contacts
-        Log.d("Insert: ", "Inserting ..");
-        db.addContact(new Contact("Kuruduwaththa", "0112234564"));
-        db.addContact(new Contact("Maharagama", "0112253427"));
-        db.addContact(new Contact("Kirulapana", "0112243675"));
-        db.addContact(new Contact("Pettah", "0114354234"));
+        
 
         // Reading all contacts
         Log.d("Reading: ", "Reading all contacts..");
@@ -46,14 +45,24 @@ public class DisplayList extends ListActivity {
 
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View view,
-                        int arg2, long arg3) {
+                		final int position, long id) {
 
                     policeID = (TextView) view.findViewById(R.id.policeID);
 
                     String policeIDValue = policeID.getText().toString();
-                    //Intent theIntent = new Intent("com.example.taxisecurity");
-                    //theIntent.putExtra("tvDrugID", drugIDValue);
-                    //startActivity(theIntent);
+                    final int selectedPosition = position;
+                    AlertDialog.Builder adb=new AlertDialog.Builder(DisplayList.this); 
+                    
+                    adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
+                    	public void onClick(DialogInterface dialog, int id) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("police:" + selectedPosition), DisplayList.this, mapActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    adb.setNegativeButton("Cancel", null); 
+                    adb.show();
+                
                 }
             });                
             ListAdapter adapter = new SimpleAdapter(

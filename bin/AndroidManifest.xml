@@ -67,6 +67,9 @@
 		
 		
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
+        <service android:name="policeGeofencing"></service>
+        <activity android:name="geofenceObject"></activity>
+        <service android:name="ReceiveTransitionsIntentService"></service>
 
 
     </application>
