@@ -296,6 +296,9 @@ containing a value of this type.
         public static final int main=0x7f0b0000;
     }
     public static final class string {
+        public static final int Ignore=0x7f070029;
+        public static final int Map=0x7f07002b;
+        public static final int SMS=0x7f07002a;
         public static final int about=0x7f070022;
         public static final int action_settings=0x7f07001d;
         public static final int app_name=0x7f07001b;

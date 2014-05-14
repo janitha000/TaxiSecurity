@@ -124,6 +124,9 @@ int layout loginform 0x7f03000a
 int layout policegeofencing 0x7f03000b
 int layout second 0x7f03000c
 int menu main 0x7f0b0000
+int string Ignore 0x7f070029
+int string Map 0x7f07002b
+int string SMS 0x7f07002a
 int string about 0x7f070022
 int string action_settings 0x7f07001d
 int string app_name 0x7f07001b

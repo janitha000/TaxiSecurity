@@ -9,7 +9,8 @@ import android.content.Intent;
 import android.os.IBinder;
 
 public class averseService extends Service {
-
+Double Lat;
+Double Lon;
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
@@ -18,9 +19,10 @@ public class averseService extends Service {
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		Double Lat = 7.311132;
-		Double Lon = 80.8544443;
+		 Lat = 7.311132;
+		 Lon = 80.8544443;
 		showRecordingNotification();
+		runService();
 		return super.onStartCommand(intent, flags, startId);
 	}
 	
@@ -46,6 +48,14 @@ public class averseService extends Service {
     }
 	
 	public void runService(){
+		
+		Intent i = new Intent();
+		i.setClass(this, averseAlertActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		i.putExtra("DestinationLon", Lon);
+		i.putExtra("DestinationLat", Lat);
+		startActivity(i);
+		
 		
 	}
 

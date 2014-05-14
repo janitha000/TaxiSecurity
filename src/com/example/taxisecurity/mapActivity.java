@@ -12,6 +12,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 
@@ -55,16 +56,35 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_map);
 	    
+	    
       MapFragment mapFragment = ((MapFragment) this
                .getFragmentManager().findFragmentById(R.id.map));
 		Mmap= ((MapFragment) this.getFragmentManager().findFragmentById(R.id.map)).getMap();
 		Mmap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 		Mmap.setMyLocationEnabled(true);
-		showMap();
+		
+		Intent i = getIntent();
+	    int method= i.getIntExtra("Method", 0);
+	    switch(method){
+	    case 1:
+	    	break;
+	    case 2:
+	    	Double Lat = i.getDoubleExtra("DestinationLat",0);
+			Double Lon = i.getDoubleExtra("DestinationLon",0);;
+	    	Toast.makeText(mapActivity.this, Lon.toString(), Toast.LENGTH_LONG).show();
+	    	showMap(Lat, Lon);
+	    	break;
+	    case 0:
+	    	break;
+	    }
+		
 		//showPoliceMap();
 }
 
-	public void showMap(){
+	public void showMap(Double lat, Double lon){
+		Mmap.addMarker(new MarkerOptions()
+        .position(new LatLng(lat, lon))
+        .title("Destination"));                 //************show the path using google API
 		showMapActivated=true;
 		// Create the LocationRequest object
         mLocationRequest = LocationRequest.create();
