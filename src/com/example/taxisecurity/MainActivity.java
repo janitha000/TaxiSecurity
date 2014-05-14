@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
         //setContentView(R.layout.loginform);
        setContentView(R.layout.activity_main);
         
-
+     
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
@@ -48,24 +48,15 @@ public class MainActivity extends Activity {
         //Buttons on Main Activity
         Button TimeButton = (Button) findViewById(R.id.Button01);
         Button AverseButton = (Button) findViewById(R.id.Button02);
-        Button policeButton = (Button) findViewById(R.id.Button03);
-        Button helpButton = (Button) findViewById(R.id.Button04);
+        Button policeButton = (Button) findViewById(R.id.Button04);
+        Button helpButton = (Button) findViewById(R.id.Button03);
         Button mapb = (Button) findViewById(R.id.button1);
         Button serviceb = (Button) findViewById(R.id.button2);
         /*me button 1th only testing. installation 1di weda karanna nemi hadala thiyenne,thawa modify karanna one,second activity 1 demme output 1k balanna*/
         Button register = (Button) findViewById(R.id.button3);
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
-        Button geo = (Button) findViewById(R.id.button4);
         
-        geo.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				startService(new Intent(MainActivity.this,policeGeofencing.class));
-				
-				
-			}
-		});
+        
         	mapb.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -111,13 +102,19 @@ public class MainActivity extends Activity {
 				
 			}
 		});
-        
+        Database_Handler db= new Database_Handler(this);
+     // Inserting Contacts
+        Log.d("Insert: ", "Inserting ..");
+        db.addContact(new Contact("Kuruduwaththa", "0112234564"));
+        db.addContact(new Contact("Maharagama", "0112253427"));
+        db.addContact(new Contact("Kirulapana", "0112243675"));
+        db.addContact(new Contact("Pettah", "0114354234"));
       //Police Button click Listener
       policeButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				Intent averseIntent = new Intent(MainActivity.this, Police_Details.class);
+				Intent averseIntent = new Intent(MainActivity.this, DisplayList.class);
 				startActivity(averseIntent);
 				
 				

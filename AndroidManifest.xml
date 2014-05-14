@@ -48,6 +48,8 @@
             android:launchMode="singleTop"
             ></activity>
         <activity android:name="Police_Details"></activity>
+        <activity android:name="PoliceDetail"></activity>
+        
         <activity android:name="helpActivity"></activity>
         <activity android:name="mapActivity"></activity>
         
@@ -58,9 +60,12 @@
         </activity>
         	
         <activity android:name="contactsActivity"></activity>
-        
+        <activity android:name="DisplayList"></activity>
 		<activity android:name="Second"></activity>
 		<service android:name="smsService"></service>
+		
+		
+		
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
         <service android:name="policeGeofencing"></service>
         <activity android:name="geofenceObject"></activity>

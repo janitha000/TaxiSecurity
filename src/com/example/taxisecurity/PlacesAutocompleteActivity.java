@@ -29,7 +29,7 @@ public class PlacesAutocompleteActivity extends Activity implements OnItemClickL
 	    
         AutoCompleteTextView autoCompView = (AutoCompleteTextView) findViewById(R.id.autoComplete);
         autoCompView.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
-        autoCompView.setOnItemClickListener(this);
+        //autoCompView.setOnItemClickListener(this);
 
     
 	
