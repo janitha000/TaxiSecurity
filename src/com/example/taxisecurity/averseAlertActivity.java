@@ -22,6 +22,8 @@ public class averseAlertActivity extends Activity {
 	    .setMessage("WARNING")
 	    .setPositiveButton("Ignore", new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int which) { 
+	        	
+	        	//Ignore and continue
 	        finish();	
 	        }
 	     })

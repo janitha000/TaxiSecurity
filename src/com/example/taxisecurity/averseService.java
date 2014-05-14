@@ -19,8 +19,8 @@ Double Lon;
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		 Lat = 7.311132;
-		 Lon = 80.8544443;
+		 Lat = 7.324858;
+		 Lon =  80.625870;
 		showRecordingNotification();
 		runService();
 		return super.onStartCommand(intent, flags, startId);
@@ -48,6 +48,8 @@ Double Lon;
     }
 	
 	public void runService(){
+		
+		
 		
 		Intent i = new Intent();
 		i.setClass(this, averseAlertActivity.class);

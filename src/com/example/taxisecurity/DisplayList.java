@@ -55,9 +55,18 @@ public class DisplayList extends ListActivity {
                     
                     adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
                     	public void onClick(DialogInterface dialog, int id) {
-                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("police:" + selectedPosition), DisplayList.this, mapActivity.class);
+//****************************Aded By Janitha *******************************************                   		
+                    		String name="Maharagama Police Station";
+                    		Double Lat=6.845381;
+                    		Double Lon=79.928978;
+                            Intent intent = new Intent(DisplayList.this, mapActivity.class);
+                            intent.putExtra("Method", 1);
+                            intent.putExtra("Latitiude", Lat);
+                            intent.putExtra("Longtitude",Lon);
+                            intent.putExtra("Name", name);
                             startActivity(intent);
                         }
+//*******************************************************************************************
                     });
 
                     adb.setNegativeButton("Cancel", null); 
