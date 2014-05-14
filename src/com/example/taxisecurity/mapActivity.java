@@ -33,6 +33,7 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 	boolean showMapActivated;
 	Location location;
 	
+	
 	// Milliseconds per second
     private static final int MILLISECONDS_PER_SECOND = 1000;
     // Update frequency in seconds
@@ -102,7 +103,7 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 		
        mLocationClient = new LocationClient(this, this, this);
         mLocationClient.connect();
-        LatLng startPoint = new LatLng(lat, lon);
+        LatLng startPoint = new LatLng(lat, lon);  //need to show current location
 		   CameraPosition cameraPosition = new CameraPosition.Builder().target(startPoint).tilt(15).zoom(14).bearing(0).
 		        build();
 		   Mmap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
@@ -149,6 +150,7 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 		Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
 		mLocationClient.requestLocationUpdates(mLocationRequest, this);
 		
+		
 	}
 
 	@Override
@@ -164,6 +166,8 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
                 Double.toString(location.getLatitude()) + "," +
                 Double.toString(location.getLongitude());
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        
+        
 		
 	}
 
