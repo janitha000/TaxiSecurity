@@ -55,7 +55,18 @@ public class MainActivity extends Activity {
         /*me button 1th only testing. installation 1di weda karanna nemi hadala thiyenne,thawa modify karanna one,second activity 1 demme output 1k balanna*/
         Button register = (Button) findViewById(R.id.button3);
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
+        Button averse = (Button) findViewById(R.id.button5); // Only for testing
         
+        averse.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent averseIntent = new Intent(MainActivity.this, averseService.class);
+				startService(averseIntent);
+				
+				
+			}
+		});
         
         	mapb.setOnClickListener(new OnClickListener() {
 			

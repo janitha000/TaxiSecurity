@@ -64,9 +64,10 @@
 		<activity android:name="Second"></activity>
 		<service android:name="smsService"></service>
 		
-		
+		<service android:name="averseService"></service>
 		
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
+        <activity android:name="endAverseActivity" android:theme="@style/Theme.Transparent"></activity>
         <service android:name="policeGeofencing"></service>
         <activity android:name="geofenceObject"></activity>
         <service android:name="ReceiveTransitionsIntentService"></service>
