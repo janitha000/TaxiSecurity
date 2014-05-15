@@ -62,6 +62,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent averseIntent = new Intent(MainActivity.this, averseService.class);
+				//averseIntent.putExtra("Method", 2);
 				startService(averseIntent);
 				
 				
