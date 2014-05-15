@@ -31,6 +31,8 @@ Double lat;
 boolean isGPSEnabled = false;
 float preDis=999999999;
 Timer timerAverse;
+int counter=0;
+float prevRightdis=0;
 
 //flag for network status
 boolean isNetworkEnabled = false;
@@ -73,7 +75,7 @@ Handler hSendSMS = new Handler() {
 		 Lat = 7.324858;   //Destination coordinates
 		 Lon =  80.625870;
 		 try {
-	            long intervalSendSMS = 20*1000;
+	            long intervalSendSMS = 30*1000;
 
 	            timerAverse = new Timer();
 
@@ -132,27 +134,40 @@ Handler hSendSMS = new Handler() {
     }
 	
 	public void runService(){
+		
 		Toast.makeText(averseService.this, "Service Called", Toast.LENGTH_LONG).show();
-//		getLocation();
-//		onLocationChanged(location);
-		//getLocation();
+
 		Toast.makeText(averseService.this, latitude.toString() +" "+ longitude.toString(), Toast.LENGTH_LONG).show();
 		float dis = getDistance(Lat, Lon, latitude, longitude);
 		String formattedNumber = Float.toString(dis);
 		Toast.makeText(averseService.this,formattedNumber, Toast.LENGTH_LONG).show();
 		
-		if(preDis < dis ){
-			
+		if(preDis < dis ){         //If the previous distance is getting smaller 
+			counter++;
+			if (counter==1){		//mark the last distance
+				prevRightdis=preDis;
+			}
+		}
+		if(dis < prevRightdis){     //if in the right direction make counter 0
+			counter = 0;
+			prevRightdis = 0;
+		}
+		
+		if (counter==3){			//If counter == 3 then send the notification
+			Intent i = new Intent();
+			i.setClass(this, averseAlertActivity.class);
+			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			i.putExtra("DestinationLon", Lon);
+			i.putExtra("DestinationLat", Lat);
+			startActivity(i);
 		}
 		
 		
 		
-//		Intent i = new Intent();
-//		i.setClass(this, averseAlertActivity.class);
-//		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//		i.putExtra("DestinationLon", Lon);
-//		i.putExtra("DestinationLat", Lat);
-//		startActivity(i);
+		
+		
+		
+
 		
 		
 	}
