@@ -29,10 +29,10 @@ Double Lat;
 Double Lon;
 Double lat;
 boolean isGPSEnabled = false;
-float preDis=999999999;
+public float preDis=999999999;
 Timer timerAverse;
-int counter=0;
-float prevRightdis=0;
+public int counter=0;
+public float prevRightdis=0;
 
 //flag for network status
 boolean isNetworkEnabled = false;
@@ -74,6 +74,7 @@ Handler hSendSMS = new Handler() {
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		 Lat = 7.324858;   //Destination coordinates
 		 Lon =  80.625870;
+		 showRecordingNotification();
 		 try {
 	            long intervalSendSMS = 30*1000;
 
@@ -88,7 +89,7 @@ Handler hSendSMS = new Handler() {
 	            Toast.makeText(this, "error running service: " + e.getMessage(),
 	                    Toast.LENGTH_SHORT).show();
 	        }
-		showRecordingNotification();
+		
 		
 		
 		LocationResult locationResult = new LocationResult(){
@@ -144,6 +145,7 @@ Handler hSendSMS = new Handler() {
 		
 		if(preDis < dis ){         //If the previous distance is getting smaller 
 			counter++;
+			Toast.makeText(averseService.this,"Counter is" +counter, Toast.LENGTH_LONG).show();
 			if (counter==1){		//mark the last distance
 				prevRightdis=preDis;
 			}
@@ -153,7 +155,7 @@ Handler hSendSMS = new Handler() {
 			prevRightdis = 0;
 		}
 		
-		if (counter==3){			//If counter == 3 then send the notification
+		if (counter==5){			//If counter == 3 then send the notification
 			Intent i = new Intent();
 			i.setClass(this, averseAlertActivity.class);
 			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -161,6 +163,9 @@ Handler hSendSMS = new Handler() {
 			i.putExtra("DestinationLat", Lat);
 			startActivity(i);
 		}
+		
+		preDis = dis;
+		
 		
 		
 		
@@ -297,7 +302,7 @@ Handler hSendSMS = new Handler() {
     	
     	timerAverse.cancel();
         timerAverse.purge();
-        //mLocationManager.removeUpdates(this);
+        
     	
         Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
           super.onDestroy();

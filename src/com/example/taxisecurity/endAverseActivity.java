@@ -27,7 +27,7 @@ public class endAverseActivity extends Activity {
 	        	finish(); //Stops the transparent Activity (Do not remove)
 	        	Intent stopIntent = new Intent(endAverseActivity.this, averseService.class);
 //	        	stopIntent.putExtra("stop", "true");
-	        	stopService(stopIntent); //stops the smsService
+	        	stopService(stopIntent); //stops the averseService
 	        	}
 	        	else {
 	         // re appear wenna hadanna
