@@ -266,7 +266,7 @@ public class smsService extends Service implements LocationListener  {
 	        if (!isGPSEnabled && !isNetworkEnabled) {
 	            // no network provider is enabled
 	        	
-	        } else {
+	        } else  {
 	            //this.canGetLocation = true;
 	            if (isGPSEnabled) {
 	            	
@@ -308,30 +308,26 @@ public class smsService extends Service implements LocationListener  {
 	                        }
 	                    }
 	                }
-	            }
-	            // if GPS Enabled get lat/long using GPS Services
-//	            else if(isNetworkEnabled) {
-//	                mLocationManager.requestLocationUpdates(
-//	                        LocationManager.NETWORK_PROVIDER,
-//	                        5*1000,
-//	                        0,  this);
-//	                //Log.d("Network", "Network Enabled");
-//	                if (mLocationManager != null) {
-//	                    location = mLocationManager
-//	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-//	                    if (location != null) {
-//	                    	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
-//	                    	Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
-//	                    }
-//	                } 
-//	            
-//	            
-//	                
-//	            }
+	                } else  {
+	                	mLocationManager.requestLocationUpdates(
+    	                        LocationManager.NETWORK_PROVIDER,
+    	                        5*1000,
+    	                        10,  this);
+    	                //Log.d("Network", "Network Enabled");
+    	                if (mLocationManager != null) {
+    	                    location = mLocationManager
+    	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+    	                    if (location != null) {
+    	                    	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
+    	                    	Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
+    	                    }
+    	                } 
+	                	
+	                }
+	            
+
 	        }
-	        //not sure 
 	        
-	        //Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
 			return SLocation;
 	   
        

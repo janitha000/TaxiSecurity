@@ -15,11 +15,21 @@ public class averseAlertActivity extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		
+		createDialog();
+		
+		
+		
+	
+		
+		super.onCreate(savedInstanceState);
+	}
+	
+	public void createDialog(){
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
 		
 		 
 	    alert.setTitle("Averse Destination Service")
-	    .setMessage("WARNING")
+	    .setMessage("WARNING  To stop click on the notification")
 	    .setPositiveButton("Ignore", new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int which) { 
 	        	
@@ -58,12 +68,11 @@ public class averseAlertActivity extends Activity {
 		})
 	    .setIcon(android.R.drawable.ic_dialog_alert)
 	     .show();
-		
-		
-		
-	
-		
-		super.onCreate(savedInstanceState);
+	}
+	@Override
+	protected void onResume() {
+		createDialog();
+		super.onResume();
 	}
 	
 }
