@@ -43,6 +43,8 @@
             </intent-filter>
         </activity>
         <activity android:name="aboutActivity"></activity>
+        
+        <activity android:name="Contacts"></activity>
         <activity android:name="AverseActivity"></activity>
         <activity android:name="timeAllocatorActivity"
             android:launchMode="singleTop"

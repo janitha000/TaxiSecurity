@@ -149,7 +149,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent averseIntent = new Intent(MainActivity.this, SharedPreference.class);
+				Intent averseIntent = new Intent(MainActivity.this, Contacts.class);
 				startActivity(averseIntent);
 				
 				
