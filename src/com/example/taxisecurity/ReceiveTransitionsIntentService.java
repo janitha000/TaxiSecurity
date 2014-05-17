@@ -8,6 +8,7 @@ import java.util.List;
 
 
 
+
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.LocationClient;
 
@@ -19,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 public class ReceiveTransitionsIntentService extends IntentService {
 
@@ -31,6 +33,7 @@ public class ReceiveTransitionsIntentService extends IntentService {
 	
     @Override
     protected void onHandleIntent(Intent intent) {
+    	Toast.makeText(ReceiveTransitionsIntentService.this, "Transition REceived", Toast.LENGTH_LONG).show();
         if (LocationClient.hasError(intent)) {
             //todo error process
         } else {

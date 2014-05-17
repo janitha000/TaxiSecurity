@@ -56,7 +56,20 @@ public class MainActivity extends Activity {
         Button register = (Button) findViewById(R.id.button3);
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
         Button averse = (Button) findViewById(R.id.button5); // Only for testing
+        Button geo = (Button) findViewById(R.id.button4);
         
+        geo.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent averseIntent = new Intent(MainActivity.this, policeGeofencing.class);
+				
+				startService(averseIntent);
+				
+				
+			}
+		});
+
         averse.setOnClickListener(new OnClickListener() {
 			
 			@Override
