@@ -40,7 +40,19 @@ public class PlacesAutocompleteActivity extends Activity implements OnItemClickL
 //	}
 		// TODO Auto-generated method stub
 
+        
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view, int position,
 			long id) {
@@ -66,5 +78,6 @@ public class PlacesAutocompleteActivity extends Activity implements OnItemClickL
         ex.printStackTrace();
     }
 	 
-}}
+}
+	}
 
