@@ -12,6 +12,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 
@@ -31,6 +32,7 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 	GoogleMap Mmap;
 	boolean showMapActivated;
 	Location location;
+	
 	
 	// Milliseconds per second
     private static final int MILLISECONDS_PER_SECOND = 1000;
@@ -55,16 +57,39 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_map);
 	    
+	    
       MapFragment mapFragment = ((MapFragment) this
                .getFragmentManager().findFragmentById(R.id.map));
 		Mmap= ((MapFragment) this.getFragmentManager().findFragmentById(R.id.map)).getMap();
 		Mmap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 		Mmap.setMyLocationEnabled(true);
-		showMap();
+		
+		Intent i = getIntent();
+	    int method= i.getIntExtra("Method", 0);
+	    switch(method){
+	    case 1: //Show police Station
+	    	Double Lati=i.getDoubleExtra("Latitiude",0);
+	    	Double Long= i.getDoubleExtra("Longtitude",0);
+	    	String name=i.getStringExtra("Name");
+	    	showPoliceMap(Lati,Long, name);
+	    	break;
+	    case 2: //Show current Location in the map
+	    	Double Lat = i.getDoubleExtra("DestinationLat",0);
+			Double Lon = i.getDoubleExtra("DestinationLon",0);
+	    	
+	    	showMap(Lat, Lon);
+	    	break;
+	    case 0:
+	    	break;
+	    }
+		
 		//showPoliceMap();
 }
 
-	public void showMap(){
+	public void showMap(Double lat, Double lon){
+		Mmap.addMarker(new MarkerOptions()
+        .position(new LatLng(lat, lon))
+        .title("Destination"));                 //************show the path using google API
 		showMapActivated=true;
 		// Create the LocationRequest object
         mLocationRequest = LocationRequest.create();
@@ -78,33 +103,40 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 		
        mLocationClient = new LocationClient(this, this, this);
         mLocationClient.connect();
+        LatLng startPoint = new LatLng(lat, lon);  //need to show current location
+		   CameraPosition cameraPosition = new CameraPosition.Builder().target(startPoint).tilt(15).zoom(14).bearing(0).
+		        build();
+		   Mmap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         
 	}
 	
-	public void showPoliceMap(){
-		List<LatLng> points = Arrays.asList(new LatLng(6.822334, 79.989991), new LatLng(6.8122, 79.97663), new LatLng(6.79433, 79.93887), new LatLng(6.822334, 79.989991));
-		PolygonOptions options = new PolygonOptions();
-	    options.addAll(points);
-	    options.strokeColor(Color.RED);
-	    options.fillColor(Color.BLUE);
-	    Mmap.addPolygon(options);
-		 
-		 LatLng startPoint = new LatLng(6.822334, 79.999991);
-		   CameraPosition cameraPosition = new CameraPosition.Builder().target(startPoint).tilt(60).zoom(6).bearing(0).
+	public void showPoliceMap(Double lat, Double lon, String name){
+//		List<LatLng> points = Arrays.asList(new LatLng(6.822334, 79.989991), new LatLng(6.8122, 79.97663), new LatLng(6.79433, 79.93887), new LatLng(6.822334, 79.989991));
+//		PolygonOptions options = new PolygonOptions();
+//	    options.addAll(points);
+//	    options.strokeColor(Color.RED);
+//	    options.fillColor(Color.BLUE);
+//	    Mmap.addPolygon(options);
+		Mmap.addMarker(new MarkerOptions()
+        .position(new LatLng(lat, lon))
+        .title(name));   
+		 LatLng startPoint = new LatLng(lat, lon);
+		   CameraPosition cameraPosition = new CameraPosition.Builder().target(startPoint).tilt(15).zoom(16).bearing(0).
 		        build();
 		   Mmap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+		   
 		   //edit by vindya
-		   Intent intent = getIntent();
-		   if (intent != null) {
-		       if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-		           if (intent.getData() != null) {
-		               int selectedPosition = Integer.parseInt(intent.getData().getHost());
-		               String[] policeLocations = getResources().getStringArray(R.id.Name);
-		               String location = policeLocations[selectedPosition];
-		               //...
-		           }
-		       }
-		   } 
+//		   Intent intent = getIntent();
+//		   if (intent != null) {
+//		       if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+//		           if (intent.getData() != null) {
+//		               int selectedPosition = Integer.parseInt(intent.getData().getHost());
+//		               String[] policeLocations = getResources().getStringArray(R.id.Name);
+//		               String location = policeLocations[selectedPosition];
+//		               //...
+//		           }
+//		       }
+//		   } 
 	}
 	
 	@Override
@@ -117,6 +149,7 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 	public void onConnected(Bundle arg0) {
 		Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
 		mLocationClient.requestLocationUpdates(mLocationRequest, this);
+		
 		
 	}
 
@@ -133,6 +166,8 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
                 Double.toString(location.getLatitude()) + "," +
                 Double.toString(location.getLongitude());
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        
+        
 		
 	}
 
@@ -179,6 +214,4 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 	}
 	
 
-
 }
-
