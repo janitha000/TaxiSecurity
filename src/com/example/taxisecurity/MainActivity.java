@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
         /*me button 1th only testing. installation 1di weda karanna nemi hadala thiyenne,thawa modify karanna one,second activity 1 demme output 1k balanna*/
         Button register = (Button) findViewById(R.id.button3);
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
-        Button averse = (Button) findViewById(R.id.button5); // Only for testing
+        Button averse = (Button) findViewById(R.id.averseButton); // Only for testing
         Button geo = (Button) findViewById(R.id.button4);
         
         geo.setOnClickListener(new OnClickListener() {
@@ -70,6 +70,7 @@ public class MainActivity extends Activity {
 			}
 		});
 
+
         averse.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -81,6 +82,9 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+
+
+
         
         	mapb.setOnClickListener(new OnClickListener() {
 			
