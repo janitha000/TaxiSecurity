@@ -55,9 +55,17 @@ public class DisplayList extends ListActivity {
                     
                     adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
                     	public void onClick(DialogInterface dialog, int id) {
+<<<<<<< HEAD
 
 //****************************Aded By Janitha *******************************************                   		
 
+=======
+<<<<<<< HEAD
+                    		
+=======
+//****************************Aded By Janitha *******************************************                   		
+>>>>>>> 8ace1213d744e138a5750bbd30817c8590f703c5
+>>>>>>> 47bd628b026db5283683d98f77604b75713a953f
                     		String name="Maharagama Police Station";
                     		Double Lat=6.845381;
                     		Double Lon=79.928978;

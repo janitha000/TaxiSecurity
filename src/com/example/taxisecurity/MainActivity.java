@@ -70,6 +70,7 @@ public class MainActivity extends Activity {
 			}
 		});
 
+<<<<<<< HEAD
 //        averse.setOnClickListener(new OnClickListener() {
 //			
 //			@Override
@@ -81,6 +82,19 @@ public class MainActivity extends Activity {
 //				
 //			}
 //		});
+=======
+        averse.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent averseIntent = new Intent(MainActivity.this, averseService.class);
+				//averseIntent.putExtra("Method", 2);
+				startService(averseIntent);
+				
+				
+			}
+		});
+>>>>>>> 47bd628b026db5283683d98f77604b75713a953f
         
         	mapb.setOnClickListener(new OnClickListener() {
 			
