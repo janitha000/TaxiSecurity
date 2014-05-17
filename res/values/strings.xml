@@ -15,6 +15,9 @@
     <string name="choose">Police Station Details(Click on it to see police area)</string>
     <string name="name">Name</string>
     <string name="phone">TP Number</string>
+    <string name="Ignore">Ignore</string>
+    <string name="SMS">Send SMS</string>
+    <string name="Map">Show in Map</string>
     
     
 
