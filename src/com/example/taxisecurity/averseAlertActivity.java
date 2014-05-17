@@ -62,7 +62,7 @@ public class averseAlertActivity extends Activity {
 				mapIntent.putExtra("DestinationLon", Lon);
 				mapIntent.putExtra("DestinationLat", Lat);
 	        	startActivity(mapIntent);
-				finish();
+				//finish();
 				
 			}
 		})

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
@@ -30,6 +31,7 @@ public class MainActivity extends Activity {
         //setContentView(R.layout.loginform);
        setContentView(R.layout.activity_main);
         
+      
      
 
         if (savedInstanceState == null) {
@@ -44,6 +46,9 @@ public class MainActivity extends Activity {
            
     //*************End of editing**********************
 
+       // Start LOCATION Service
+        Intent in = new Intent(MainActivity.this, MyLocation.class);
+        startService(in);
        
         //Buttons on Main Activity
         Button TimeButton = (Button) findViewById(R.id.Button01);
@@ -217,6 +222,12 @@ public class MainActivity extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
+    }
+    
+    @Override
+    protected void onResume() {
+    	Toast.makeText(this, MyLocation.latitude + " " + MyLocation.longitude, Toast.LENGTH_SHORT).show();
+    	super.onResume();
     }
     
    
