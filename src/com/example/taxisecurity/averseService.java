@@ -4,14 +4,17 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
+
 import com.example.taxisecurity.smsService.taskSendSMS;
 
 import android.R.string;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -42,6 +45,9 @@ LocationManager locationManager;
 Location location;
 Double latitude=0.0;
 Double longitude=0.0;
+
+float disChanged=0;
+boolean Notignore = true;
 
 //The minimum distance to change updates in metters
 private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; //10 metters
@@ -147,10 +153,13 @@ Handler hSendSMS = new Handler() {
 		Toast.makeText(averseService.this,formattedNumber, Toast.LENGTH_LONG).show();
 		
 		if(preDis < dis ){         //If the previous distance is getting smaller 
-			counter++;
+			disChanged = dis - preDis;
+			if(disChanged>10){
+				counter++;
 			
-			if (counter==1){		//mark the last distance
-				prevRightdis=preDis;
+				if (counter==1){		//mark the last distance
+					prevRightdis=preDis;
+				}
 			}
 		}
 		if(dis < prevRightdis){     //if in the right direction make counter 0
@@ -159,12 +168,39 @@ Handler hSendSMS = new Handler() {
 		}
 		
 		if (counter==5){			//If counter == 5 then send the notification
+			counter=0;
 			Intent i = new Intent();
 			i.setClass(this, averseAlertActivity.class);
 			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			i.putExtra("DestinationLon", Lon);
 			i.putExtra("DestinationLat", Lat);
 			startActivity(i);
+		}
+		
+		if(dis < 10 && Notignore){
+			AlertDialog.Builder alert = new AlertDialog.Builder(this);
+			
+			 
+		    alert.setTitle("Averse Destination Service")
+		    .setMessage("You Arrived at your destination")
+		    .setPositiveButton("Ignore", new DialogInterface.OnClickListener() {
+		        public void onClick(DialogInterface dialog, int which) { 
+		        	
+		        	Notignore=true;
+		        	
+		        	
+		        }
+		     })
+		    .setNegativeButton("End Averse Service", new DialogInterface.OnClickListener() {
+		        public void onClick(DialogInterface dialog, int which) { 
+		        	Intent stopIntent = new Intent(averseService.this, endAverseActivity.class);
+		        	stopService(stopIntent);
+		        	
+		        }
+		     })
+		     
+		    .setIcon(android.R.drawable.ic_dialog_alert)
+		     .show();
 		}
 		
 		preDis = dis;
@@ -248,11 +284,11 @@ Handler hSendSMS = new Handler() {
 //    }
 
 	private void updateGPSCoordinates() {
-		 if (location != null)
-	        {
-	            latitude = location.getLatitude();
-	            longitude = location.getLongitude();
-	        }
+//		 if (location != null)
+//	        {
+//	            latitude = location.getLatitude();
+//	            longitude = location.getLongitude();
+//	        }
 	    }
 		
 	public float getDistance(Double deslan, Double deslon, Double curlan, Double curlon) {

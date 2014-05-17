@@ -34,6 +34,7 @@ public class averseAlertActivity extends Activity {
 	        public void onClick(DialogInterface dialog, int which) { 
 	        	
 	        	//Ignore and continue
+	        	
 	        finish();	
 	        }
 	     })
