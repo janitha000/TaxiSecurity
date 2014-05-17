@@ -4,15 +4,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textView7"
+        android:layout_marginBottom="39dp"
+        android:text="@string/Save" />
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/button1"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="15dp"
-        android:text="User Details"
+        android:text="@string/User_Details"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -21,34 +28,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="24dp"
-        android:text="User Name" />
-
-    <EditText
-        android:id="@+id/UserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignLeft="@+id/textView1"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="24dp"
-        android:text="Password" />
+        android:layout_marginTop="14dp"
+        android:text="@string/User_Name" />
 
     <EditText
         android:id="@+id/Pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignRight="@+id/UserName"
+        android:layout_below="@+id/textView2"
         android:ems="10"
         android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/contact2No"
+        android:layout_below="@+id/textView1"
+        android:ems="10" />
 
     <TextView
         android:id="@+id/textView4"
@@ -56,26 +54,74 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView3"
-        android:layout_marginTop="22dp"
-        android:text="Chosen Contact (1)" />
+        android:layout_marginTop="16dp"
+        android:text="@string/Chosen_Contact_(1)" />
 
     <EditText
-        android:id="@+id/contact1Name"
+        android:id="@+id/contact2Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/textView4"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
+        android:layout_below="@+id/contact1No"
+        android:layout_toRightOf="@+id/textView2"
+        android:ems="10" />
 
     <EditText
         android:id="@+id/contact1No"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_alignLeft="@+id/editText3"
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="18dp"
+        android:layout_toRightOf="@+id/textView3"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/contact1No"
+        android:layout_alignParentLeft="true"
+        android:text="@string/Name2" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/contact2Name"
+        android:layout_alignParentLeft="true"
+        android:text="@string/Mobile_No2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Pwd"
+        android:layout_alignParentLeft="true"
+        android:text="@string/Password" />
+
+    <EditText
+        android:id="@+id/contact1Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignLeft="@+id/contact2Name"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="110dp"
+        android:text="@string/Chosen_Contact_(2)" />
+
+    <EditText
+        android:id="@+id/contact2No"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_toRightOf="@+id/textView3"
         android:ems="10"
         android:inputType="phone" />
 
@@ -83,69 +129,17 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/contact2No"
         android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:text="Mobile No" />
+        android:text="@string/Name1" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText4"
         android:layout_alignParentLeft="true"
-        android:text="Name" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView3"
-        android:layout_below="@+id/textView6"
-        android:layout_marginTop="32dp"
-        android:text="Chosen Contact (2)" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView4"
-        android:layout_below="@+id/textView7"
-        android:layout_marginTop="24dp"
-        android:text="Name" />
-
-    <EditText
-        android:id="@+id/contact2Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_alignLeft="@+id/editText4"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView8"
+        android:layout_below="@+id/contact2No"
         android:layout_marginTop="18dp"
-        android:text="Mobile No" />
-
-    <EditText
-        android:id="@+id/contact2No"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_below="@+id/editText5"
-        android:ems="10"
-        android:inputType="phone" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText6"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
-        android:text="Save" />
+        android:text="@string/Mobile_No1" />
 
 </RelativeLayout>
