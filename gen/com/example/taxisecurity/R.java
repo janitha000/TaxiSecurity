@@ -228,9 +228,9 @@ containing a value of this type.
         public static final int Button04=0x7f060012;
         public static final int LinearLayout1=0x7f060018;
         public static final int Name=0x7f06000a;
-        public static final int Pwd=0x7f060025;
+        public static final int Pwd=0x7f060024;
         public static final int TextView01=0x7f060007;
-        public static final int UserName=0x7f060024;
+        public static final int UserName=0x7f060025;
         public static final int action_about=0x7f06003e;
         public static final int action_settings=0x7f06003d;
         public static final int autoComplete=0x7f060033;
@@ -245,10 +245,10 @@ containing a value of this type.
         public static final int button3=0x7f060014;
         public static final int button4=0x7f060015;
         public static final int button_register=0x7f060039;
-        public static final int contact1Name=0x7f060026;
-        public static final int contact1No=0x7f060028;
-        public static final int contact2Name=0x7f06002c;
-        public static final int contact2No=0x7f06002e;
+        public static final int contact1Name=0x7f06002d;
+        public static final int contact1No=0x7f06002a;
+        public static final int contact2Name=0x7f060029;
+        public static final int contact2No=0x7f060026;
         public static final int container=0x7f06000e;
         public static final int editText1=0x7f060006;
         public static final int editText2=0x7f060008;
@@ -275,14 +275,14 @@ containing a value of this type.
         public static final int text1=0x7f060034;
         public static final int textRemaining=0x7f06001e;
         public static final int textView1=0x7f060005;
-        public static final int textView2=0x7f06002a;
-        public static final int textView3=0x7f060023;
-        public static final int textView4=0x7f060022;
-        public static final int textView5=0x7f060029;
-        public static final int textView6=0x7f060027;
-        public static final int textView7=0x7f06002b;
-        public static final int textView8=0x7f06002f;
-        public static final int textView9=0x7f06002d;
+        public static final int textView2=0x7f060023;
+        public static final int textView3=0x7f060028;
+        public static final int textView4=0x7f060027;
+        public static final int textView5=0x7f06002e;
+        public static final int textView6=0x7f06002f;
+        public static final int textView7=0x7f060022;
+        public static final int textView8=0x7f06002b;
+        public static final int textView9=0x7f06002c;
         public static final int textview_Register=0x7f060035;
         public static final int tvTimeCount=0x7f06001f;
     }
@@ -309,8 +309,8 @@ containing a value of this type.
         public static final int main=0x7f0b0000;
     }
     public static final class string {
-        public static final int Chosen_Contact_(1)=0x7f07002f;
-        public static final int Chosen_Contact_(2)=0x7f070032;
+        public static final int ChosenContact1=0x7f07002f;
+        public static final int ChosenContact2=0x7f070032;
         public static final int Ignore=0x7f070029;
         public static final int Map=0x7f07002b;
         public static final int Mobile_No1=0x7f070030;

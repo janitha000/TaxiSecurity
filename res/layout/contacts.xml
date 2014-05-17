@@ -55,7 +55,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="16dp"
-        android:text="@string/Chosen_Contact_(1)" />
+        android:text="@string/ChosenContact1" />
 
     <EditText
         android:id="@+id/contact2Name"
@@ -114,7 +114,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView4"
         android:layout_marginTop="110dp"
-        android:text="@string/Chosen_Contact_(2)" />
+        android:text="@string/ChosenContact2" />
 
     <EditText
         android:id="@+id/contact2No"
