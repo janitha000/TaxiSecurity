@@ -70,6 +70,7 @@ int id UserName 0x7f060023
 int id action_about 0x7f060042
 int id action_settings 0x7f060041
 int id autoComplete 0x7f060037
+int id averseButton 0x7f060016
 int id btnExtendOK 0x7f06001b
 int id btnExtendTime 0x7f060020
 int id btnStartTime 0x7f060021
@@ -79,7 +80,6 @@ int id button1 0x7f060009
 int id button2 0x7f060013
 int id button3 0x7f060014
 int id button4 0x7f060015
-int id button5 0x7f060016
 int id button_register 0x7f06003d
 int id contact1Name 0x7f060027
 int id contact1No 0x7f060028

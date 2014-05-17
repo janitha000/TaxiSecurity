@@ -234,6 +234,7 @@ containing a value of this type.
         public static final int action_about=0x7f060042;
         public static final int action_settings=0x7f060041;
         public static final int autoComplete=0x7f060037;
+        public static final int averseButton=0x7f060016;
         public static final int btnExtendOK=0x7f06001b;
         public static final int btnExtendTime=0x7f060020;
         public static final int btnStartTime=0x7f060021;
@@ -243,7 +244,6 @@ containing a value of this type.
         public static final int button2=0x7f060013;
         public static final int button3=0x7f060014;
         public static final int button4=0x7f060015;
-        public static final int button5=0x7f060016;
         public static final int button_register=0x7f06003d;
         public static final int contact1Name=0x7f060027;
         public static final int contact1No=0x7f060028;
