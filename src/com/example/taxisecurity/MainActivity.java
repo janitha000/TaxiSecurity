@@ -2,7 +2,9 @@ package com.example.taxisecurity;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,7 +33,10 @@ public class MainActivity extends Activity {
         //setContentView(R.layout.loginform);
        setContentView(R.layout.activity_main);
         
-      
+      if(first_time_check()){
+    	  Intent contactIntent = new Intent(MainActivity.this, contactDetails.class);
+    	  startActivity(contactIntent);
+      }
      
 
         if (savedInstanceState == null) {
@@ -232,6 +237,15 @@ public class MainActivity extends Activity {
     	super.onResume();
     }
     
+    private boolean first_time_check() {
+        SharedPreferences uPreferences=getSharedPreferences("ContactData",Context.MODE_PRIVATE);
+        String first = uPreferences.getString("first", null);
+        if((first == null)){
+            return true;
+        }
+        else 
+            return false;
+    }
    
 
 }

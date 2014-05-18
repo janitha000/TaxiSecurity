@@ -56,10 +56,7 @@ LocationClient.OnAddGeofencesResultListener, LocationListener {
 	public void onCreate() {
 	    super.onCreate();
 	    
-	    SharedPreferences shp = getSharedPreferences("ContactData",Context.MODE_PRIVATE );
-	    String name=shp.getString("username", "234");
 	    
-	    Toast.makeText(policeGeofencing.this, name , Toast.LENGTH_LONG).show();
 	    
 	    
 
