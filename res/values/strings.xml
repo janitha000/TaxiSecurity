@@ -18,16 +18,16 @@
     <string name="Ignore">Ignore</string>
     <string name="SMS">Send SMS</string>
     <string name="Map">Show in Map</string>
-     <string name="User_Details">User Details</string>
-      <string name="User_Name">User Name</string>
-       <string name="Password">Passward</string>
-        <string name="ChosenContact1">Chosen Contact 1</string>
-         <string name="Mobile_No1">Mobile No</string>
-          <string name="Name1">Name</string>
-          <string name="ChosenContact2">Chosen Contact 2</string>
-           <string name="Name2">Name</string>
-            <string name="Mobile_No2">Mobile No</string>
-             <string name="Save">Save</string>
+    <string name="User_Details">User Details</string>
+    <string name="User_Name">User Name</string>
+    <string name="Password">Passward</string>
+    <string name="ChosenContact1">Chosen Contact 1</string>
+    <string name="Name1">Name</string>
+    <string name="Mobile_No1">Mobile No</string>
+    <string name="ChosenContact2">Chosen Contact 2</string>
+    <string name="Name2">Name</string>
+    <string name="Mobile_No2">Mobile No</string>
+    <string name="Save">Save</string>
     
     
 
