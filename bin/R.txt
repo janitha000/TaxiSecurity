@@ -70,7 +70,7 @@ int id UserName 0x7f060025
 int id action_about 0x7f06003e
 int id action_settings 0x7f06003d
 int id autoComplete 0x7f060033
-int id averseButton 0x7f060016
+int id averseButton 0x7f060015
 int id btnExtendOK 0x7f06001b
 int id btnExtendTime 0x7f060020
 int id btnStartTime 0x7f060021
@@ -78,8 +78,7 @@ int id btnStopTime 0x7f06001c
 int id btn_ok 0x7f06000d
 int id button1 0x7f060009
 int id button2 0x7f060013
-int id button3 0x7f060014
-int id button4 0x7f060015
+int id button4 0x7f060014
 int id button_register 0x7f060039
 int id contact1Name 0x7f06002d
 int id contact1No 0x7f06002a
@@ -103,6 +102,7 @@ int id normal 0x7f060001
 int id policeID 0x7f060030
 int id policeName 0x7f060031
 int id policePhone 0x7f060032
+int id regButton 0x7f060016
 int id satellite 0x7f060002
 int id second_text_email 0x7f06003b
 int id second_text_name 0x7f06003a

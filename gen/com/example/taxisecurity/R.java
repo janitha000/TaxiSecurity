@@ -234,7 +234,7 @@ containing a value of this type.
         public static final int action_about=0x7f06003e;
         public static final int action_settings=0x7f06003d;
         public static final int autoComplete=0x7f060033;
-        public static final int averseButton=0x7f060016;
+        public static final int averseButton=0x7f060015;
         public static final int btnExtendOK=0x7f06001b;
         public static final int btnExtendTime=0x7f060020;
         public static final int btnStartTime=0x7f060021;
@@ -242,8 +242,7 @@ containing a value of this type.
         public static final int btn_ok=0x7f06000d;
         public static final int button1=0x7f060009;
         public static final int button2=0x7f060013;
-        public static final int button3=0x7f060014;
-        public static final int button4=0x7f060015;
+        public static final int button4=0x7f060014;
         public static final int button_register=0x7f060039;
         public static final int contact1Name=0x7f06002d;
         public static final int contact1No=0x7f06002a;
@@ -267,6 +266,7 @@ containing a value of this type.
         public static final int policeID=0x7f060030;
         public static final int policeName=0x7f060031;
         public static final int policePhone=0x7f060032;
+        public static final int regButton=0x7f060016;
         public static final int satellite=0x7f060002;
         public static final int second_text_email=0x7f06003b;
         public static final int second_text_name=0x7f06003a;

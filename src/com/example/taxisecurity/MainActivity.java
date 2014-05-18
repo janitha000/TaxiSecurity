@@ -47,8 +47,8 @@ public class MainActivity extends Activity {
     //*************End of editing**********************
 
        // Start LOCATION Service
-        Intent in = new Intent(MainActivity.this, MyLocation.class);
-        startService(in);
+       // Intent in = new Intent(MainActivity.this, MyLocation.class);
+        //startService(in);
        
         //Buttons on Main Activity
         Button TimeButton = (Button) findViewById(R.id.Button01);
@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
         Button mapb = (Button) findViewById(R.id.button1);
         Button serviceb = (Button) findViewById(R.id.button2);
         /*me button 1th only testing. installation 1di weda karanna nemi hadala thiyenne,thawa modify karanna one,second activity 1 demme output 1k balanna*/
-        Button register = (Button) findViewById(R.id.button3);
+        Button register = (Button) findViewById(R.id.regButton);
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
         Button averse = (Button) findViewById(R.id.averseButton); // Only for testing
         Button geo = (Button) findViewById(R.id.button4);
@@ -155,6 +155,17 @@ public class MainActivity extends Activity {
 			}
 		});
         
+      register.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent regIntent = new Intent(MainActivity.this, contactDetails.class);
+				startActivity(regIntent);
+				
+				
+			}
+		});
+      
       //Help Button click Listener
         helpButton.setOnClickListener(new OnClickListener() {
 			
@@ -167,16 +178,7 @@ public class MainActivity extends Activity {
 			}
 		});
         
- register.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent averseIntent = new Intent(MainActivity.this, Contacts.class);
-				startActivity(averseIntent);
-				
-				
-			}
-		});
+
  	if (getIntent().getBooleanExtra("EXIT", false)) {
  		finish();
 	}
