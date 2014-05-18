@@ -20,18 +20,20 @@ public class Database_Handler extends SQLiteOpenHelper {
 
 	// All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "taxiSecurity";
+    private static final String DATABASE_NAME = "taxiSecurity2";
 
     // Contacts table name
-    private static final String TABLE_POLICE = "Police_Station_Details";
+    private static final String TABLE_POLICE = "Police_Station_Details2";
 
     // Contacts Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_PH_NO = "phone_number";
+    private static final String KEY_LAN = "langitude";
+    private static final String KEY_LON = "longitude";
 //    private Database_Handler ourHelper;
 //    private final Context ourContext;
 
@@ -44,7 +46,7 @@ public class Database_Handler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_POLICE + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_PH_NO + " TEXT" + ")";
+                + KEY_PH_NO + " TEXT," +KEY_LAN +" DOUBLE," + KEY_LON +" DOUBLE"+")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
 
