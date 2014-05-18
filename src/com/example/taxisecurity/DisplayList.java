@@ -54,12 +54,11 @@ public class DisplayList extends ListActivity {
                     AlertDialog.Builder adb=new AlertDialog.Builder(DisplayList.this); 
                     
                     adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
-<<<<<<< HEAD
-                    	public void onClick(DialogInterface dialog, int id){
-                    		
-=======
+
+                    	
+                    	
                     	public void onClick(DialogInterface dialog, int id) {
->>>>>>> c9d094a14fac7554aa2ca53c6390d01ff6971c2b
+
 
 //****************************Aded By Janitha *******************************************                   		
 
