@@ -246,8 +246,8 @@ containing a value of this type.
         public static final int button_register=0x7f060039;
         public static final int contact1Name=0x7f060027;
         public static final int contact1No=0x7f06002a;
-        public static final int contact2Name=0x7f06002c;
-        public static final int contact2No=0x7f06002f;
+        public static final int contact2Name=0x7f06002f;
+        public static final int contact2No=0x7f06002e;
         public static final int container=0x7f06000e;
         public static final int editText1=0x7f060006;
         public static final int editText2=0x7f060008;
@@ -281,8 +281,8 @@ containing a value of this type.
         public static final int textView5=0x7f060028;
         public static final int textView6=0x7f060029;
         public static final int textView7=0x7f06002b;
-        public static final int textView8=0x7f06002d;
-        public static final int textView9=0x7f06002e;
+        public static final int textView8=0x7f06002c;
+        public static final int textView9=0x7f06002d;
         public static final int textview_Register=0x7f060035;
         public static final int tvTimeCount=0x7f06001f;
     }

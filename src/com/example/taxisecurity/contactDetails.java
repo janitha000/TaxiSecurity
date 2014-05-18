@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class contactDetails extends Activity {
 
@@ -45,6 +46,7 @@ public class contactDetails extends Activity {
 				editor.putString("chosen2No", c2no.getText().toString() );
 				
 				editor.commit();
+				Toast.makeText(contactDetails.this, "Saved", Toast.LENGTH_LONG).show();
 				
 			}
 		});
