@@ -3,15 +3,18 @@ package com.example.taxisecurity;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.example.taxisecurity.MyLocation.LocationResult;
+
+
 import com.example.taxisecurity.smsService.taskSendSMS;
 
 import android.R.string;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -43,6 +46,9 @@ Location location;
 Double latitude=0.0;
 Double longitude=0.0;
 
+float disChanged=0;
+boolean Notignore = true;
+
 //The minimum distance to change updates in metters
 private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; //10 metters
 
@@ -58,6 +64,8 @@ class runServiceclass extends TimerTask {
 
 Handler hSendSMS = new Handler() {
 	public void handleMessage(Message msg) {
+		latitude = MyLocation.latitude;
+		longitude = MyLocation.longitude;
 		runService();
         
 	};
@@ -75,7 +83,7 @@ Handler hSendSMS = new Handler() {
 		 Lat = 7.324858;   //Destination coordinates
 		 Lon =  80.625870;
 		 showRecordingNotification();
-		 getLocation();
+		 //getLocation();
 		 try {
 	            long intervalSendSMS = 30*1000;
 
@@ -145,10 +153,13 @@ Handler hSendSMS = new Handler() {
 		Toast.makeText(averseService.this,formattedNumber, Toast.LENGTH_LONG).show();
 		
 		if(preDis < dis ){         //If the previous distance is getting smaller 
-			counter++;
+			disChanged = dis - preDis;
+			if(disChanged>10){
+				counter++;
 			
-			if (counter==1){		//mark the last distance
-				prevRightdis=preDis;
+				if (counter==1){		//mark the last distance
+					prevRightdis=preDis;
+				}
 			}
 		}
 		if(dis < prevRightdis){     //if in the right direction make counter 0
@@ -157,12 +168,39 @@ Handler hSendSMS = new Handler() {
 		}
 		
 		if (counter==5){			//If counter == 5 then send the notification
+			counter=0;
 			Intent i = new Intent();
 			i.setClass(this, averseAlertActivity.class);
 			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			i.putExtra("DestinationLon", Lon);
 			i.putExtra("DestinationLat", Lat);
 			startActivity(i);
+		}
+		
+		if(dis < 10 && Notignore){
+			AlertDialog.Builder alert = new AlertDialog.Builder(this);
+			
+			 
+		    alert.setTitle("Averse Destination Service")
+		    .setMessage("You Arrived at your destination")
+		    .setPositiveButton("Ignore", new DialogInterface.OnClickListener() {
+		        public void onClick(DialogInterface dialog, int which) { 
+		        	
+		        	Notignore=true;
+		        	
+		        	
+		        }
+		     })
+		    .setNegativeButton("End Averse Service", new DialogInterface.OnClickListener() {
+		        public void onClick(DialogInterface dialog, int which) { 
+		        	Intent stopIntent = new Intent(averseService.this, endAverseActivity.class);
+		        	stopService(stopIntent);
+		        	
+		        }
+		     })
+		     
+		    .setIcon(android.R.drawable.ic_dialog_alert)
+		     .show();
 		}
 		
 		preDis = dis;
@@ -246,11 +284,11 @@ Handler hSendSMS = new Handler() {
 //    }
 
 	private void updateGPSCoordinates() {
-		 if (location != null)
-	        {
-	            latitude = location.getLatitude();
-	            longitude = location.getLongitude();
-	        }
+//		 if (location != null)
+//	        {
+//	            latitude = location.getLatitude();
+//	            longitude = location.getLongitude();
+//	        }
 	    }
 		
 	public float getDistance(Double deslan, Double deslon, Double curlan, Double curlon) {
@@ -271,83 +309,83 @@ Handler hSendSMS = new Handler() {
 		
 	}
 	
-	public void getLocation(){
-		mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		   
-        // getting GPS status
-        Boolean isGPSEnabled = mLocationManager
-                .isProviderEnabled(LocationManager.GPS_PROVIDER);
-        //Toast.makeText(this, isGPSEnabled.toString(), Toast.LENGTH_LONG).show();
-
-        // getting network status
-        Boolean isNetworkEnabled = mLocationManager
-                .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-
-        if (!isGPSEnabled && !isNetworkEnabled) {
-            // no network provider is enabled
-        	
-        } else  {
-            //this.canGetLocation = true;
-            if (isGPSEnabled) {
-            	
-                if (location == null) {
-                	
-                    mLocationManager.requestLocationUpdates(
-                            LocationManager.GPS_PROVIDER,
-                            1000,
-                            5, this);
-                    
-                    //Log.d("GPS", "GPS Enabled");
-                    if (mLocationManager != null) {
-                    	
-                        location = mLocationManager
-                                .getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                        
-                        	
-                        if (location != null) {
-                        	
-                        	updateGPSCoordinates();
-                        	
-                        }
-                        else
-                        {
-                        	mLocationManager.requestLocationUpdates(
-        	                        LocationManager.NETWORK_PROVIDER,
-        	                        5*1000,
-        	                        10,  this);
-        	                //Log.d("Network", "Network Enabled");
-        	                if (mLocationManager != null) {
-        	                    location = mLocationManager
-        	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        	                    if (location != null) {
-        	                    	updateGPSCoordinates();
-        	                    	Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
-        	                    }
-        	                } 
-        	            
-                        }
-                    }
-                }
-                } else  {
-                	mLocationManager.requestLocationUpdates(
-	                        LocationManager.NETWORK_PROVIDER,
-	                        5*1000,
-	                        10,  this);
-	                //Log.d("Network", "Network Enabled");
-	                if (mLocationManager != null) {
-	                    location = mLocationManager
-	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-	                    if (location != null) {
-	                    		updateGPSCoordinates();	                    	
-	                    		Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
-	                    }
-	                } 
-                	
-                }
-            
-
-        }
-	}
+//	public void getLocation(){
+//		mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+//		   
+//        // getting GPS status
+//        Boolean isGPSEnabled = mLocationManager
+//                .isProviderEnabled(LocationManager.GPS_PROVIDER);
+//        //Toast.makeText(this, isGPSEnabled.toString(), Toast.LENGTH_LONG).show();
+//
+//        // getting network status
+//        Boolean isNetworkEnabled = mLocationManager
+//                .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+//
+//        if (!isGPSEnabled && !isNetworkEnabled) {
+//            // no network provider is enabled
+//        	
+//        } else  {
+//            //this.canGetLocation = true;
+//            if (isGPSEnabled) {
+//            	
+//                if (location == null) {
+//                	
+//                    mLocationManager.requestLocationUpdates(
+//                            LocationManager.GPS_PROVIDER,
+//                            1000,
+//                            5, this);
+//                    
+//                    //Log.d("GPS", "GPS Enabled");
+//                    if (mLocationManager != null) {
+//                    	
+//                        location = mLocationManager
+//                                .getLastKnownLocation(LocationManager.GPS_PROVIDER);
+//                        
+//                        	
+//                        if (location != null) {
+//                        	
+//                        	updateGPSCoordinates();
+//                        	
+//                        }
+//                        else
+//                        {
+//                        	mLocationManager.requestLocationUpdates(
+//        	                        LocationManager.NETWORK_PROVIDER,
+//        	                        5*1000,
+//        	                        10,  this);
+//        	                //Log.d("Network", "Network Enabled");
+//        	                if (mLocationManager != null) {
+//        	                    location = mLocationManager
+//        	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+//        	                    if (location != null) {
+//        	                    	updateGPSCoordinates();
+//        	                    	Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
+//        	                    }
+//        	                } 
+//        	            
+//                        }
+//                    }
+//                }
+//                } else  {
+//                	mLocationManager.requestLocationUpdates(
+//	                        LocationManager.NETWORK_PROVIDER,
+//	                        5*1000,
+//	                        10,  this);
+//	                //Log.d("Network", "Network Enabled");
+//	                if (mLocationManager != null) {
+//	                    location = mLocationManager
+//	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+//	                    if (location != null) {
+//	                    		updateGPSCoordinates();	                    	
+//	                    		Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
+//	                    }
+//	                } 
+//                	
+//                }
+//            
+//
+//        }
+//	}
 	
 
 	@Override
@@ -355,7 +393,7 @@ Handler hSendSMS = new Handler() {
 		//Toast.makeText(averseService.this, "OnLocation Changed", Toast.LENGTH_LONG).show();
 		//Location locationA=location;
 		
-		updateGPSCoordinates();
+		//updateGPSCoordinates();
 		
 	}
 
@@ -381,7 +419,7 @@ Handler hSendSMS = new Handler() {
     	
     	timerAverse.cancel();
         timerAverse.purge();
-        mLocationManager.removeUpdates(this);
+        //mLocationManager.removeUpdates(this);
     	
         Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
           super.onDestroy();

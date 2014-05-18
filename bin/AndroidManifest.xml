@@ -66,8 +66,9 @@
         <activity android:name="DisplayList"></activity>
 		<activity android:name="Second"></activity>
 		<service android:name="smsService"></service>
-		
+		<activity android:name="com.example.taxisecurity.contactDetails"></activity>
 		<service android:name="averseService"></service>
+		<service android:name="MyLocation"></service>
 		
         <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
         <activity android:name="endAverseActivity" android:theme="@style/Theme.Transparent"></activity>

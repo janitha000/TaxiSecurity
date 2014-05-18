@@ -55,12 +55,7 @@
         android:layout_gravity="center_horizontal"
         android:text="Start Service" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="Register" />
+    
 
     <Button
         android:id="@+id/button4"
@@ -76,6 +71,13 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="300dp"
         android:text="Averse" />
+
+    <Button
+        android:id="@+id/regButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Register" />
 
 </FrameLayout>
 
