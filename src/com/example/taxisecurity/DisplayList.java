@@ -8,6 +8,8 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,7 +31,7 @@ public class DisplayList extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list1);
-        Database_Handler db = new Database_Handler(this);
+        final Database_Handler db = new Database_Handler(this);
         
 
         // Reading all contacts
@@ -40,7 +42,7 @@ public class DisplayList extends ListActivity {
 
 
         if(policeList.size() != 0){
-            ListView listview = getListView();
+            final ListView listview = getListView();
             listview.setOnItemClickListener(new OnItemClickListener(){
 
                 @Override
@@ -61,19 +63,27 @@ public class DisplayList extends ListActivity {
                     	
 
                   	public void onClick(DialogInterface dialog, int id) {
+                  		
+                  		String selectedItem = (String) listview.getItemAtPosition(position);
+                  		String query = "SELECT KEY_LAN,KEY_LON FROM TABLE_POLICE WHERE KEY_NAME =  '" +selectedItem  + "'";
+                        SQLiteDatabase dbs = db.getReadableDatabase();
+                        Cursor result = dbs.rawQuery(query, null);
+                        result.moveToFirst();
+
+                        double lat = result.getDouble(result.getColumnIndex("KEY_LAN"));
+                        double lon = result.getDouble(result.getColumnIndex("KEY_LON"));
 
 
+//***************edit janitha and vindya****************************
 
-//***************edit janitha****************************
-
-                    		String name="Maharagama Police Station";
-                    		Double Lat=6.845381;
-                    		Double Lon=79.928978;
+//                    		String name="Maharagama Police Station";
+//                    		Double Lat=6.845381;
+//                    		Double Lon=79.928978;
                             Intent intent = new Intent(DisplayList.this, mapActivity.class);
                             intent.putExtra("Method", 1);
-                            intent.putExtra("Latitiude", Lat);
-                            intent.putExtra("Longtitude",Lon);
-                            intent.putExtra("Name", name);
+                            intent.putExtra("Latitiude", lat);
+                            intent.putExtra("Longtitude",lon);
+                            intent.putExtra("Name", selectedItem);
                             startActivity(intent);
                         
                         }
@@ -87,8 +97,8 @@ public class DisplayList extends ListActivity {
             });                
             ListAdapter adapter = new SimpleAdapter(
                     DisplayList.this, policeList, R.layout.item, 
-                    new String[] {"policeID", "policeName", "policePhone"}, 
-                    new int[] {R.id.policeID, R.id.policeName, R.id.policePhone});
+                    new String[] {"policeID", "policeName", "policePhone","policeLan","policeLon"}, 
+                    new int[] {R.id.policeID, R.id.policeName, R.id.policePhone, R.id.policeLan, R.id.policeLon});
 
             setListAdapter(adapter);
         }

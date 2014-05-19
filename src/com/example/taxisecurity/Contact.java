@@ -5,22 +5,28 @@ public class Contact {
     int _id;
     String _name;
     String _phone_number;
+    double _lon;
+    double _lan;
 
     // Empty constructor
     public Contact(){
 
     }
     // constructor
-    public Contact(int id, String name, String _phone_number){
+    public Contact(int id, String name, String _phone_number,double lan,double lon){
         this._id = id;
         this._name = name;
         this._phone_number = _phone_number;
+        this._lan = lan;
+        this._lon = lon;
     }
 
     // constructor
-    public Contact(String name, String _phone_number){
+    public Contact(String name, String _phone_number,double lan,double lon){
         this._name = name;
         this._phone_number = _phone_number;
+        this._lan = lan;
+        this._lon = lon;
     }
     // getting ID
     public int getID(){
@@ -51,4 +57,24 @@ public class Contact {
     public void setPhoneNumber(String phone_number){
         this._phone_number = phone_number;
     }
+	
+    public double getLan() {
+		// TODO Auto-generated method stub
+		return this._lan;
+	}
+	//setting latitude
+	public void setLan(double lan){
+        this._lan = lan;
+    }
+	
+	
+	public double getLon() {
+		// TODO Auto-generated method stub
+		return this._lon;
+	}
+	//setting longitude
+			public void setLon(double lon){
+		        this._lon = lon;
+		    }
+		
 }

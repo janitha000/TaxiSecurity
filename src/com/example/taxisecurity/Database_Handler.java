@@ -20,7 +20,7 @@ public class Database_Handler extends SQLiteOpenHelper {
 
 	// All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 4;
 
     // Database Name
     private static final String DATABASE_NAME = "taxiSecurity2";
@@ -84,7 +84,9 @@ public class Database_Handler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, contact.getName()); // Contact Name
         values.put(KEY_PH_NO, contact.getPhoneNumber()); // Contact Phone
-
+        values.put(KEY_LAN, contact.getLan()); // Contact longitude
+        values.put(KEY_LON, contact.getLon()); // Contact latitude
+        
         // Inserting Row
         db.insert(TABLE_POLICE, null, values);
         db.close(); // Closing database connection
@@ -95,13 +97,13 @@ public class Database_Handler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_ID,
-                KEY_NAME, KEY_PH_NO }, KEY_ID + "=?",
+                KEY_NAME, KEY_PH_NO, KEY_LAN, KEY_LON }, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
         Contact contact = new Contact(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getString(2));
+                cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getDouble(4) );
         // return contact
         return contact;
     }
@@ -110,7 +112,7 @@ public class Database_Handler extends SQLiteOpenHelper {
     public ArrayList<HashMap<String, String>> getAllContact(){
     	SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<HashMap<String, String>> policeArrayList = new ArrayList<HashMap<String, String>>();
-        String [] columne = new String[] { KEY_ID, KEY_NAME, KEY_PH_NO };
+        String [] columne = new String[] { KEY_ID, KEY_NAME, KEY_PH_NO,KEY_LAN,KEY_LON };
         Cursor cursor = db.query(TABLE_POLICE, columne, null, null, null,
                 null, null);
         if(cursor.moveToFirst()){
@@ -120,7 +122,9 @@ public class Database_Handler extends SQLiteOpenHelper {
                 policeMap.put("policeID", cursor.getString(0));
                 policeMap.put("policeName", cursor.getString(1));
                 policeMap.put("policePhone", cursor.getString(2));
-
+                policeMap.put("policeLan", cursor.getString(3));
+                policeMap.put("policeLon", cursor.getString(4));
+                
                 policeArrayList.add(policeMap);
 
             } while(cursor.moveToNext());
@@ -136,7 +140,8 @@ public class Database_Handler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, contact.getName());
         values.put(KEY_PH_NO, contact.getPhoneNumber());
-
+        values.put(KEY_LAN, contact.getLan());
+        values.put(KEY_LON, contact.getLon());
         // updating row
         return db.update(TABLE_POLICE, values, KEY_ID + " = ?",
                 new String[] { String.valueOf(contact.getID()) });

@@ -138,11 +138,9 @@ public class MainActivity extends Activity {
 		});
         Database_Handler db= new Database_Handler(this);
      // Inserting Contacts
-        Log.d("Insert: ", "Inserting ..");
-        db.addContact(new Contact("Kuruduwaththa", "0112234564"));
-        db.addContact(new Contact("Maharagama", "0112253427"));
-        db.addContact(new Contact("Kirulapana", "0112243675"));
-        db.addContact(new Contact("Pettah", "0114354234"));
+        //Log.d("Insert: ", "Inserting ..");
+        
+        
       //Police Button click Listener
       policeButton.setOnClickListener(new OnClickListener() {
 			
