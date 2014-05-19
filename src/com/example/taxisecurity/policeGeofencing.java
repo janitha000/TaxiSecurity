@@ -55,6 +55,10 @@ LocationClient.OnAddGeofencesResultListener, LocationListener {
 	@Override
 	public void onCreate() {
 	    super.onCreate();
+	    
+	    
+	    
+	    
 
 	    Geofence geofence1 = new Geofence.Builder()
 	            .setRequestId("your target place")
