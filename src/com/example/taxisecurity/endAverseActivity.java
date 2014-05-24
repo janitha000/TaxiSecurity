@@ -2,17 +2,26 @@ package com.example.taxisecurity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class endAverseActivity extends Activity {
-	 String password = "janitha";
+	 String password ;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 	
 		super.onCreate(savedInstanceState);
+		
+		SharedPreferences storage = getSharedPreferences("ContactData",Context.MODE_PRIVATE );
+		password = storage.getString("password", "Not Working");
+		String rev1Pwd = new StringBuilder(password).reverse().toString();
+		Toast.makeText(endAverseActivity.this, rev1Pwd, Toast.LENGTH_LONG).show();
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
 		final EditText input = new EditText(this); 
 		 alert.setView(input);
@@ -30,10 +39,15 @@ public class endAverseActivity extends Activity {
 	        	stopService(stopIntent); //stops the averseService
 	        	}
 	        	else {
-	         // re appear wenna hadanna
-	        		//counter ekak daanna 3 wathakda balanna
-	        		//reverse nm eth yawanna hadanna
+	        		String revPwd = new StringBuilder(password).reverse().toString();
+	        		if(revPwd == value){
+	        			Intent stopIntent = new Intent(endAverseActivity.this, averseService.class);
+//	    	        	stopIntent.putExtra("stop", "true");
+	    	        	stopService(stopIntent); //stops the averseService
+	        			startService(new Intent(endAverseActivity.this,smsService.class));
+	        		}
 	        	}
+	        	finish(); //Stops the transparent Activity (Do not remove)
 	        }
 	     })
 	    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
