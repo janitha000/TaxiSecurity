@@ -231,8 +231,8 @@ containing a value of this type.
         public static final int Pwd=0x7f060025;
         public static final int TextView01=0x7f060007;
         public static final int UserName=0x7f060023;
-        public static final int action_about=0x7f060040;
-        public static final int action_settings=0x7f06003f;
+        public static final int action_about=0x7f060042;
+        public static final int action_settings=0x7f060041;
         public static final int autoComplete=0x7f060035;
         public static final int averseButton=0x7f060015;
         public static final int btnExtendOK=0x7f06001b;
@@ -251,6 +251,8 @@ containing a value of this type.
         public static final int container=0x7f06000e;
         public static final int editText1=0x7f060006;
         public static final int editText2=0x7f060008;
+        public static final int editText3=0x7f06003f;
+        public static final int editText4=0x7f060040;
         public static final int editText_mail=0x7f060039;
         public static final int editText_name=0x7f060038;
         public static final int editText_password=0x7f06003a;
@@ -306,6 +308,7 @@ containing a value of this type.
         public static final int loginform=0x7f03000b;
         public static final int policegeofencing=0x7f03000c;
         public static final int second=0x7f03000d;
+        public static final int settings=0x7f03000e;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
@@ -321,7 +324,8 @@ containing a value of this type.
         public static final int Name2=0x7f070033;
         public static final int Password=0x7f07002e;
         public static final int SMS=0x7f07002a;
-        public static final int Save=0x7f070035;
+        public static final int Save1=0x7f070035;
+        public static final int Save2=0x7f07003d;
         public static final int User_Details=0x7f07002c;
         public static final int User_Name=0x7f07002d;
         public static final int about=0x7f070022;
@@ -351,6 +355,7 @@ containing a value of this type.
          */
         public static final int auth_client_using_bad_version_title=0x7f070014;
         public static final int averse=0x7f07001f;
+        public static final int change_details=0x7f070037;
         public static final int choose=0x7f070026;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
@@ -423,13 +428,19 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f070013;
+        public static final int contact_1=0x7f070036;
+        public static final int contact_2=0x7f07003a;
         public static final int enter_destination=0x7f070024;
         public static final int enter_your_destination_here=0x7f070023;
         public static final int help=0x7f070021;
         /**  Location client code resources (prefix with location_client) 
          */
         public static final int location_client_powered_by_google=0x7f07001a;
+        public static final int mobile_no3=0x7f070039;
+        public static final int mobile_no4=0x7f07003c;
         public static final int name=0x7f070027;
+        public static final int name3=0x7f070038;
+        public static final int name4=0x7f07003b;
         public static final int phone=0x7f070028;
         public static final int police_details=0x7f070020;
         public static final int police_station_theory=0x7f070025;
