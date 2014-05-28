@@ -35,7 +35,7 @@
         android:text="@string/name3" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/contact1name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView3"
@@ -54,11 +54,11 @@
         android:text="@string/mobile_no3" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/contact1no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
+        android:layout_alignLeft="@+id/contact1name"
+        android:layout_below="@+id/contact1name"
         android:ems="10"
         android:inputType="phone" >
 
@@ -85,10 +85,10 @@
         android:text="@string/name4" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/contact2name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignLeft="@+id/contact1no"
         android:layout_below="@+id/textView5"
         android:ems="10" 
         android:inputType="text"/>
@@ -98,15 +98,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView6"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/contact2name"
         android:layout_marginTop="24dp"
         android:text="@string/mobile_no4" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/contact2no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText3"
+        android:layout_alignLeft="@+id/contact2name"
         android:layout_below="@+id/textView6"
         android:ems="10"
         android:inputType="phone" />
