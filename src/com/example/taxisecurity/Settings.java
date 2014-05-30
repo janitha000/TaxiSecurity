@@ -49,7 +49,7 @@ public class Settings extends Activity {
 				 
 				 
 				 AlertDialog.Builder builder = new AlertDialog.Builder(Settings.this);
-				 builder.setMessage("Are sure changes?");
+				 builder.setMessage("Save changes?");
 				 builder.setCancelable(false);
 				 builder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
 					
