@@ -52,8 +52,8 @@ public class MainActivity extends Activity {
     //*************End of editing**********************
 
        // Start LOCATION Service
-        //Intent in = new Intent(MainActivity.this, MyLocation.class);
-        //startService(in);
+        Intent in = new Intent(MainActivity.this, MyLocation.class);
+        startService(in);
        
         //Buttons on Main Activity
         Button TimeButton = (Button) findViewById(R.id.Button01);
