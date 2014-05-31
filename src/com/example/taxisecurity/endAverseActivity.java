@@ -31,18 +31,18 @@ public class endAverseActivity extends Activity {
 	    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int which) { 
 	        	String value = input.getText().toString();
-	        	//password eka SQLite walin aragena compare karanna one
+	        	
 	        	if(value.equals(password)){
 	        	finish(); //Stops the transparent Activity (Do not remove)
 	        	Intent stopIntent = new Intent(endAverseActivity.this, averseService.class);
-//	        	stopIntent.putExtra("stop", "true");
+
 	        	stopService(stopIntent); //stops the averseService
 	        	}
 	        	else {
 	        		String revPwd = new StringBuilder(password).reverse().toString();
 	        		if(revPwd == value){
 	        			Intent stopIntent = new Intent(endAverseActivity.this, averseService.class);
-//	    	        	stopIntent.putExtra("stop", "true");
+
 	    	        	stopService(stopIntent); //stops the averseService
 	        			startService(new Intent(endAverseActivity.this,smsService.class));
 	        		}

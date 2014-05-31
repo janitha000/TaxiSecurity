@@ -6,6 +6,7 @@ import java.util.TimerTask;
 
 
 
+
 import android.R.string;
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -16,6 +17,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -32,46 +34,18 @@ public class smsService extends Service implements LocationListener  {
 	AlarmManager alarmManager;
 	PendingIntent pendingIntent;
 	String SLocation ="Not Working";
-	LocationManager mLocationManager;
 	
+	//Get chosen Contact Details
+	SharedPreferences storage = getSharedPreferences("ContactData",Context.MODE_PRIVATE );
+	String contact1Name = storage.getString("chosen1Name", "Contact Name");
+	String phoneNo1 = storage.getString("chosen1No", "111");
+	String contact2Name = storage.getString("chosen2Name", "Contact Name");
+	String phoneNo2 = storage.getString("chosen2No", "111");
 	
-	String phoneNo = "0716544588";
-	String sms = "Janitha";
+	String sms;
 	
 	Timer timerSendSMS = new Timer();
-
-    class taskSendSMS extends TimerTask {
-        @Override
-        public void run() {
-            hSendSMS.sendEmptyMessage(0);
-        }
-    };
-    
-    Handler hSendSMS = new Handler() {
-    	public void handleMessage(Message msg) {
-    		procSendSMS();
-            
-    	};
-    };
-    
-    public void procSendSMS() {  //********* loc eka null da kiyala check karala balala yawanna
-        try {
-        	//sendOneSMS("0716544588",  "test sms");
-        	//String loc =getLocation();
-
-        	SLocation = "Latitude is " + MyLocation.latitude  + "Longitude is " + MyLocation.longitude;
-        	Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-
-        }
-    }
-    
-    
-
-    
 	
-	
-
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
@@ -84,12 +58,7 @@ public class smsService extends Service implements LocationListener  {
           Toast.makeText(this,"Service created ...", Toast.LENGTH_LONG).show();
           smsManager = SmsManager.getDefault();
           Toast.makeText(this, "getLocation called", Toast.LENGTH_LONG).show();
-
-   			
-          
-          
-          
-          
+     
     }
 	
 	@Override
@@ -112,6 +81,36 @@ public class smsService extends Service implements LocationListener  {
         showRecordingNotification();
 		return super.onStartCommand(intent, flags, startId);
 	}
+
+    class taskSendSMS extends TimerTask {
+        @Override
+        public void run() {
+            hSendSMS.sendEmptyMessage(0);
+        }
+    };
+    
+    Handler hSendSMS = new Handler() {
+    	public void handleMessage(Message msg) {
+    		procSendSMS();
+            
+    	};
+    };
+    
+    public void procSendSMS() {  
+        try {
+        	sms = "I am at danger. My last known location is Latitude: "+ MyLocation.latitude
+        			+ " Logitude: "+ MyLocation.latitude;
+        	sendOneSMS(phoneNo1,  sms);
+        	sendOneSMS(phoneNo2,  sms);
+        	
+
+        	SLocation = "Latitude is " + MyLocation.latitude  + "Longitude is " + MyLocation.longitude;
+        	Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+
+        }
+    }
+    
     
     @Override
     public void onDestroy() {
@@ -119,9 +118,7 @@ public class smsService extends Service implements LocationListener  {
     	
     	timerSendSMS.cancel();
         timerSendSMS.purge();
-        //mLocationManager.removeUpdates(this);
-    	//alarmManager.cancel(pendingIntent);
-    	//unregisterReceiver(alarmReceiver);
+        
         Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
           super.onDestroy();
           Toast.makeText(this, "Service destroyed ...", Toast.LENGTH_LONG).show();
@@ -164,17 +161,10 @@ public class smsService extends Service implements LocationListener  {
     }
     
  
-
-
-
-
-
-
-
 @Override
 public void onLocationChanged(Location location) {
 	Toast.makeText(this, "OnLocationChanged", Toast.LENGTH_LONG).show();
-	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
+	
 	
 }
 
