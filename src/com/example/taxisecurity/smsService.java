@@ -35,12 +35,14 @@ public class smsService extends Service implements LocationListener  {
 	PendingIntent pendingIntent;
 	String SLocation ="Not Working";
 	
+	String contact1Name;
+	String phoneNo1 ;
+	String contact2Name;
+	String phoneNo2;
+	
+	
 	//Get chosen Contact Details
-	SharedPreferences storage = getSharedPreferences("ContactData",Context.MODE_PRIVATE );
-	String contact1Name = storage.getString("chosen1Name", "Contact Name");
-	String phoneNo1 = storage.getString("chosen1No", "111");
-	String contact2Name = storage.getString("chosen2Name", "Contact Name");
-	String phoneNo2 = storage.getString("chosen2No", "111");
+	
 	
 	String sms;
 	
@@ -63,9 +65,14 @@ public class smsService extends Service implements LocationListener  {
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
+		SharedPreferences storage = getSharedPreferences("ContactData",0 );
+		contact1Name = storage.getString("chosen1Name", "Contact Name");
+		phoneNo1 = storage.getString("chosen1No", "111");
+		contact2Name = storage.getString("chosen2Name", "Contact Name");
+		phoneNo2 = storage.getString("chosen2No", "111");
 		
 		try {
-            long intervalSendSMS = 20*1000;
+            long intervalSendSMS = 20*1000; //*************change the time
 
             timerSendSMS = new Timer();
 

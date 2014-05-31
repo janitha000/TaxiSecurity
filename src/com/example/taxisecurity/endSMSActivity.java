@@ -43,6 +43,7 @@ public class endSMSActivity extends Activity {
 	        			startService(new Intent(endSMSActivity.this,smsService.class));
 	        		}
 	        	}
+	        	finish();
 	        }
 	     })
 	    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
