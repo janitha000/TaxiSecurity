@@ -63,7 +63,7 @@ LocationClient.OnAddGeofencesResultListener, LocationListener {
 	    Geofence geofence1 = new Geofence.Builder()
 	            .setRequestId("your target place")
 	            .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_EXIT)
-	            .setCircularRegion(7.352802, 80.616922,50.0f)
+	            .setCircularRegion(7.345989, 80.617154,1000)
 	            .setExpirationDuration(Geofence.NEVER_EXPIRE)
 	            .build();
 
@@ -90,6 +90,7 @@ LocationClient.OnAddGeofencesResultListener, LocationListener {
 	    mLocationClient = new LocationClient(this, this, this);
 	    mLocationClient.connect();
 	    
+	    
 	}
 	
 	
@@ -105,8 +106,10 @@ LocationClient.OnAddGeofencesResultListener, LocationListener {
 
 	@Override
 	public void onConnected(Bundle bundle) {
+		
 	    mLocationClient.addGeofences(mGeofenceLists, getPendingIntent(), this);
 	    mLocationClient.requestLocationUpdates(mLocationRequest, this);
+	    Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override

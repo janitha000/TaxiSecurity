@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
     //*************End of editing**********************
 
        // Start LOCATION Service
-       // Intent in = new Intent(MainActivity.this, MyLocation.class);
+        //Intent in = new Intent(MainActivity.this, MyLocation.class);
         //startService(in);
        
         //Buttons on Main Activity
@@ -233,6 +233,7 @@ public class MainActivity extends Activity {
     protected void onResume() {
     	Toast.makeText(this, MyLocation.latitude + " " + MyLocation.longitude, Toast.LENGTH_SHORT).show();
     	super.onResume();
+    	
     }
     
     private boolean first_time_check() {

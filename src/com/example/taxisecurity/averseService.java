@@ -80,8 +80,8 @@ Handler hSendSMS = new Handler() {
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		 Lat = 7.324858;   //Destination coordinates
-		 Lon =  80.625870;
+		 Lat = 7.351822;  //Destination coordinates
+		 Lon = 80.615541;
 		 showRecordingNotification();
 		 //getLocation();
 		 try {
