@@ -44,6 +44,7 @@
             </intent-filter>
         </activity>
         <activity android:name="aboutActivity"></activity>
+         <activity android:name="Settings"></activity>
         
         <activity android:name="Contacts"></activity>
         <activity android:name="AverseActivity"></activity>

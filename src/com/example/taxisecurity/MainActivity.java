@@ -204,7 +204,8 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            return true;
+           Intent settingsIntent =  new Intent(MainActivity.this,Settings.class);
+           startActivity(settingsIntent);
         }
         else if (id == R.id.action_about) {
 			Intent aboutIntent = new Intent(MainActivity.this, aboutActivity.class);
