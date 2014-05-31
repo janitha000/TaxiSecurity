@@ -12,16 +12,9 @@ public class averseAlertActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
 		super.onCreate(savedInstanceState);
-		
 		createDialog();
 		
-		
-		
-	
-		
-		super.onCreate(savedInstanceState);
 	}
 	
 	public void createDialog(){
