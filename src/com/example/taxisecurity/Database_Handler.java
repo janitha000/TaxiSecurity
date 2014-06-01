@@ -114,7 +114,7 @@ public class Database_Handler extends SQLiteOpenHelper {
         ArrayList<HashMap<String, String>> policeArrayList = new ArrayList<HashMap<String, String>>();
         String [] columne = new String[] { KEY_ID, KEY_NAME, KEY_PH_NO,KEY_LAN,KEY_LON };
         Cursor cursor = db.query(TABLE_POLICE, columne, null, null, null,
-                null, null);
+                null, null);//KEY_NAME+"ASC");
         if(cursor.moveToFirst()){
 
             do{

@@ -2,24 +2,28 @@ package com.example.taxisecurity;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+import android.content.Context;
+>>>>>>> 9b7ad87f6f86a334b6d86f49c8cebc43fef29471
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
+//import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-public class PlacesAutocompleteActivity extends Activity implements OnItemClickListener {
-	//private AutoCompleteTextView autoComplete;
-	//private ArrayAdapter<String> adapter;
+public class PlacesAutocompleteActivity extends Activity {
+	
 	String str;
 	
 	@Override
@@ -30,41 +34,25 @@ public class PlacesAutocompleteActivity extends Activity implements OnItemClickL
 	    
         AutoCompleteTextView autoCompView = (AutoCompleteTextView) findViewById(R.id.autoComplete);
         autoCompView.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
-        //autoCompView.setOnItemClickListener(this);
-
-    
-	
-//	public void onItemClick(AdapterView<?> adapterView , View view , int position ,long id) {
-//		String str = (String) adapterView.getItemAtPosition(position);
-//        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
-//
-//	}
-		// TODO Auto-generated method stub
-
         
-	}
+        
+        //autoCompView.setOnItemClickListener(this);
+        autoCompView.setThreshold(1);
 
 	
 	
 	
-	
-	
-	
-	
-	
-	
+	autoCompView.setOnItemClickListener(new OnItemClickListener() {
 	
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view, int position,
 			long id) {
 		str = (String) adapterView.getItemAtPosition(position);
-        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+        Context context = null;
+		Toast.makeText(context, "Position clicked: " + position, Toast.LENGTH_SHORT).show();
 		// TODO Auto-generated method stub
 		
-	
-	
-	
-	Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+	Geocoder geocoder = new Geocoder(context, Locale.getDefault());
 
     try {
         ArrayList<Address> adresses = (ArrayList<Address>) geocoder.getFromLocationName(str, 10);
@@ -85,7 +73,9 @@ public class PlacesAutocompleteActivity extends Activity implements OnItemClickL
 	catch(IllegalArgumentException ex){
         ex.printStackTrace();
     }
-	 
-}
 	}
+	});
+	}
+}
+	
 
