@@ -141,10 +141,10 @@ public class MainActivity extends Activity {
 				
 			}
 		});
-        //Database_Handler db= new Database_Handler(this);
+        Database_Handler db= new Database_Handler(this);
      // Inserting Contacts
         //Log.d("Insert: ", "Inserting ..");
-        /*db.addContact(new Contact("Fort", "0112433744" , 6.933825 , 79.846080));
+        db.addContact(new Contact("Fort", "0112433744" , 6.933825 , 79.846080));
         db.addContact(new Contact("Pettah", "0112320389",6.936655 ,79.850126));
         db.addContact(new Contact("Keselwatta", "0112421944",6.935062,79.858924));
         db.addContact(new Contact("Slave Island", "0112433820",6.927494,79.849151));
@@ -171,7 +171,7 @@ public class MainActivity extends Activity {
         db.addContact(new Contact("Maharagama", "0112850222",6.845210 ,79.928852));
         db.addContact(new Contact("Dehiwala", "0112283722",6.849982 ,79.871518));
         db.addContact(new Contact("Boralesgamuwa", "0112509461",6.841546 ,79.900786));
-        */
+        
         
         
       //Police Button click Listener

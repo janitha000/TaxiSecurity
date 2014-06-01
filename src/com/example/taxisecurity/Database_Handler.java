@@ -20,7 +20,7 @@ public class Database_Handler extends SQLiteOpenHelper {
 
 	// All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     // Database Name
     private static final String DATABASE_NAME = "taxiSecurity2";
@@ -88,10 +88,29 @@ public class Database_Handler extends SQLiteOpenHelper {
         values.put(KEY_LON, contact.getLon()); // Contact latitude
         
         // Inserting Row
+        if(!checkIfExist(contact.getName())){
         db.insert(TABLE_POLICE, null, values);
         db.close(); // Closing database connection
+        }
     }
+//Checking data existance
+    
+    boolean checkIfExist(String name) {
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_ID,
+                KEY_NAME, KEY_PH_NO,KEY_LAN,KEY_LON }, KEY_NAME + "=?",
+                new String[] { name }, null, null, null, null);
+
+
+        if(cursor.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    
     // Getting single contact
     Contact getContact(int id) {
         SQLiteDatabase db = this.getReadableDatabase();

@@ -10,11 +10,11 @@ import android.app.Activity;
 import android.content.Intent;
 
 import android.content.Context;
-<<<<<<< HEAD
-//9b7ad87f6f86a334b6d86f49c8cebc43fef29471
-=======
 
->>>>>>> 6bb5b35e23bd6cdbcb4dd980cdcdd9cc2754e2ad
+//9b7ad87f6f86a334b6d86f49c8cebc43fef29471
+
+
+// 6bb5b35e23bd6cdbcb4dd980cdcdd9cc2754e2ad
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
