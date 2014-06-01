@@ -122,6 +122,7 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 	@Override
 	public void onDestroy() {
 		 mLocationClient.disconnect();
+	Toast.makeText(this, "MyLocation Destroyed", Toast.LENGTH_SHORT).show();
 		super.onDestroy();
 	}
 

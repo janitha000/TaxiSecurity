@@ -246,6 +246,12 @@ public class MainActivity extends Activity {
         else 
             return false;
     }
+    
+    @Override
+    protected void onDestroy() {
+    	
+    	super.onDestroy();
+    }
    
 
 }
