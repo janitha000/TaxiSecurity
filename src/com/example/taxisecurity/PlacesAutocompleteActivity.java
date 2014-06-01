@@ -31,15 +31,15 @@ public class PlacesAutocompleteActivity extends Activity {
        
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.list_item);
-	    
+	    PlacesAutoCompleteAdapter adapter = new PlacesAutoCompleteAdapter(PlacesAutocompleteActivity.this, R.layout.list_item);
         AutoCompleteTextView autoCompView = (AutoCompleteTextView) findViewById(R.id.autoComplete);
-        autoCompView.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
+        autoCompView.setAdapter(adapter);
         
         
         //autoCompView.setOnItemClickListener(this);
         autoCompView.setThreshold(1);
 
-	
+        Toast.makeText(PlacesAutocompleteActivity.this,"Clicked", Toast.LENGTH_SHORT).show();
 	
 	
 	autoCompView.setOnItemClickListener(new OnItemClickListener() {
@@ -47,9 +47,10 @@ public class PlacesAutocompleteActivity extends Activity {
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view, int position,
 			long id) {
+		Toast.makeText(PlacesAutocompleteActivity.this,"Clicked", Toast.LENGTH_SHORT).show();
 //		str = (String) adapterView.getItemAtPosition(position);
 //        Context context = null;
-		Toast.makeText(PlacesAutocompleteActivity.this, "Position clicked: " + position, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(getApplicationContext(),(CharSequence)adapterView.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
 		// TODO Auto-generated method stub
 		
 	//Geocoder geocoder = new Geocoder(context, Locale.getDefault());
