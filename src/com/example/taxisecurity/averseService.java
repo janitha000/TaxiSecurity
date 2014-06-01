@@ -63,6 +63,9 @@ Handler hSendSMS = new Handler() {
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
+//		Lat = intent.getDoubleExtra("Latitiude", 0);
+//		Lon = intent.getDoubleExtra("Longtitude", 0);
+		
 		 Lat = 7.351822;  //Destination coordinates
 		 Lon = 80.615541;
 		 
