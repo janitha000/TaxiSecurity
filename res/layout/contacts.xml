@@ -136,7 +136,7 @@
         android:layout_below="@+id/contact2No"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="18dp"
-        android:text="@string/Save" />
+        android:text="@string/Save1" />
 
     <EditText
         android:id="@+id/contact2No"

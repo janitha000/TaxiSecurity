@@ -27,8 +27,17 @@
     <string name="ChosenContact2">Chosen Contact 2</string>
     <string name="Name2">Name</string>
     <string name="Mobile_No2">Mobile No</string>
-    <string name="Save">Save</string>
+    <string name="Save1">Save</string>
+    <string name="contact_1">Chosen Contact 1</string>  
+    <string name="change_details">Change Contact Details</string> 
+    <string name="name3">Name</string> 
+    <string name="mobile_no3">Mobile No</string> 
+    <string name="contact_2">Chosen Contact 2</string> 
+    <string name="name4">Name</string> 
+    <string name="mobile_no4">Mobile No</string> 
+    <string name="Save2">Save</string>
     
+     
     
 
 </resources>

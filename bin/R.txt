@@ -67,8 +67,8 @@ int id Name 0x7f06000a
 int id Pwd 0x7f060025
 int id TextView01 0x7f060007
 int id UserName 0x7f060023
-int id action_about 0x7f060040
-int id action_settings 0x7f06003f
+int id action_about 0x7f060044
+int id action_settings 0x7f060043
 int id autoComplete 0x7f060035
 int id averseButton 0x7f060015
 int id btnExtendOK 0x7f06001b
@@ -82,8 +82,12 @@ int id button4 0x7f060014
 int id button_register 0x7f06003b
 int id contact1Name 0x7f060027
 int id contact1No 0x7f06002a
+int id contact1name 0x7f06003f
+int id contact1no 0x7f060040
 int id contact2Name 0x7f06002f
 int id contact2No 0x7f06002e
+int id contact2name 0x7f060041
+int id contact2no 0x7f060042
 int id container 0x7f06000e
 int id editText1 0x7f060006
 int id editText2 0x7f060008
@@ -138,6 +142,7 @@ int layout list_item 0x7f03000a
 int layout loginform 0x7f03000b
 int layout policegeofencing 0x7f03000c
 int layout second 0x7f03000d
+int layout settings 0x7f03000e
 int menu main 0x7f0b0000
 int string ChosenContact1 0x7f07002f
 int string ChosenContact2 0x7f070032
@@ -149,7 +154,8 @@ int string Name1 0x7f070030
 int string Name2 0x7f070033
 int string Password 0x7f07002e
 int string SMS 0x7f07002a
-int string Save 0x7f070035
+int string Save1 0x7f070035
+int string Save2 0x7f07003d
 int string User_Details 0x7f07002c
 int string User_Name 0x7f07002d
 int string about 0x7f070022
@@ -162,6 +168,7 @@ int string auth_client_play_services_err_notification_msg 0x7f070018
 int string auth_client_requested_by_msg 0x7f070019
 int string auth_client_using_bad_version_title 0x7f070014
 int string averse 0x7f07001f
+int string change_details 0x7f070037
 int string choose 0x7f070026
 int string common_google_play_services_enable_button 0x7f070006
 int string common_google_play_services_enable_text 0x7f070005
@@ -183,11 +190,17 @@ int string common_google_play_services_update_text 0x7f070008
 int string common_google_play_services_update_title 0x7f070007
 int string common_signin_button_text 0x7f070012
 int string common_signin_button_text_long 0x7f070013
+int string contact_1 0x7f070036
+int string contact_2 0x7f07003a
 int string enter_destination 0x7f070024
 int string enter_your_destination_here 0x7f070023
 int string help 0x7f070021
 int string location_client_powered_by_google 0x7f07001a
+int string mobile_no3 0x7f070039
+int string mobile_no4 0x7f07003c
 int string name 0x7f070027
+int string name3 0x7f070038
+int string name4 0x7f07003b
 int string phone 0x7f070028
 int string police_details 0x7f070020
 int string police_station_theory 0x7f070025

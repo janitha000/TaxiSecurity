@@ -6,6 +6,7 @@ import java.util.TimerTask;
 
 
 
+
 import android.R.string;
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -16,6 +17,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -33,47 +35,19 @@ public class smsService extends Service implements LocationListener  {
 	PendingIntent pendingIntent;
 	String SLocation ="Not Working";
 	
+	String contact1Name;
+	String phoneNo1 ;
+	String contact2Name;
+	String phoneNo2;
 	
-	LocationManager mLocationManager;
+	
+	//Get chosen Contact Details
 	
 	
-	String phoneNo = "0716544588";
-	String sms = "Janitha";
+	String sms;
 	
 	Timer timerSendSMS = new Timer();
-
-    class taskSendSMS extends TimerTask {
-        @Override
-        public void run() {
-            hSendSMS.sendEmptyMessage(0);
-        }
-    };
-    
-    Handler hSendSMS = new Handler() {
-    	public void handleMessage(Message msg) {
-    		procSendSMS();
-            
-    	};
-    };
-    
-    public void procSendSMS() {  //********* loc eka null da kiyala check karala balala yawanna
-        try {
-        	//sendOneSMS("0716544588",  "test sms");
-        	//String loc =getLocation();
-
-        	SLocation = "Latitude is " + MyLocation.latitude  + "Longitude is " + MyLocation.longitude;
-        	Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-
-        }
-    }
-    
-    
-
-    
 	
-	
-
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
@@ -86,101 +60,19 @@ public class smsService extends Service implements LocationListener  {
           Toast.makeText(this,"Service created ...", Toast.LENGTH_LONG).show();
           smsManager = SmsManager.getDefault();
           Toast.makeText(this, "getLocation called", Toast.LENGTH_LONG).show();
-//   	   Location location = null;
-//   	   
-//   	       
-//   	   mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//   	   
-//   	        // getting GPS status
-//   	        Boolean isGPSEnabled = mLocationManager
-//   	                .isProviderEnabled(LocationManager.GPS_PROVIDER);
-//   	        //Toast.makeText(this, isGPSEnabled.toString(), Toast.LENGTH_LONG).show();
-//
-//   	        // getting network status
-//   	        Boolean isNetworkEnabled = mLocationManager
-//   	                .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-//
-//   	        if (!isGPSEnabled && !isNetworkEnabled) {
-//   	            // no network provider is enabled
-//   	        	
-//   	        } else {
-//   	            //this.canGetLocation = true;
-//   	            if (isGPSEnabled) {
-//   	            	
-//   	                if (location == null) {
-//   	                	
-//   	                    mLocationManager.requestLocationUpdates(
-//   	                            LocationManager.GPS_PROVIDER,
-//   	                            1000,
-//   	                            0, this);
-//   	                    
-//   	                    //Log.d("GPS", "GPS Enabled");
-//   	                    if (mLocationManager != null) {
-//   	                    	
-//   	                        location = mLocationManager
-//   	                                .getLastKnownLocation(LocationManager.GPS_PROVIDER);
-//   	                        
-//   	                        	
-//   	                        if (location != null) {
-//   	                        	
-//   	                        	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
-//   	                        	
-//   	                        }
-//   	                        else
-//   	                        {
-//   	                        	mLocationManager.requestLocationUpdates(
-//   	        	                        LocationManager.NETWORK_PROVIDER,
-//   	        	                        5*1000,
-//   	        	                        0,  this);
-//   	        	                //Log.d("Network", "Network Enabled");
-//   	        	                if (mLocationManager != null) {
-//   	        	                    location = mLocationManager
-//   	        	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-//   	        	                    if (location != null) {
-//   	        	                    	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
-//   	        	                    	Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
-//   	        	                    }
-//   	        	                } 
-//   	        	            
-//   	                        }
-//   	                    }
-//   	                }
-//   	            }
-   	            // if GPS Enabled get lat/long using GPS Services
-//   	            else if(isNetworkEnabled) {
-//   	                mLocationManager.requestLocationUpdates(
-//   	                        LocationManager.NETWORK_PROVIDER,
-//   	                        5*1000,
-//   	                        0,  this);
-//   	                //Log.d("Network", "Network Enabled");
-//   	                if (mLocationManager != null) {
-//   	                    location = mLocationManager
-//   	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-//   	                    if (location != null) {
-//   	                    	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
-//   	                    	Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
-//   	                    }
-//   	                } 
-//   	            
-//   	            
-//   	                
-//   	            }
-   	       // }
-   	        //not sure 
-   	        
-   	        //Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
-   			
-          
-          
-          
-          
+     
     }
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
+		SharedPreferences storage = getSharedPreferences("ContactData",0 );
+		contact1Name = storage.getString("chosen1Name", "Contact Name");
+		phoneNo1 = storage.getString("chosen1No", "111");
+		contact2Name = storage.getString("chosen2Name", "Contact Name");
+		phoneNo2 = storage.getString("chosen2No", "111");
 		
 		try {
-            long intervalSendSMS = 20*1000;
+            long intervalSendSMS = 20*1000; //*************change the time
 
             timerSendSMS = new Timer();
 
@@ -196,6 +88,36 @@ public class smsService extends Service implements LocationListener  {
         showRecordingNotification();
 		return super.onStartCommand(intent, flags, startId);
 	}
+
+    class taskSendSMS extends TimerTask {
+        @Override
+        public void run() {
+            hSendSMS.sendEmptyMessage(0);
+        }
+    };
+    
+    Handler hSendSMS = new Handler() {
+    	public void handleMessage(Message msg) {
+    		procSendSMS();
+            
+    	};
+    };
+    
+    public void procSendSMS() {  
+        try {
+        	sms = "I am at danger. My last known location is Latitude: "+ MyLocation.latitude
+        			+ " Logitude: "+ MyLocation.latitude;
+        	sendOneSMS(phoneNo1,  sms);
+        	sendOneSMS(phoneNo2,  sms);
+        	
+
+        	SLocation = "Latitude is " + MyLocation.latitude  + "Longitude is " + MyLocation.longitude;
+        	Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+
+        }
+    }
+    
     
     @Override
     public void onDestroy() {
@@ -203,9 +125,7 @@ public class smsService extends Service implements LocationListener  {
     	
     	timerSendSMS.cancel();
         timerSendSMS.purge();
-        //mLocationManager.removeUpdates(this);
-    	//alarmManager.cancel(pendingIntent);
-    	//unregisterReceiver(alarmReceiver);
+        
         Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
           super.onDestroy();
           Toast.makeText(this, "Service destroyed ...", Toast.LENGTH_LONG).show();
@@ -247,116 +167,11 @@ public class smsService extends Service implements LocationListener  {
 		}
     }
     
-   public String getLocation(){
-	   Toast.makeText(this, "getLocation called", Toast.LENGTH_LONG).show();
-	   Location location = null;
-	   
-	       
-	   mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-	   
-	        // getting GPS status
-	        Boolean isGPSEnabled = mLocationManager
-	                .isProviderEnabled(LocationManager.GPS_PROVIDER);
-	        //Toast.makeText(this, isGPSEnabled.toString(), Toast.LENGTH_LONG).show();
-
-	        // getting network status
-	        Boolean isNetworkEnabled = mLocationManager
-	                .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-
-	        if (!isGPSEnabled && !isNetworkEnabled) {
-	            // no network provider is enabled
-	        	
-	        } else  {
-	            //this.canGetLocation = true;
-	            if (isGPSEnabled) {
-	            	
-	                if (location == null) {
-	                	
-	                    mLocationManager.requestLocationUpdates(
-	                            LocationManager.GPS_PROVIDER,
-	                            1000,
-	                            5, this);
-	                    
-	                    //Log.d("GPS", "GPS Enabled");
-	                    if (mLocationManager != null) {
-	                    	
-	                        location = mLocationManager
-	                                .getLastKnownLocation(LocationManager.GPS_PROVIDER);
-	                        
-	                        	
-	                        if (location != null) {
-	                        	
-	                        	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
-	                        	
-	                        }
-	                        else
-	                        {
-	                        	mLocationManager.requestLocationUpdates(
-	        	                        LocationManager.NETWORK_PROVIDER,
-	        	                        5*1000,
-	        	                        10,  this);
-	        	                //Log.d("Network", "Network Enabled");
-	        	                if (mLocationManager != null) {
-	        	                    location = mLocationManager
-	        	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-	        	                    if (location != null) {
-	        	                    	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
-	        	                    	Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
-	        	                    }
-	        	                } 
-	        	            
-	                        }
-	                    }
-	                }
-	                } else  {
-	                	mLocationManager.requestLocationUpdates(
-    	                        LocationManager.NETWORK_PROVIDER,
-    	                        5*1000,
-    	                        10,  this);
-    	                //Log.d("Network", "Network Enabled");
-    	                if (mLocationManager != null) {
-    	                    location = mLocationManager
-    	                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-    	                    if (location != null) {
-    	                    	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
-    	                    	Toast.makeText(this, "Network Location", Toast.LENGTH_LONG).show();
-    	                    }
-    	                } 
-	                	
-	                }
-	            
-
-	        }
-	        
-			return SLocation;
-	   
-       
-//       Location location = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-//       if(location == null)
-//    	   Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
-//       if(location != null && location.getTime() > Calendar.getInstance().getTimeInMillis() - 2 * 60 * 1000) {
-//    	   
-//       }
-//       else {
-//           mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) this);
-//           
-//       }
-//       
-//       SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
-//       mLocationManager.removeUpdates((LocationListener) this);
-       
-   }
-
-
-
-
-
-
-
+ 
 @Override
 public void onLocationChanged(Location location) {
 	Toast.makeText(this, "OnLocationChanged", Toast.LENGTH_LONG).show();
-	SLocation = "Latitude is " + location.getLatitude() + "Longitude is " + location.getLongitude();
+	
 	
 }
 

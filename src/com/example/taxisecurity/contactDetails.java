@@ -49,6 +49,8 @@ public class contactDetails extends Activity {
 				editor.commit();
 				Toast.makeText(contactDetails.this, "Saved", Toast.LENGTH_LONG).show();
 				
+				Intent goMain = new Intent(contactDetails.this, MainActivity.class);
+				startActivity(goMain);
 			}
 		});
 		}

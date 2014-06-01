@@ -52,8 +52,8 @@ public class MainActivity extends Activity {
     //*************End of editing**********************
 
        // Start LOCATION Service
-       // Intent in = new Intent(MainActivity.this, MyLocation.class);
-        //startService(in);
+        Intent in = new Intent(MainActivity.this, MyLocation.class);
+        startService(in);
        
         //Buttons on Main Activity
         Button TimeButton = (Button) findViewById(R.id.Button01);
@@ -204,7 +204,8 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            return true;
+           Intent settingsIntent =  new Intent(MainActivity.this,Settings.class);
+           startActivity(settingsIntent);
         }
         else if (id == R.id.action_about) {
 			Intent aboutIntent = new Intent(MainActivity.this, aboutActivity.class);
@@ -233,6 +234,7 @@ public class MainActivity extends Activity {
     protected void onResume() {
     	Toast.makeText(this, MyLocation.latitude + " " + MyLocation.longitude, Toast.LENGTH_SHORT).show();
     	super.onResume();
+    	
     }
     
     private boolean first_time_check() {
@@ -243,6 +245,12 @@ public class MainActivity extends Activity {
         }
         else 
             return false;
+    }
+    
+    @Override
+    protected void onDestroy() {
+    	
+    	super.onDestroy();
     }
    
 
