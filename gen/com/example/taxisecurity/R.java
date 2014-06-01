@@ -231,8 +231,9 @@ containing a value of this type.
         public static final int Pwd=0x7f060025;
         public static final int TextView01=0x7f060007;
         public static final int UserName=0x7f060023;
-        public static final int action_about=0x7f060044;
-        public static final int action_settings=0x7f060043;
+        public static final int action_about=0x7f060045;
+        public static final int action_settings=0x7f060044;
+        public static final int address_as_string=0x7f06003c;
         public static final int autoComplete=0x7f060035;
         public static final int averseButton=0x7f060015;
         public static final int btnExtendOK=0x7f06001b;
@@ -246,12 +247,12 @@ containing a value of this type.
         public static final int button_register=0x7f06003b;
         public static final int contact1Name=0x7f060027;
         public static final int contact1No=0x7f06002a;
-        public static final int contact1name=0x7f06003f;
-        public static final int contact1no=0x7f060040;
+        public static final int contact1name=0x7f060040;
+        public static final int contact1no=0x7f060041;
         public static final int contact2Name=0x7f06002f;
         public static final int contact2No=0x7f06002e;
-        public static final int contact2name=0x7f060041;
-        public static final int contact2no=0x7f060042;
+        public static final int contact2name=0x7f060042;
+        public static final int contact2no=0x7f060043;
         public static final int container=0x7f06000e;
         public static final int editText1=0x7f060006;
         public static final int editText2=0x7f060008;
@@ -274,9 +275,9 @@ containing a value of this type.
         public static final int policePhone=0x7f060034;
         public static final int regButton=0x7f060016;
         public static final int satellite=0x7f060002;
-        public static final int second_text_email=0x7f06003d;
-        public static final int second_text_name=0x7f06003c;
-        public static final int second_text_pass=0x7f06003e;
+        public static final int second_text_email=0x7f06003e;
+        public static final int second_text_name=0x7f06003d;
+        public static final int second_text_pass=0x7f06003f;
         public static final int terrain=0x7f060003;
         public static final int text1=0x7f060036;
         public static final int textRemaining=0x7f06001e;
@@ -308,9 +309,10 @@ containing a value of this type.
         public static final int item=0x7f030009;
         public static final int list_item=0x7f03000a;
         public static final int loginform=0x7f03000b;
-        public static final int policegeofencing=0x7f03000c;
-        public static final int second=0x7f03000d;
-        public static final int settings=0x7f03000e;
+        public static final int placesautocomplete=0x7f03000c;
+        public static final int policegeofencing=0x7f03000d;
+        public static final int second=0x7f03000e;
+        public static final int settings=0x7f03000f;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
