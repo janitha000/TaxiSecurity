@@ -141,9 +141,37 @@ public class MainActivity extends Activity {
 				
 			}
 		});
-        Database_Handler db= new Database_Handler(this);
+        //Database_Handler db= new Database_Handler(this);
      // Inserting Contacts
         //Log.d("Insert: ", "Inserting ..");
+        /*db.addContact(new Contact("Fort", "0112433744" , 6.933825 , 79.846080));
+        db.addContact(new Contact("Pettah", "0112320389",6.936655 ,79.850126));
+        db.addContact(new Contact("Keselwatta", "0112421944",6.935062,79.858924));
+        db.addContact(new Contact("Slave Island", "0112433820",6.927494,79.849151));
+        db.addContact(new Contact("Maradana", "0112692748",6.927976 ,79.865450));
+        db.addContact(new Contact("Maligawatta", "0112434135",6.934399 ,79.869878));
+        db.addContact(new Contact("Harbour", "0112320980",6.941919 ,79.842861));
+        db.addContact(new Contact("Foreshore", "0112434595",6.949690 ,79.857366));
+        db.addContact(new Contact("Kotahena", "0112431861",6.951129 ,79.862432));
+        db.addContact(new Contact("Modara", "0112524411",6.964794 ,79.868256));
+        db.addContact(new Contact("Mattakkuliya", "0112521761",6.976244 ,79.879897));
+        db.addContact(new Contact("Grandpass", "0112412414",6.949085 ,79.873028));
+        db.addContact(new Contact("Dematagoda", "0112693838",6.930688 ,79.877067));
+        db.addContact(new Contact("Kirulapone", "0112323689",6.877824 ,79.873905));
+        db.addContact(new Contact("Narahenpita", "0112388242",6.891926 ,79.876672));
+        db.addContact(new Contact("Wellawatta", "0112588212",6.873218 ,79.860997));
+        db.addContact(new Contact("Bambalapitiya", "0112588680",6.892082 ,79.855808));
+        db.addContact(new Contact("Kollupitiya", "0112323689",6.914184 ,79.849107));
+        db.addContact(new Contact("Borella", "0112693938",6.915350 ,79.878191));
+        db.addContact(new Contact("Cinamon Gardens", "0112695411",6.907193 ,79.863431));
+        db.addContact(new Contact("Kelaniya", "0112911922",6.950398 ,79.917544));
+        db.addContact(new Contact("Peliyagoda", "0112911222",6.955228 ,79.886102));
+        db.addContact(new Contact("Kohuwala", "0112852621",6.867370 ,79.883629));
+        db.addContact(new Contact("Mirihana", "0112852566",6.873928 ,79.901043));
+        db.addContact(new Contact("Maharagama", "0112850222",6.845210 ,79.928852));
+        db.addContact(new Contact("Dehiwala", "0112283722",6.849982 ,79.871518));
+        db.addContact(new Contact("Boralesgamuwa", "0112509461",6.841546 ,79.900786));
+        */
         
         
       //Police Button click Listener
