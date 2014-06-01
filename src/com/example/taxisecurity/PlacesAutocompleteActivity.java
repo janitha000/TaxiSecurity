@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
-<<<<<<< HEAD
+
 import android.content.Intent;
-=======
+
 import android.content.Context;
->>>>>>> 9b7ad87f6f86a334b6d86f49c8cebc43fef29471
+//9b7ad87f6f86a334b6d86f49c8cebc43fef29471
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;

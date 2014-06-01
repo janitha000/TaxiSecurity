@@ -21,6 +21,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DisplayList extends ListActivity {
 	Intent intent;
@@ -64,17 +65,20 @@ public class DisplayList extends ListActivity {
 
                   	public void onClick(DialogInterface dialog, int id) {
                   		
-                  		String selectedItem = (String) listview.getItemAtPosition(position);
-                  		String query = "SELECT KEY_LAN,KEY_LON FROM TABLE_POLICE WHERE KEY_NAME =  '" +selectedItem  + "'";
-                        SQLiteDatabase dbs = db.getReadableDatabase();
-                        Cursor result = dbs.rawQuery(query, null);
-                        result.moveToFirst();
+//                  		String selectedItem = (String) listview.getItemAtPosition(position);
+//                  		String query = "SELECT KEY_LAN,KEY_LON FROM TABLE_POLICE WHERE KEY_NAME =  '" +selectedItem  + "'";
+//                        SQLiteDatabase dbs = db.getReadableDatabase();
+//                        Cursor result = dbs.rawQuery(query, null);
+//                        result.moveToFirst();
+                  		
+                  		double lat = db.getLatitudeFromId(id);
+                  		double lon = db.getLongitudeFromId(id);
+                  	    //Toast.makeText(getApplicationContext(), rowLat, Toast.LENGTH_SHORT).show();
+                        //double lat = result.getDouble(result.getColumnIndex("KEY_LAN"));
+                        //double lon = result.getDouble(result.getColumnIndex("KEY_LON"));
 
-                        double lat = result.getDouble(result.getColumnIndex("KEY_LAN"));
-                        double lon = result.getDouble(result.getColumnIndex("KEY_LON"));
 
-
-//***************edit janitha and vindya****************************
+//***************edit  vindya****************************
 
 //                    		String name="Maharagama Police Station";
 //                    		Double Lat=6.845381;
@@ -83,7 +87,7 @@ public class DisplayList extends ListActivity {
                             intent.putExtra("Method", 1);
                             intent.putExtra("Latitiude", lat);
                             intent.putExtra("Longtitude",lon);
-                            intent.putExtra("Name", selectedItem);
+                            //intent.putExtra("Name", selectedItem);
                             startActivity(intent);
                         
                         }
