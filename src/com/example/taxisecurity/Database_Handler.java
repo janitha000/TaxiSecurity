@@ -45,7 +45,7 @@ public class Database_Handler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_POLICE + "("
-                + KEY_ID + " INTEGER PRIMARY KEY AUTO INCREMENT," + KEY_NAME + " TEXT,"
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT,"
                 + KEY_PH_NO + " TEXT," +KEY_LAN +" DOUBLE," + KEY_LON +" DOUBLE"+")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }

@@ -26,7 +26,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
-public class PlacesAutocompleteActivity extends Activity {
+public class PlacesAutocompleteActivity extends Activity implements AdapterView.OnItemClickListener  {
 	
 	String str;
 	
@@ -37,48 +37,47 @@ public class PlacesAutocompleteActivity extends Activity {
 	    setContentView(R.layout.list_item);
 	    
         AutoCompleteTextView autoCompView = (AutoCompleteTextView) findViewById(R.id.autoComplete);
-        autoCompView.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.list_item));
+        autoCompView.setAdapter(new PlacesAutoCompleteAdapter(this, R.layout.placesauto));
         
         
-        //autoCompView.setOnItemClickListener(this);
+        autoCompView.setOnItemClickListener(this);
         autoCompView.setThreshold(1);
 
 	
 	
 	
-	autoCompView.setOnItemClickListener(new OnItemClickListener() {
 	
+		
+
+	
+	}
+
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view, int position,
 			long id) {
-//		str = (String) adapterView.getItemAtPosition(position);
-//        Context context = null;
-		Toast.makeText(PlacesAutocompleteActivity.this, "Position clicked: " + position, Toast.LENGTH_SHORT).show();
-		// TODO Auto-generated method stub
-		
-	//Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+		str = (String) adapterView.getItemAtPosition(position);
+		Geocoder geocoder = new Geocoder(getBaseContext(), Locale.getDefault());
 
-//    try {
-//        ArrayList<Address> adresses = (ArrayList<Address>) geocoder.getFromLocationName(str, 10);
-//        for(Address add : adresses){
-//                double longitude = add.getLongitude();
-//                double latitude = add.getLatitude();
-//                
-//                Intent intent = new Intent(PlacesAutocompleteActivity.this, averseService.class);
-//                
-//                intent.putExtra("Latitiude", latitude);
-//                intent.putExtra("Longtitude",longitude);
-//                
-//                startActivity(intent);
-//        }
-//    } catch (IOException e) {
-//        e.printStackTrace();
-//    } 
-//	catch(IllegalArgumentException ex){
-//        ex.printStackTrace();
-//    }
-	}
-	});
+	    try {
+	        ArrayList<Address> adresses = (ArrayList<Address>) geocoder.getFromLocationName(str, 10);
+	        for(Address add : adresses){
+	                double longitude = add.getLongitude();
+	                double latitude = add.getLatitude();
+	                
+	                Intent intent = new Intent(PlacesAutocompleteActivity.this, averseService.class);
+	                
+	                intent.putExtra("Latitiude", latitude);
+	                intent.putExtra("Longtitude",longitude);
+	                
+	                startService(intent);
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    } 
+		catch(IllegalArgumentException ex){
+	        ex.printStackTrace();
+	    }
+		
 	}
 }
 	
