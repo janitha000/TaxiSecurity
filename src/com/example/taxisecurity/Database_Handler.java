@@ -166,6 +166,35 @@ public class Database_Handler extends SQLiteOpenHelper {
         // return count
         return cursor.getCount();
     }
+    
+    public double getLatitudeFromId(long id) {
+        double rowLat =0.0000;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_LAN },"id=" + id, null, null, null,null);
+        if (cursor.moveToFirst()){
+            rowLat = cursor.getDouble(cursor.getColumnIndex(KEY_LAN));
+        }
+        cursor.close();
+        db.close();
+
+        // return coordinates
+        return rowLat;
+    }  
+    public double getLongitudeFromId(long id) {
+        double rowLon =0.0000;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_LON },"id=" + id, null, null, null,null);
+        if (cursor.moveToFirst()){
+            rowLon = cursor.getDouble(cursor.getColumnIndex(KEY_LON));
+        }
+        cursor.close();
+        db.close();
+
+        // return coordinates
+        return rowLon;
+    }  
 
 }
 
