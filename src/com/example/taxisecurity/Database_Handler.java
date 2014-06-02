@@ -205,13 +205,11 @@ public class Database_Handler extends SQLiteOpenHelper {
         // return coordinates
         return rowLat;
     }  
-<<<<<<< HEAD
-    public double getLongitudeFromId(long id) {
-        double rowLon=0.0000;
-=======
+
+ 
     public double getLongitudeFromId(String Name) {
         double rowLon =0.0000;
->>>>>>> 3ca9000e6dea0a5ddb684a937f89160341f04a72
+
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_LON },"name=" + "'"+ Name + "'", null, null, null,null);
@@ -224,20 +222,7 @@ public class Database_Handler extends SQLiteOpenHelper {
         // return coordinates
         return rowLon;
     }  
-    public String getNameFromId(long id) {
-        String selectname=null;
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_NAME },"id=" + id, null, null, null,null);
-        if (cursor.moveToFirst()){
-            selectname = cursor.getString(cursor.getColumnIndex(KEY_NAME));
-        }
-        cursor.close();
-        db.close();
-
-        // return coordinates
-        return selectname;
-    }  
+    
 }
 
 
