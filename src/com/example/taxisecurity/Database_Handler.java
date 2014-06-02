@@ -206,7 +206,11 @@ public class Database_Handler extends SQLiteOpenHelper {
         return rowLat;
     }  
 
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 7e27ecb08c1b4c7f2af36cac4f6723fc014af6f0
     public double getLongitudeFromId(String Name) {
         double rowLon =0.0000;
 
