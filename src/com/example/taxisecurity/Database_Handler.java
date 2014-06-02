@@ -45,7 +45,7 @@ public class Database_Handler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_POLICE + "("
-                + KEY_ID + " INTEGER PRIMARY KEY AUTO INCREMENT," + KEY_NAME + " TEXT,"
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT,"
                 + KEY_PH_NO + " TEXT," +KEY_LAN +" DOUBLE," + KEY_LON +" DOUBLE"+")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
@@ -201,7 +201,7 @@ public class Database_Handler extends SQLiteOpenHelper {
         return rowLat;
     }  
     public double getLongitudeFromId(long id) {
-        double rowLon =0.0000;
+        double rowLon=0.0000;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_LON },"id=" + id, null, null, null,null);
@@ -214,7 +214,20 @@ public class Database_Handler extends SQLiteOpenHelper {
         // return coordinates
         return rowLon;
     }  
+    public String getNameFromId(long id) {
+        String selectname=null;
 
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_NAME },"id=" + id, null, null, null,null);
+        if (cursor.moveToFirst()){
+            selectname = cursor.getString(cursor.getColumnIndex(KEY_NAME));
+        }
+        cursor.close();
+        db.close();
+
+        // return coordinates
+        return selectname;
+    }  
 }
 
 

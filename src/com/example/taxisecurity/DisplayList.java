@@ -55,22 +55,22 @@ public class DisplayList extends ListActivity {
                     //final String policeNameValue = policeName.getText().toString();
                     //final int selectedPosition = position;
                     AlertDialog.Builder adb=new AlertDialog.Builder(DisplayList.this); 
-                    
-                    adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
-
-
-         	
-                    	
-                    	
-
+                   
+                   adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
+//
+//
+//         	
+//                    	
+//                    	
+//
                   	public void onClick(DialogInterface dialog, int id) {
-                  		
-//                  		String selectedItem = (String) listview.getItemAtPosition(position);
+//                  		
+// //                 		String selectedItem = (String) listview.getItemAtPosition(position);
 //                  		String query = "SELECT KEY_LAN,KEY_LON FROM TABLE_POLICE WHERE KEY_NAME =  '" +selectedItem  + "'";
 //                        SQLiteDatabase dbs = db.getReadableDatabase();
 //                        Cursor result = dbs.rawQuery(query, null);
 //                        result.moveToFirst();
-                  		
+                  		String selectName=db.getNameFromId(id);
                   		double lat = db.getLatitudeFromId(id);
                   		double lon = db.getLongitudeFromId(id);
                   	    //Toast.makeText(getApplicationContext(), rowLat, Toast.LENGTH_SHORT).show();
@@ -87,7 +87,7 @@ public class DisplayList extends ListActivity {
                             intent.putExtra("Method", 1);
                             intent.putExtra("Latitiude", lat);
                             intent.putExtra("Longtitude",lon);
-                            //intent.putExtra("Name", selectedItem);
+                            intent.putExtra("Name", selectName);
                             startActivity(intent);
                         
                         }
