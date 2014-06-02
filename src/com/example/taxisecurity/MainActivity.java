@@ -171,7 +171,7 @@ public class MainActivity extends Activity {
         db.addContact(new Contact("Maharagama", "0112850222",6.845210 ,79.928852));
         db.addContact(new Contact("Dehiwala", "0112283722",6.849982 ,79.871518));
         db.addContact(new Contact("Boralesgamuwa", "0112509461",6.841546 ,79.900786));
-        
+        db.close();
         
         
       //Police Button click Listener
