@@ -48,13 +48,15 @@ public class DisplayList extends ListActivity {
 
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View view,
-                		final int position, long id) {
+                		final int position, final long id) {
 
-                    //policeName = (TextView) view.findViewById(R.id.policeName);
-
-                    //final String policeNameValue = policeName.getText().toString();
+                    policeName = (TextView) view.findViewById(R.id.policeName);
+                    
+                    final String policeNameValue = policeName.getText().toString();
+                    System.out.println(policeNameValue);
                     //final int selectedPosition = position;
                     AlertDialog.Builder adb=new AlertDialog.Builder(DisplayList.this); 
+<<<<<<< HEAD
                    
                    adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
 //
@@ -66,13 +68,32 @@ public class DisplayList extends ListActivity {
                   	public void onClick(DialogInterface dialog, int id) {
 //                  		
 // //                 		String selectedItem = (String) listview.getItemAtPosition(position);
+=======
+                    
+                    adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
+
+
+         	
+                    	
+                    	
+
+                  	public void onClick(DialogInterface dialog, int idNo) {
+                  		
+//                  		String selectedItem = (String) listview.getItemAtPosition(position);
+>>>>>>> 3ca9000e6dea0a5ddb684a937f89160341f04a72
 //                  		String query = "SELECT KEY_LAN,KEY_LON FROM TABLE_POLICE WHERE KEY_NAME =  '" +selectedItem  + "'";
 //                        SQLiteDatabase dbs = db.getReadableDatabase();
 //                        Cursor result = dbs.rawQuery(query, null);
 //                        result.moveToFirst();
+<<<<<<< HEAD
                   		String selectName=db.getNameFromId(id);
                   		double lat = db.getLatitudeFromId(id);
                   		double lon = db.getLongitudeFromId(id);
+=======
+                  		
+                  		double lat = db.getLatitudeFromId(policeNameValue);
+                  		double lon = db.getLongitudeFromId(policeNameValue);
+>>>>>>> 3ca9000e6dea0a5ddb684a937f89160341f04a72
                   	    //Toast.makeText(getApplicationContext(), rowLat, Toast.LENGTH_SHORT).show();
                         //double lat = result.getDouble(result.getColumnIndex("KEY_LAN"));
                         //double lon = result.getDouble(result.getColumnIndex("KEY_LON"));
@@ -87,7 +108,11 @@ public class DisplayList extends ListActivity {
                             intent.putExtra("Method", 1);
                             intent.putExtra("Latitiude", lat);
                             intent.putExtra("Longtitude",lon);
+<<<<<<< HEAD
                             intent.putExtra("Name", selectName);
+=======
+                            intent.putExtra("Name", policeNameValue);
+>>>>>>> 3ca9000e6dea0a5ddb684a937f89160341f04a72
                             startActivity(intent);
                         
                         }

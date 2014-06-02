@@ -12,6 +12,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 public class Database_Handler extends SQLiteOpenHelper {
 
@@ -186,25 +188,33 @@ public class Database_Handler extends SQLiteOpenHelper {
         return cursor.getCount();
     }
     
-    public double getLatitudeFromId(long id) {
+    public double getLatitudeFromId(String Name) {
         double rowLat =0.0000;
-
+        System.out.println(Name);
+      
+        
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_LAN },"id=" + id, null, null, null,null);
+        Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_LAN },"name=" + "'"+Name + "'", null, null, null,null);
         if (cursor.moveToFirst()){
             rowLat = cursor.getDouble(cursor.getColumnIndex(KEY_LAN));
+            //Log.i("database", "GetLatitude Called");
         }
         cursor.close();
         db.close();
-
+       
         // return coordinates
         return rowLat;
     }  
+<<<<<<< HEAD
     public double getLongitudeFromId(long id) {
         double rowLon=0.0000;
+=======
+    public double getLongitudeFromId(String Name) {
+        double rowLon =0.0000;
+>>>>>>> 3ca9000e6dea0a5ddb684a937f89160341f04a72
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_LON },"id=" + id, null, null, null,null);
+        Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_LON },"name=" + "'"+ Name + "'", null, null, null,null);
         if (cursor.moveToFirst()){
             rowLon = cursor.getDouble(cursor.getColumnIndex(KEY_LON));
         }
