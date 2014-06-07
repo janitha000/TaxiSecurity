@@ -36,13 +36,12 @@
     <string name="name4">Name</string> 
     <string name="mobile_no4">Mobile No</string> 
     <string name="Save2">Save</string>
-<<<<<<< HEAD
+
     <string name="helpDes"><p>\tChosen contact 1 and chosen contact 2 will be the contacts that the emergency sms will be sent. Emergency sms will be contained your last known location.</p>\n\n<h1><b>Averse Destination</b></h1>\n&#8226; Select the destination you are travelling.\n &#8226; The averse destination service will start automatically.\n &#8226; To stop the service click on the notification on notification bar.\n &#8226; If the destination is diverted a dialog will apear.\n &#8226; You can either ignore and continue, show in the map or send sms.\n\n<p><h1><b>Police Station Details</b></h1>\n\tDetails of the colombo area police stations will be displayed.</p></string>
-      
-=======
-     <string name="helpDes"><p>\tChosen contact 1 and chosen contact 2 will be the contacts that the emergency sms will be sent. Emergency sms will be contained your last known location.</p>\n\n<h1><b>Averse Destination</b></h1>\n&#8226; Select the destination you are travelling.\n &#8226; The averse destination service will start automatically.\n &#8226; To stop the service click on the notification on notification bar.\n &#8226; If the destination is diverted a dialog will apear.\n &#8226; You can either ignore and continue, show in the map or send sms.\n<p><h1>Police Station Details</h1>\n\tDetails of the colombo area police stations will be displayed.</p></string>
+
+    
      
->>>>>>> 0f9acaf94e4316666c1bf206badefae28ec1b9ce
+
     
 
 </resources>
