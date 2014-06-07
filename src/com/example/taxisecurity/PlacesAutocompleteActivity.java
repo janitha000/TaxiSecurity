@@ -57,6 +57,7 @@ public class PlacesAutocompleteActivity extends Activity implements AdapterView.
 			long id) {
 		str = (String) adapterView.getItemAtPosition(position);
 		Geocoder geocoder = new Geocoder(getBaseContext(), Locale.getDefault());
+		Toast.makeText(this, "Called", Toast.LENGTH_LONG).show();
 
 	    try {
 	        ArrayList<Address> adresses = (ArrayList<Address>) geocoder.getFromLocationName(str, 10);
@@ -64,7 +65,7 @@ public class PlacesAutocompleteActivity extends Activity implements AdapterView.
 	                double longitude = add.getLongitude();
 	                double latitude = add.getLatitude();
 	                
-	                Intent intent = new Intent(PlacesAutocompleteActivity.this, averseService.class);
+	                
 	                
 	                intent.putExtra("Latitiude", latitude);
 	                intent.putExtra("Longtitude",longitude);
