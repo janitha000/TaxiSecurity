@@ -7,11 +7,9 @@
 
    <TextView
        android:id="@+id/SonucTextView"
-       android:layout_width="wrap_content"
-       android:layout_height="176dp"
-       android:editable="false"
-       android:maxLines="5"
-       android:scrollbars="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_horizontal"
        android:text="@string/helpDes"
        android:textAppearance="?android:attr/textAppearanceMedium" />
 

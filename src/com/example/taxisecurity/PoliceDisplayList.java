@@ -1,11 +1,13 @@
 package com.example.taxisecurity;
 
+import android.app.ListActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import android.app.AlertDialog;
-import android.app.ListActivity;
+//import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -23,7 +25,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DisplayList extends ListActivity {
+public class PoliceDisplayList extends ListActivity {
 	Intent intent;
     TextView policeName;
 
@@ -56,7 +58,7 @@ public class DisplayList extends ListActivity {
                     System.out.println(policeNameValue);
                     //final int selectedPosition = position;
 
-                    AlertDialog.Builder adb=new AlertDialog.Builder(DisplayList.this); 
+                    AlertDialog.Builder adb=new AlertDialog.Builder(PoliceDisplayList.this); 
 
                     
                     adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
@@ -90,7 +92,7 @@ public class DisplayList extends ListActivity {
 //                    		String name="Maharagama Police Station";
 //                    		Double Lat=6.845381;
 //                    		Double Lon=79.928978;
-                            Intent intent = new Intent(DisplayList.this, mapActivity.class);
+                            Intent intent = new Intent(PoliceDisplayList.this, mapActivity.class);
                             intent.putExtra("Method", 1);
                             intent.putExtra("Latitiude", lat);
                             intent.putExtra("Longtitude",lon);
@@ -112,7 +114,7 @@ public class DisplayList extends ListActivity {
                 }
             });                
             ListAdapter adapter = new SimpleAdapter(
-                    DisplayList.this, policeList, R.layout.item, 
+                    PoliceDisplayList.this, policeList, R.layout.item, 
                     new String[] {"policeID", "policeName", "policePhone","policeLan","policeLon"}, 
                     new int[] {R.id.policeID, R.id.policeName, R.id.policePhone, R.id.policeLan, R.id.policeLon});
 
@@ -130,4 +132,3 @@ public class DisplayList extends ListActivity {
 //    }
 
 }
-

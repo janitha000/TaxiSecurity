@@ -80,7 +80,7 @@ public class Database_Handler extends SQLiteOpenHelper {
      */
 
     // Adding new contact
-    void addContact(Contact contact) {
+    void addPolice_Details(Police_Details contact) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -114,7 +114,7 @@ public class Database_Handler extends SQLiteOpenHelper {
     }
     
     // Getting single contact
-    Contact getContact(int id) {
+    Police_Details getPolice_Details(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_POLICE, new String[] { KEY_ID,
@@ -123,14 +123,14 @@ public class Database_Handler extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        Contact contact = new Contact(Integer.parseInt(cursor.getString(0)),
+        Police_Details contact = new Police_Details(Integer.parseInt(cursor.getString(0)),
                 cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getDouble(4) );
         // return contact
         return contact;
     }
 
     // Getting All Contacts
-    public ArrayList<HashMap<String, String>> getAllContact(){
+    public ArrayList<HashMap<String, String>> getAllPolice_Details(){
     	SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<HashMap<String, String>> policeArrayList = new ArrayList<HashMap<String, String>>();
         //String [] columne = new String[] { KEY_ID, KEY_NAME, KEY_PH_NO,KEY_LAN,KEY_LON };
@@ -155,7 +155,7 @@ public class Database_Handler extends SQLiteOpenHelper {
     }
 
     // Updating single contact
-    public int updateContact(Contact contact) {
+    public int updatePolice_Details(Police_Details contact) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -169,7 +169,7 @@ public class Database_Handler extends SQLiteOpenHelper {
     }
 
     // Deleting single contact
-    public void deleteContact(Contact contact) {
+    public void deletePolice_Details(Police_Details contact) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_POLICE, KEY_ID + " = ?",
                 new String[] { String.valueOf(contact.getID()) });
@@ -178,7 +178,7 @@ public class Database_Handler extends SQLiteOpenHelper {
 
 
     // Getting contacts Count
-    public int getContactsCount() {
+    public int getPolice_DetailsCount() {
         String countQuery = "SELECT  * FROM " + TABLE_POLICE;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
@@ -206,11 +206,8 @@ public class Database_Handler extends SQLiteOpenHelper {
         return rowLat;
     }  
 
-<<<<<<< HEAD
- 
-=======
 
->>>>>>> 7e27ecb08c1b4c7f2af36cac4f6723fc014af6f0
+
     public double getLongitudeFromId(String Name) {
         double rowLon =0.0000;
 
