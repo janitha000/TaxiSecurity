@@ -59,6 +59,22 @@ public class DisplayList extends ListActivity {
 
                     AlertDialog.Builder adb=new AlertDialog.Builder(DisplayList.this); 
 
+<<<<<<< HEAD
+=======
+                   
+                  
+//
+//
+//         	
+//                    	
+//                    	
+//
+                  	
+//                  		
+// //                 		String selectedItem = (String) listview.getItemAtPosition(position);
+
+
+>>>>>>> 92bdcca40f7a831ff9c0ba074db0db310995be2c
 
                     
                     adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
@@ -72,7 +88,20 @@ public class DisplayList extends ListActivity {
                   		
 //                  		String selectedItem = (String) listview.getItemAtPosition(position);
 
+<<<<<<< HEAD
 
+=======
+
+
+
+
+//                  		String query = "SELECT KEY_LAN,KEY_LON FROM TABLE_POLICE WHERE KEY_NAME =  '" +selectedItem  + "'";
+//                        SQLiteDatabase dbs = db.getReadableDatabase();
+//                        Cursor result = dbs.rawQuery(query, null);
+//                        result.moveToFirst();
+
+
+>>>>>>> 92bdcca40f7a831ff9c0ba074db0db310995be2c
 
 //                  		String selectName=db.getNameFromId(id);
 //                  		double lat = db.getLatitudeFromId(id);
