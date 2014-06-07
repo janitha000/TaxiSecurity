@@ -56,7 +56,23 @@ public class DisplayList extends ListActivity {
                     System.out.println(policeNameValue);
                     //final int selectedPosition = position;
 
+<<<<<<< HEAD
                     AlertDialog.Builder adb=new AlertDialog.Builder(DisplayList.this); 
+=======
+                    AlertDialog.Builder adb=new AlertDialog.Builder(DisplayList.this);
+                   
+                  
+//
+//
+//         	
+//                    	
+//                    	
+//
+                  	
+//                  		
+// //                 		String selectedItem = (String) listview.getItemAtPosition(position);
+
+>>>>>>> 0f9acaf94e4316666c1bf206badefae28ec1b9ce
 
                     
                     adb.setNeutralButton("Show Map", new DialogInterface.OnClickListener() {
@@ -70,15 +86,30 @@ public class DisplayList extends ListActivity {
                   		
 //                  		String selectedItem = (String) listview.getItemAtPosition(position);
 
+<<<<<<< HEAD
+=======
+
+
+
+//                  		String query = "SELECT KEY_LAN,KEY_LON FROM TABLE_POLICE WHERE KEY_NAME =  '" +selectedItem  + "'";
+//                        SQLiteDatabase dbs = db.getReadableDatabase();
+//                        Cursor result = dbs.rawQuery(query, null);
+//                        result.moveToFirst();
+
+>>>>>>> 0f9acaf94e4316666c1bf206badefae28ec1b9ce
 
 //                  		String selectName=db.getNameFromId(id);
 //                  		double lat = db.getLatitudeFromId(id);
 //                  		double lon = db.getLongitudeFromId(id);
 
                   		
+
+<<<<<<< HEAD
+=======
+                  		
                   		double lat = db.getLatitudeFromId(policeNameValue);
                   		double lon = db.getLongitudeFromId(policeNameValue);
-
+>>>>>>> 0f9acaf94e4316666c1bf206badefae28ec1b9ce
 
                   	    //Toast.makeText(getApplicationContext(), rowLat, Toast.LENGTH_SHORT).show();
                         //double lat = result.getDouble(result.getColumnIndex("KEY_LAN"));

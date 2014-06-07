@@ -57,6 +57,7 @@ public class PlacesAutocompleteActivity extends Activity implements AdapterView.
 			long id) {
 		str = (String) adapterView.getItemAtPosition(position);
 		Geocoder geocoder = new Geocoder(getBaseContext(), Locale.getDefault());
+		
 
 	    try {
 	        ArrayList<Address> adresses = (ArrayList<Address>) geocoder.getFromLocationName(str, 10);
