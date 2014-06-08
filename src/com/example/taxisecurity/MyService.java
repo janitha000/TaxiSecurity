@@ -14,7 +14,7 @@ import android.util.Log;
 public class MyService extends Service {
 	private final static String TAG = "MyService";
 	private long totalTime;
-    public static final String COUNTDOWN_BR = "com.example.count.countdown_br";
+    public static final String COUNTDOWN_BR = "com.example.taxisecurity.countdown_br";
     Intent bi = new Intent(COUNTDOWN_BR);
     private Bundle time;
     private float Z_FORWARD_THRESHOLD = 0f;

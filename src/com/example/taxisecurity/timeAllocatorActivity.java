@@ -11,7 +11,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -44,7 +44,7 @@ public class timeAllocatorActivity extends Activity  {
 	
 	AlertDialog.Builder alert;
 	AlertDialog dialog ;
-	String val="abcd";
+	String val;
 
 
 	
@@ -52,7 +52,11 @@ public class timeAllocatorActivity extends Activity  {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_timer);
+		
+		SharedPreferences storage = getSharedPreferences("ContactData",Context.MODE_PRIVATE );
+		val = storage.getString("password", "Not Working");
+		String rev1Pwd = new StringBuilder(val).reverse().toString();
 	    
 	    edtMinutes = (EditText) findViewById(R.id.edtMinutes);
 		edtHours = (EditText) findViewById(R.id.edtHours);
@@ -298,7 +302,7 @@ public class timeAllocatorActivity extends Activity  {
 	              		//.............................................................
 	              		// stop =new Intent(Stopper.this,smsService.class);
 	              		//stopService(stop);.......................................................//
-	              		Intent intent = new Intent(timeAllocatorActivity.this, MainActivity.class);
+	              		Intent intent = new Intent(timeAllocatorActivity.this, timeAllocatorActivity.class);
 	              		Intent service = new Intent(timeAllocatorActivity.this,MyService.class);
 	              		stopService(service);
 	      				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);

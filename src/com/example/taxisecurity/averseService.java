@@ -92,7 +92,7 @@ Handler hSendSMS = new Handler() {
 	private void showRecordingNotification(){
     	NotificationManager notificationManager =
     		    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-    		int icon = R.drawable.common_signin_btn_text_normal_light;
+    		int icon = R.drawable.ic_launcher;
     		CharSequence notiText = "Your notification from the service";
     		long meow = System.currentTimeMillis();
 

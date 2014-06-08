@@ -3,8 +3,10 @@ package com.example.taxisecurity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.InputType;
@@ -14,7 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Stopper extends Activity {
-	String password="abcd";
+	String password;
 	CountDownTimer countDownTimer;
 	AlertDialog dialog ;
 	
@@ -23,6 +25,9 @@ public class Stopper extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		System.out.println("Stopperrr");
+		SharedPreferences storage = getSharedPreferences("ContactData",Context.MODE_PRIVATE );
+		password = storage.getString("password", "Not Working");
+		String rev1Pwd = new StringBuilder(password).reverse().toString();
 		countDownTimer = new CountDownTimer(20000, 1000) {//Wait for 20 seconds for the user to verify himself.
 		public void onTick(long millisUntilFinished) {
 			System.out.println("seconds remaining: " + millisUntilFinished / 1000);
@@ -34,10 +39,7 @@ public class Stopper extends Activity {
 	        dialog.cancel();
         	Intent intent = new Intent(Stopper.this, MainActivity.class);//......................Main activity of the entire app
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-			//.................
-			//Intent sms=new Intent(TimerNotificationActivity.this,smsService.class);
-      		//startService(sms);
-			startActivity(intent);
+			startService(new Intent(Stopper.this,smsService.class));
 	        finish();
         	Toast.makeText(Stopper.this, "No reply..ooooppppppppzzzzzzzzzzz...",
 						Toast.LENGTH_LONG).show();

@@ -3,8 +3,10 @@ package com.example.taxisecurity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -13,13 +15,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class StopTimerActivity extends Activity {
-	String password="abcd";
+	String password;
 	AlertDialog  dialog;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+		SharedPreferences storage = getSharedPreferences("ContactData",Context.MODE_PRIVATE );
+		password = storage.getString("password", "Not Working");
+		String rev1Pwd = new StringBuilder(password).reverse().toString();
 		alertdialog();
+		
 		
 	}
 	public void alertdialog(){
@@ -48,7 +54,7 @@ public class StopTimerActivity extends Activity {
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				dialog.dismiss();
-				Intent intent= new Intent(StopTimerActivity.this, MainActivity.class);//...........Not the main activity of the entire application.But to the count down timer class
+				Intent intent= new Intent(StopTimerActivity.this, timeAllocatorActivity.class);//...........Not the main activity of the entire application.But to the count down timer class
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(intent);
 				
