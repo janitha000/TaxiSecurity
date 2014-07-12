@@ -1,5 +1,16 @@
 package com.example.taxisecurity;
 
+import com.example.about.aboutActivity;
+import com.example.aversDestination.PlacesAutocompleteActivity;
+import com.example.help.helpActivity;
+import com.example.location.MyLocation;
+import com.example.policeDetails.PoliceDisplayList;
+import com.example.policeDetails.Police_Details;
+import com.example.settings.Settings;
+import com.example.shakeDetector.startDetector;
+import com.example.timeAllocator.timeAllocatorActivity;
+import com.example.userDetails.contactDetails;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
@@ -60,63 +71,75 @@ public class MainActivity extends Activity {
         Button AverseButton = (Button) findViewById(R.id.Button02);
         Button policeButton = (Button) findViewById(R.id.Button04);
         Button helpButton = (Button) findViewById(R.id.Button03);
-        Button mapb = (Button) findViewById(R.id.button1);
-        Button serviceb = (Button) findViewById(R.id.button2);
+       // Button mapb = (Button) findViewById(R.id.button1);
+        //Button serviceb = (Button) findViewById(R.id.button2);
         /*me button 1th only testing. installation 1di weda karanna nemi hadala thiyenne,thawa modify karanna one,second activity 1 demme output 1k balanna*/
-        Button register = (Button) findViewById(R.id.regButton);
+        //Button register = (Button) findViewById(R.id.regButton);
         //map button, testing sadaha pamanayi!! meka passe delete karanawa
-        Button averse = (Button) findViewById(R.id.averseButton); // Only for testing
-        Button geo = (Button) findViewById(R.id.button4);
+        //Button averse = (Button) findViewById(R.id.averseButton); // Only for testing
+        //Button geo = (Button) findViewById(R.id.button4);
+        Button Shaker=(Button) findViewById(R.id.shake);
         
-        geo.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent averseIntent = new Intent(MainActivity.this, policeGeofencing.class);
-				
-				startService(averseIntent);
-				
-				
-			}
-		});
+        Shaker.setOnClickListener(new OnClickListener() {
+    		
+    		@Override
+    		public void onClick(View v) {
+    			Intent averseIntent = new Intent(MainActivity.this, startDetector.class);
+    			//averseIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+    			startActivity(averseIntent);
+    		}
+    	});
+        
+//        geo.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				Intent averseIntent = new Intent(MainActivity.this, policeGeofencing.class);
+//				
+//				startService(averseIntent);
+//				
+//				
+//			}
+//		});
 
 
-        averse.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent averseIntent = new Intent(MainActivity.this, averseService.class);
-				//averseIntent.putExtra("Method", 2);
-				startService(averseIntent);
-				
-				
-			}
-		});
+//        averse.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				Intent averseIntent = new Intent(MainActivity.this, averseService.class);
+//				//averseIntent.putExtra("Method", 2);
+//				startService(averseIntent);
+//				
+//				
+//			}
+//		});
 
 
 
         
-        	mapb.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent averseIntent = new Intent(MainActivity.this, mapActivity.class);
-				startActivity(averseIntent);
-				
-				
-			}
-		});
+//        	mapb.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				Intent averseIntent = new Intent(MainActivity.this, mapActivity.class);
+//				startActivity(averseIntent);
+//				
+//				
+//			}
+//		});
         	
         	//Service Button click Listener , passe delete karanawa, test karanna witharai
-            serviceb.setOnClickListener(new OnClickListener() {
-    			
-    			@Override
-    			public void onClick(View v) {
-    				startService(new Intent(MainActivity.this,smsService.class));
-    				
-    				
-    			}
-    		});
+//            serviceb.setOnClickListener(new OnClickListener() {
+//    			
+//    			@Override
+//    			public void onClick(View v) {
+//    				startService(new Intent(MainActivity.this,smsService.class));
+//    				
+//    				
+//    			}
+//    		});
         
       //Time Button click Listener
         TimeButton.setOnClickListener(new OnClickListener() {
@@ -124,6 +147,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent averseIntent = new Intent(MainActivity.this, timeAllocatorActivity.class);
+				//averseIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
 				startActivity(averseIntent);
 				
 				
@@ -186,16 +211,16 @@ public class MainActivity extends Activity {
 			}
 		});
         
-      register.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent regIntent = new Intent(MainActivity.this, contactDetails.class);
-				startActivity(regIntent);
-				
-				
-			}
-		});
+//      register.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				Intent regIntent = new Intent(MainActivity.this, contactDetails.class);
+//				startActivity(regIntent);
+//				
+//				
+//			}
+//		});
       
       //Help Button click Listener
         helpButton.setOnClickListener(new OnClickListener() {

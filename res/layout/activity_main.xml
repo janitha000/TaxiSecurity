@@ -31,7 +31,7 @@
         android:layout_width="216dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="300dp"
         android:text="@string/help" />
 
     <Button
@@ -42,43 +42,51 @@
         android:layout_marginTop="200dp"
         android:text="@string/police_details" />
 
-    <Button
+  <!--   <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
-         />
+         /> -->
 
-    <Button
+     <!-- <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Start Service" />
+        android:text="Start Service" /> -->
 
     
 
-    <Button
+    <!--  <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:text="Geo Fencing" />
+        android:text="Geo Fencing" /> -->
 
-    <Button
+  <!--    <Button
         android:id="@+id/averseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="300dp"
-        android:text="Averse" />
+        android:text="Averse" /> -->
 
-    <Button
+   <!--  <Button
         android:id="@+id/regButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:text="Register" />
+        android:text="Register" /> -->
+    
+    <Button
+        android:id="@+id/shake"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp"
+        android:text="Shake Detector" />
 
 </FrameLayout>
 

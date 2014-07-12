@@ -20,7 +20,8 @@
      <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
      <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
      <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
-
+	 <uses-permission android:name="android.permission.VIBRATE"/>
+	 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -43,45 +44,46 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="aboutActivity"></activity>
-         <activity android:name="Settings"></activity>
+        <activity android:name="com.example.about.aboutActivity"></activity>
+         <activity android:name="com.example.settings.Settings"></activity>
         
-        <activity android:name="Contacts"></activity>
-        <activity android:name="AverseActivity"></activity>
-        <activity android:name="timeAllocatorActivity"
-            android:launchMode="singleTop"
-            ></activity>
-        <activity android:name="Police_Details"></activity>
+        <activity android:name="com.example.taxisecurity.Contacts"></activity>
+        <activity android:name="com.example.aversDestination.AverseActivity"></activity>
+        <activity android:name="com.example.timeAllocator.timeAllocatorActivity"
+            	  android:launchMode="singleTop"></activity>
+        <activity android:name="com.example.policeDetails.Police_Details"></activity>
         <activity android:name="PoliceDetail"></activity>
         
-        <activity android:name="helpActivity"></activity>
-        <activity android:name="mapActivity"></activity>
+        <activity android:name="com.example.help.helpActivity"></activity>
+        <activity android:name="com.example.map.mapActivity"></activity>
         
-		<activity android:name="SharedPreference"></activity>
-        <activity android:name="PlacesAutocompleteActivity"></activity>
+		<activity android:name="com.example.userDetails.SharedPreference"></activity>
+        <activity android:name="com.example.aversDestination.PlacesAutocompleteActivity"></activity>
         <activity android:name="loginActivity">
             
         </activity>
         	
         <activity android:name="contactsActivity"></activity>
-        <activity android:name="PoliceDisplayList"></activity>
-		<activity android:name="Second"></activity>
-		<service android:name="smsService"></service>
-		<activity android:name="com.example.taxisecurity.contactDetails"></activity>
-		<service android:name="averseService"></service>
-		<service android:name="MyLocation"></service>
+        <activity android:name="com.example.policeDetails.PoliceDisplayList"></activity>
+		<!--  <activity android:name="Second"></activity> -->
+		<service android:name="com.example.sms.smsService"></service>
+		<activity android:name="com.example.userDetails.contactDetails"></activity>
+		<service android:name="com.example.aversDestination.averseService"></service>
+		<service android:name="com.example.location.MyLocation"></service>
 		
-        <activity android:name="endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
-        <activity android:name="endAverseActivity" android:theme="@style/Theme.Transparent"></activity>
-        <activity android:name="averseAlertActivity" android:theme="@style/Theme.Transparent"></activity>
-        <service android:name="policeGeofencing"></service>
-        <activity android:name="geofenceObject"></activity>
-        <service android:name="ReceiveTransitionsIntentService"></service>
-        <activity android:name=".Stopper"></activity>
-        <activity android:name=".StopTimerActivity"></activity>
-        <service android:name="com.example.taxisecurity.MyService"></service>
-
-
+        <activity android:name="com.example.sms.endSMSActivity" android:theme="@style/Theme.Transparent"></activity>
+        <activity android:name="com.example.aversDestination.endAverseActivity" android:theme="@style/Theme.Transparent"></activity>
+        <activity android:name="com.example.aversDestination.averseAlertActivity" android:theme="@style/Theme.Transparent"></activity>
+        <service android:name="com.example.geofence.policeGeofencing"></service>
+        <activity android:name="com.example.geofence.geofenceObject"></activity>
+        <service android:name="com.example.geofence.ReceiveTransitionsIntentService"></service>
+        <activity android:name="com.example.timeAllocator.Stopper"></activity>
+        <activity android:name="com.example.timeAllocator.StopTimerActivity"></activity>
+        <service android:name="com.example.timeAllocator.MyService"></service>
+	    <service android:name="com.example.shakeDetector.Detector"></service>
+        <activity android:name="com.example.shakeDetector.stopDetector"></activity>
+		<activity android:name="com.example.shakeDetector.startDetector"></activity>
+        
     </application>
 
 </manifest>
