@@ -141,7 +141,7 @@ public class smsService extends Service implements LocationListener  {
     private void showRecordingNotification(){
     	NotificationManager notificationManager =
     		    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-    		int icon = R.drawable.common_signin_btn_text_normal_light;
+    		int icon = android.R.drawable.ic_dialog_alert;
     		CharSequence notiText = "Your notification from the service";
     		long meow = System.currentTimeMillis();
 

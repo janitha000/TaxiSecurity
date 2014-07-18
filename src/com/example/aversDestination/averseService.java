@@ -96,7 +96,7 @@ Handler hSendSMS = new Handler() {
 	private void showRecordingNotification(){
     	NotificationManager notificationManager =
     		    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-    		int icon = R.drawable.ic_launcher;
+    		int icon = android.R.drawable.ic_dialog_alert;
     		CharSequence notiText = "Your notification from the service";
     		long meow = System.currentTimeMillis();
 
