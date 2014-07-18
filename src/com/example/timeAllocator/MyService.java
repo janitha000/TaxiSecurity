@@ -2,6 +2,7 @@ package com.example.timeAllocator;
 
 //Background service.............
 
+import com.example.sms.smsService;
 import com.example.taxisecurity.MainActivity;
 import com.example.taxisecurity.R;
 import com.example.taxisecurity.R.drawable;
@@ -179,8 +180,10 @@ public class MyService extends Service {
 	      		//startService(sms);
 				startActivity(intent);
 		        //finish();
-	        	Toast.makeText(MyService.this, "No reply..ooooppppppppzzzzzzzzzzz...",
+	        	Toast.makeText(MyService.this, "No reply.. ayyyyyyyyyyooooooooo",
 							Toast.LENGTH_LONG).show();
+	        	Intent smsIntent = new Intent(MyService.this, smsService.class);
+	        	startService(smsIntent);
 	        	//sms service............................
 	        }
 		};
