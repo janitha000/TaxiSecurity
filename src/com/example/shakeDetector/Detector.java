@@ -3,6 +3,7 @@ package com.example.shakeDetector;
 //Background service.............
 
 
+import com.example.sms.smsService;
 import com.example.taxisecurity.R;
 import com.example.taxisecurity.R.drawable;
 
@@ -97,8 +98,10 @@ public class Detector extends Service implements SensorEventListener {
 		    	Toast.makeText(Detector.this, "Shake Shake Shake...",
 		    			Toast.LENGTH_LONG).show();
 		    	System.out.println("Shake Shake Shake Shake....................");
-		    	sm.unregisterListener(this,this.accelerometer);
 		    	
+		    	Intent smsIntent = new Intent(Detector.this, smsService.class);
+		    	startService(smsIntent);
+		    	this.stopSelf();
 		      //return;
 		    }
 		   

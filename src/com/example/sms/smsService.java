@@ -79,7 +79,7 @@ public class smsService extends Service implements LocationListener  {
 		phoneNo2 = storage.getString("chosen2No", "111");
 		
 		try {
-            long intervalSendSMS = 20*1000; //*************change the time
+            long intervalSendSMS = 60*1000; //*************change the time
 
             timerSendSMS = new Timer();
 
