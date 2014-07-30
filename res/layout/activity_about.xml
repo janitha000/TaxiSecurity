@@ -8,9 +8,17 @@
    <TextView
        android:id="@+id/TextViewabout"
        android:layout_width="match_parent"
-       android:layout_height="375dp"
+       android:layout_height="match_parent"
        android:layout_gravity="center_horizontal"
+       android:layout_marginLeft="12dp"
+       android:layout_marginRight="12dp"
+       android:layout_marginTop="12dp"
+       android:shadowColor="#7F000000"
+       android:shadowDx="1"
+       android:shadowDy="1"
+       android:shadowRadius="2"
        android:text="@string/aboutdetail"
-       android:textAppearance="?android:attr/textAppearanceMedium" />
+       android:textAppearance="?android:attr/textAppearanceMedium"
+       android:textSize="20dp" />
 
 </ScrollView>
