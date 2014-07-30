@@ -153,8 +153,8 @@
         android:id="@+id/contact2no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/textView7"
         android:ems="10"
         android:inputType="phone" />
 

@@ -75,7 +75,7 @@ This function will automatically alert you if the path of the cab service averse
                  &#8226; User can deactivate the function any time using the notification and the password.\n
                  &#8226; When ever the user feels a life threat user only needs to shake the mobile device and the emergency SMS will be sent using user s GPS location.\n\n
                
-               <font size="24"><b>Emegerncy SMS</b></font>\n  
+               <font size="24"><b>Emergency SMS</b></font>\n  
                <p>Emegerncy SMS will contain the user s current location obtained by GPS or mobile data. After starting this service
                    the Emergency SMS will be sent to both chosen contacts 5 mins apart for 2 hours. User can deactivate this service any time by
                    providing his password.\n\n\n</p>

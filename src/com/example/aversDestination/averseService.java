@@ -106,10 +106,13 @@ Handler hSendSMS = new Handler() {
     		CharSequence contentTitle = "Averse DEstination Service";
     		CharSequence contentText = "Averse DEstination service is Runnig";
     		Intent notificationIntent = new Intent(this, endAverseActivity.class);
-    		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+    		//PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
     		notificationIntent.putExtra("DestinationLon", Lon);
     		
 			notificationIntent.putExtra("DestinationLat", Lat);
+			notificationIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(),0,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+			notification.flags |= Notification.FLAG_AUTO_CANCEL;
     		notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
 
     		int SERVER_DATA_RECEIVED = 1;
