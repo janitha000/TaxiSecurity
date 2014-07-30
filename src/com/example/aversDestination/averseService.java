@@ -110,7 +110,7 @@ Handler hSendSMS = new Handler() {
     		notificationIntent.putExtra("DestinationLon", Lon);
     		
 			notificationIntent.putExtra("DestinationLat", Lat);
-			notificationIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			//notificationIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(),0,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
 			//notification.flags |= Notification.FLAG_AUTO_CANCEL;
     		notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
