@@ -94,14 +94,14 @@ public class Detector extends Service implements SensorEventListener {
 		 float f = (float)Math.sqrt(Math.pow(paramSensorEvent.values[0], 2.0D) + Math.pow(paramSensorEvent.values[1], 2.0D) + Math.pow(paramSensorEvent.values[2], 2.0D));
 		    if (f > 25.45862F)
 		    {
-		    	
+		    	sm.unregisterListener(this,this.accelerometer);
 		    	Toast.makeText(Detector.this, "Shake Shake Shake...",
 		    			Toast.LENGTH_LONG).show();
 		    	System.out.println("Shake Shake Shake Shake....................");
 		    	
 		    	Intent smsIntent = new Intent(Detector.this, smsService.class);
 		    	startService(smsIntent);
-		    	this.stopSelf();
+		    	//this.stopSelf();
 		      //return;
 		    }
 		   
