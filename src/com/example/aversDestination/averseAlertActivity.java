@@ -53,7 +53,7 @@ public class averseAlertActivity extends Activity {
 				Double Lat = gIntent.getDoubleExtra("DestinationLat",Deafout);
 				Double Lon = gIntent.getDoubleExtra("DestinationLon",Deafout);
 				
-				//Toast.makeText(averseAlertActivity.this, Lat.toString(), Toast.LENGTH_LONG).show();
+				Toast.makeText(averseAlertActivity.this, Lat.toString() + "Passed this", Toast.LENGTH_LONG).show();
 				Intent mapIntent = new Intent(averseAlertActivity.this, mapActivity.class);
 				mapIntent.putExtra("Method", 2);
 				mapIntent.putExtra("DestinationLon", Lon);

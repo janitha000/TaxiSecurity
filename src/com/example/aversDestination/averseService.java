@@ -24,9 +24,9 @@ import android.os.Message;
 import android.widget.Toast;
 
 public class averseService extends Service implements LocationListener {
-Double Lat;
-Double Lon;
-Double lat;
+public Double Lat;
+public Double Lon;
+public Double lat;
 
 public float preDis=999999999;
 Timer timerAverse;
@@ -34,8 +34,8 @@ public int counter=0;
 public float prevRightdis=0;
 
 
-Double latitude=0.0;
-Double longitude=0.0;
+public Double latitude=0.0;
+public Double longitude=0.0;
 
 float disChanged=0;
 boolean Notignore = true;
@@ -97,7 +97,7 @@ Handler hSendSMS = new Handler() {
     	NotificationManager notificationManager =
     		    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
     		int icon = android.R.drawable.ic_dialog_alert;
-    		CharSequence notiText = "Your notification from the service";
+    		CharSequence notiText = "Averse Destination Service Started";
     		long meow = System.currentTimeMillis();
 
     		Notification notification = new Notification(icon, notiText, meow);
@@ -118,7 +118,7 @@ Handler hSendSMS = new Handler() {
 	
 	public void runService(){
 		
-		Toast.makeText(averseService.this, "Service Called", Toast.LENGTH_LONG).show();
+		//Toast.makeText(averseService.this, "Service Called", Toast.LENGTH_LONG).show();
 
 		Toast.makeText(averseService.this, latitude.toString() +" "+ longitude.toString(), Toast.LENGTH_LONG).show();
 		float dis = getDistance(Lat, Lon, latitude, longitude);
@@ -232,13 +232,13 @@ Handler hSendSMS = new Handler() {
 		
 	}
 	public void onDestroy() {
-    	Toast.makeText(this, "onDestroy Called", Toast.LENGTH_LONG).show();
+    	//Toast.makeText(this, "onDestroy Called", Toast.LENGTH_LONG).show();
     	
     	timerAverse.cancel();
         timerAverse.purge();
         
     	
-        Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
           super.onDestroy();
           Toast.makeText(this, "Service destroyed ...", Toast.LENGTH_LONG).show();
     }

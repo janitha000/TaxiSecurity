@@ -1,6 +1,7 @@
 package com.example.aversDestination;
 
 import com.example.map.mapActivity;
+import com.example.sms.endSMSActivity;
 import com.example.sms.smsService;
 
 import android.app.Activity;
@@ -15,8 +16,8 @@ import android.widget.Toast;
 
 public class endAverseActivity extends Activity {
 	 String password ;
-	 Double Lat;
-	 Double Lon;
+	 public Double Lat;
+	 public Double Lon;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -41,11 +42,21 @@ public class endAverseActivity extends Activity {
 	        	String value = input.getText().toString();
 	        	
 	        	if(value.equals(password)){
+	        	
 	        	finish(); //Stops the transparent Activity (Do not remove)
+	        	
 	        	Intent stopIntent = new Intent(endAverseActivity.this, averseService.class);
 
 	        	stopService(stopIntent); //stops the averseService
 	        	}
+//	        	else if (!value.equals(password)){
+//	          		//...............Intent sms=new Intent(TimerNotificationActivity.this,smsService.class);
+//	          		//startService(sms);................//
+//	        		input.setText("");
+//	          		input.setHint("password");	              		
+//	          		Toast.makeText(endAverseActivity.this, "Wrong Password.Enter correct one...",
+//	  						Toast.LENGTH_LONG).show();
+//	  	     	}
 	        	else {
 	        		String revPwd = new StringBuilder(password).reverse().toString();
 	        		if(revPwd == value){
@@ -53,9 +64,10 @@ public class endAverseActivity extends Activity {
 
 	    	        	stopService(stopIntent); //stops the averseService
 	        			startService(new Intent(endAverseActivity.this,smsService.class));
+	        			finish();
 	        		}
 	        	}
-	        	finish(); //Stops the transparent Activity (Do not remove)
+	        	 //Stops the transparent Activity (Do not remove)
 	        }
 	     })
 	    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
