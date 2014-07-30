@@ -38,7 +38,51 @@
     <string name="Save2">Save</string>
     <string name="aboutdetail"><p>We are currently undergraduates at university of Colombo school of computing. As a team with six members we planned to build this application as a solution to the life threatening situations around today\s transpotation methods. Passengers who can assure about their security using this application inside the Colombo district. So we try to do our best as a aid to passengers through this application and this is also implementing forward.</p>\n\n<font size="24" ><b>Our Team</b></font>\n\n &#8226; J.I.B.Tennakoone - janitha000@gmail.com\n &#8226; Vindya Hettige - vindihh@gmail.com\n &#8226; Pasadhi Munasighe - pasadi.munasinghe@gmail.com\n &#8226; Y.S.Perera - ysperera@yahoo.com\n &#8226; Samith Ravishana - sravishana@gmail.com\n &#8226; Nadeeka Priyadharshani - nadeeka.ieee@gmail.com/n/n/n</string>
 
-    <string name="helpDes"><p>\tChosen contact 1 and chosen contact 2 will be the contacts that the emergency sms will be sent. Emergency sms will be contained your last known location.</p>\n\n<h1><b>Averse Destination</b></h1>\n&#8226; Select the destination you are travelling.\n &#8226; The averse destination service will start automatically.\n &#8226; To stop the service click on the notification on notification bar.\n &#8226; If the destination is diverted a dialog will apear.\n &#8226; You can either ignore and continue, show in the map or send sms.\n\n<p><h1><b>Police Station Details</b></h1>\n\tDetails of the colombo area police stations will be displayed.</p></string>
+    <string name="helpDes"><font size="24" ><b>Chosen Contacts </b></font>\n
+        <p>Chosen Contact 1 and Chosen Contact 2 will be the contacts when in an emergency the SMS will be sent. 
+            Emergency sms will be contained your last known location as a GPS location.</p>\n\n
+            <font size="24"><b>Time Allocator</b></font>\n
+            <p>This function will automatically send the emergency SMS to your contacts if you did not respond in a specified time.
+               This function is helpful when you are feel a threat about the vehicle you are traveling.\n\n </p>
+               <b>How to use</b>\n\n
+               &#8226; Select an appopriate time that you will think may need to your journey.\n
+               &#8226; Touch the Start button. A notification will appear on the notification bar indicating that the service is running.\n
+               &#8226; You may can deactivate the service at any time by touching the notification and giving the password.\n
+               &#8226; Before the end of time (40 seconds before) the phone will vibrate and ask for your responce. You must respond by your password.\n
+               &#8226; If you fail to respond the application will wait another 20 seconds for your response.\n
+               &#8226; After that if no response from the user the application will automatically start sending your GPS location to your chosen contacts.\n\n
+            
+            <font size="24"><b>Averse Destination</b></font>\n
+            <p>This function can be used when you do not know the specific location about the destination.
+This function will automatically alert you if the path of the cab service averse by the destination path.\n\n</p>
+                 <b>How to use</b>\n\n
+            &#8226; Select the destination you are travelling to from the drop down list.\n 
+            &#8226; The averse destination service will start automatically and will be indicated on the notification bar..\n 
+            &#8226; You may can deactivate the service at any time by touching the notification and giving the password.\n
+            &#8226; If the destination is diverted a dialog will apear with choices to user.\n 
+            &#8226; You can either ignore and continue, show in the map or send your location to the chosen contacts.\n\n
+            
+            <font size="24"><b>Police Station Details</b></font>\n
+            
+            <p>Details of the Colombo area police stations will be displayed with there contacts numbers in order to gat easily when in an emergency situation.\n\n</p>
+            
+            <font size="24"><b>Shake Detector</b></font>\n
+            <p>Shake detector is a automatic emegency SMS sender when the user shakes the mobile device. This can be used 
+                whenever the user wants to act quickly without accesing the mobile device s data.\n\n</p>
+                 <b>How to use</b>\n\n
+                 &#8226; Activate the service by touching on Shake Detector and giving option ON.\n
+                 &#8226; A notification will be appeared on the notification bar indicating that the function is running.\n
+                 &#8226; User can deactivate the function any time using the notification and the password.\n
+                 &#8226; When ever the user feels a life threat user only needs to shake the mobile device and the emergency SMS will be sent using user s GPS location.\n\n
+               
+               <font size="24"><b>Emegerncy SMS</b></font>\n  
+               <p>Emegerncy SMS will contain the user s current location obtained by GPS or mobile data. After starting this service
+                   the Emergency SMS will be sent to both chosen contacts 5 mins apart for 2 hours. User can deactivate this service any time by
+                   providing his password.\n\n\n</p>
+                 
+            
+            
+            </string>
 
     
 
