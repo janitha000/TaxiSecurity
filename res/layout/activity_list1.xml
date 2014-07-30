@@ -13,12 +13,22 @@
         android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/choose" />
+        android:text="@string/choose" 
+         android:textSize="16dp"
+        android:shadowColor="#7F000000"
+       android:shadowDx="1"
+       android:shadowDy="1"
+       android:shadowRadius="2"/>
 
     <ListView
         android:id="@id/android:list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+         
+        android:shadowColor="#7F000000"
+       android:shadowDx="1"
+       android:shadowDy="1"
+       android:shadowRadius="2" />
     
 
 </LinearLayout>
