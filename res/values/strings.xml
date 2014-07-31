@@ -40,7 +40,9 @@
 
     <string name="helpDes"><font size="24" ><b>Chosen Contacts </b></font>\n
         <p>Chosen Contact 1 and Chosen Contact 2 will be the contacts when in an emergency the SMS will be sent. 
-            Emergency sms will be contained your last known location as a GPS location.</p>\n\n
+            Emergency sms will be contained your last known location as a GPS location.</p>\n\n </string>
+            
+    <string name="helpDes2">
             <font size="24"><b>Time Allocator</b></font>\n
             <p>This function will automatically send the emergency SMS to your contacts if you did not respond in a specified time.
                This function is helpful when you are feel a threat about the vehicle you are traveling.\n\n </p>
@@ -51,7 +53,8 @@
                &#8226; Before the end of time (40 seconds before) the phone will vibrate and ask for your responce. You must respond by your password.\n
                &#8226; If you fail to respond the application will wait another 20 seconds for your response.\n
                &#8226; After that if no response from the user the application will automatically start sending your GPS location to your chosen contacts.\n\n
-            
+    </string>
+    <string name = "helpDes3">    
             <font size="24"><b>Averse Destination</b></font>\n
             <p>This function can be used when you do not know the specific location about the destination.
 This function will automatically alert you if the path of the cab service averse by the destination path.\n\n</p>
@@ -61,7 +64,8 @@ This function will automatically alert you if the path of the cab service averse
             &#8226; You may can deactivate the service at any time by touching the notification and giving the password.\n
             &#8226; If the destination is diverted a dialog will apear with choices to user.\n 
             &#8226; You can either ignore and continue, show in the map or send your location to the chosen contacts.\n\n
-            
+     </string>
+     <string name="helpDes4">        
             <font size="24"><b>Police Station Details</b></font>\n
             
             <p>Details of the Colombo area police stations will be displayed with there contacts numbers in order to gat easily when in an emergency situation.\n\n</p>
@@ -74,11 +78,12 @@ This function will automatically alert you if the path of the cab service averse
                  &#8226; A notification will be appeared on the notification bar indicating that the function is running.\n
                  &#8226; User can deactivate the function any time using the notification and the password.\n
                  &#8226; When ever the user feels a life threat user only needs to shake the mobile device and the emergency SMS will be sent using user s GPS location.\n\n
-               
+      </string>
+      <string name="helpDes5">         
                <font size="24"><b>Emergency SMS</b></font>\n  
                <p>Emegerncy SMS will contain the user s current location obtained by GPS or mobile data. After starting this service
                    the Emergency SMS will be sent to both chosen contacts 5 mins apart for 2 hours. User can deactivate this service any time by
-                   providing his password.\n\n\n</p>
+                   providing his password.\n</p>
                  
             
             
