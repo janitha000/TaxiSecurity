@@ -67,8 +67,8 @@ public class MyService extends Service {
         if(ringcheck==true){
               	r.stop();
         }
-        Toast.makeText(MyService.this, "On destroy",
-				Toast.LENGTH_LONG).show();
+//        Toast.makeText(MyService.this, "On destroy",
+//				Toast.LENGTH_LONG).show();
         
         Log.i(TAG, "Timer cancelled");
         super.onDestroy();
@@ -145,8 +145,8 @@ public class MyService extends Service {
      }
         @Override
         public void onFinish() {
-        	Toast.makeText(MyService.this, "call alert dialog",
-    					Toast.LENGTH_LONG).show();
+//        	Toast.makeText(MyService.this, "call alert dialog",
+//    					Toast.LENGTH_LONG).show();
 	   	  	v.vibrate(500);
 	   	  	alertdialog();
 	   	  	Log.i(TAG, "Timer finished");
@@ -180,7 +180,7 @@ public class MyService extends Service {
 	      		//startService(sms);
 				startActivity(intent);
 		        //finish();
-	        	Toast.makeText(MyService.this, "No reply.. ayyyyyyyyyyooooooooo",
+	        	Toast.makeText(MyService.this, "No reply.",
 							Toast.LENGTH_LONG).show();
 	        	Intent smsIntent = new Intent(MyService.this, smsService.class);
 	        	startService(smsIntent);
@@ -188,8 +188,8 @@ public class MyService extends Service {
 	        }
 		};
 		countDownTimer.start();
-		Toast.makeText(MyService.this, "alert dialog",
-				Toast.LENGTH_LONG).show();
+//		Toast.makeText(MyService.this, "alert dialog",
+//				Toast.LENGTH_LONG).show();
 		final AlertDialog.Builder alertinitial = new AlertDialog.Builder(this);
 		dialog = alertinitial.create();
 

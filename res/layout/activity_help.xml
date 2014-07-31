@@ -73,7 +73,7 @@
 	        android:layout_marginRight="12dp"
 	        android:layout_marginTop="12dp"
 	        android:layout_weight="1"
-	        android:drawableBottom="@drawable/ic_launcher"
+	        android:drawableBottom="@drawable/ic_shake"
 	        android:shadowColor="#7F000000"
 	        android:shadowDx="1"
 	        android:shadowDy="1"

@@ -30,7 +30,7 @@ public class endAverseActivity extends Activity {
 		SharedPreferences storage = getSharedPreferences("ContactData",Context.MODE_PRIVATE );
 		password = storage.getString("password", "Not Working");
 		String rev1Pwd = new StringBuilder(password).reverse().toString();
-		Toast.makeText(endAverseActivity.this, rev1Pwd, Toast.LENGTH_LONG).show();
+		//Toast.makeText(endAverseActivity.this, rev1Pwd, Toast.LENGTH_LONG).show();
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
 		final EditText input = new EditText(this); 
 		 alert.setView(input);
@@ -82,7 +82,7 @@ public class endAverseActivity extends Activity {
 				double Deafout=0.0;
 				
 				
-				Toast.makeText(endAverseActivity.this, "lon is " +Lon, Toast.LENGTH_LONG).show();
+				//Toast.makeText(endAverseActivity.this, "lon is " +Lon, Toast.LENGTH_LONG).show();
 				//Toast.makeText(averseAlertActivity.this, Lat.toString(), Toast.LENGTH_LONG).show();
 				Intent mapIntent = new Intent(endAverseActivity.this, mapActivity.class);
 				mapIntent.putExtra("Method", 2);

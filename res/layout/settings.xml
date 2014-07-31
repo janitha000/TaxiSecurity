@@ -155,6 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/button1"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="19dp"
         android:ems="10"
         android:inputType="phone" />
 

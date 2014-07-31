@@ -25,8 +25,8 @@ SharedPreferences.Editor editor;
 		super.onCreate(savedInstanceState);
 		prefs = getSharedPreferences("My", this.MODE_PRIVATE);
 		restoredval = prefs.getInt("chosen",1);
-		Toast.makeText(startDetector.this, "start Detector",
-					Toast.LENGTH_LONG).show();
+//		Toast.makeText(startDetector.this, "start Detector",
+//					Toast.LENGTH_LONG).show();
 		final CharSequence[] choice = {"On","Off"};	 
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
 		alert.setTitle("Shake Detector status");

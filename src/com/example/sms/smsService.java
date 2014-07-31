@@ -64,9 +64,9 @@ public class smsService extends Service implements LocationListener  {
 	@Override
     public void onCreate() {
           super.onCreate();
-          Toast.makeText(this,"Service created ...", Toast.LENGTH_LONG).show();
+          //Toast.makeText(this,"Service created ...", Toast.LENGTH_LONG).show();
           smsManager = SmsManager.getDefault();
-          Toast.makeText(this, "getLocation called", Toast.LENGTH_LONG).show();
+          //Toast.makeText(this, "getLocation called", Toast.LENGTH_LONG).show();
      
     }
 	
@@ -119,7 +119,7 @@ public class smsService extends Service implements LocationListener  {
         	
 
         	SLocation = "Latitude is " + MyLocation.latitude  + "Longitude is " + MyLocation.longitude;
-        	Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
+        	//Toast.makeText(this, SLocation, Toast.LENGTH_LONG).show();
         } catch (Exception e) {
 
         }
@@ -128,12 +128,12 @@ public class smsService extends Service implements LocationListener  {
     
     @Override
     public void onDestroy() {
-    	Toast.makeText(this, "onDestroy Called", Toast.LENGTH_LONG).show();
+    	//Toast.makeText(this, "onDestroy Called", Toast.LENGTH_LONG).show();
     	
     	timerSendSMS.cancel();
         timerSendSMS.purge();
         
-        Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
           super.onDestroy();
           Toast.makeText(this, "Service destroyed ...", Toast.LENGTH_LONG).show();
     }
@@ -177,7 +177,7 @@ public class smsService extends Service implements LocationListener  {
  
 @Override
 public void onLocationChanged(Location location) {
-	Toast.makeText(this, "OnLocationChanged", Toast.LENGTH_LONG).show();
+	//Toast.makeText(this, "OnLocationChanged", Toast.LENGTH_LONG).show();
 	
 	
 }

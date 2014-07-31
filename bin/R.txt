@@ -88,8 +88,9 @@ int drawable ic_plusone_medium_off_client 0x7f020019
 int drawable ic_plusone_small_off_client 0x7f02001a
 int drawable ic_plusone_standard_off_client 0x7f02001b
 int drawable ic_plusone_tall_off_client 0x7f02001c
-int drawable powered_by_google_dark 0x7f02001d
-int drawable powered_by_google_light 0x7f02001e
+int drawable ic_shake 0x7f02001d
+int drawable powered_by_google_dark 0x7f02001e
+int drawable powered_by_google_light 0x7f02001f
 int id Button01 0x7f070024
 int id Button02 0x7f070025
 int id Button03 0x7f070026

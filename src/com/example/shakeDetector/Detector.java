@@ -78,8 +78,8 @@ public class Detector extends Service implements SensorEventListener {
 
     		
         // Your Code
-        Toast.makeText(Detector.this, "Started Sensor",
-    			Toast.LENGTH_LONG).show();
+       // Toast.makeText(Detector.this, "Started Sensor",
+    	//		Toast.LENGTH_LONG).show();
         
         this.sm = ((SensorManager)getSystemService("sensor"));
 	    this.accelerometer = this.sm.getDefaultSensor(1);
@@ -96,7 +96,7 @@ public class Detector extends Service implements SensorEventListener {
 		    {
 		    	sm.unregisterListener(this,this.accelerometer);
 		    	Toast.makeText(Detector.this, "Shake Shake Shake...",
-		    			Toast.LENGTH_LONG).show();
+		    			Toast.LENGTH_SHORT).show();
 		    	System.out.println("Shake Shake Shake Shake....................");
 		    	
 		    	Intent smsIntent = new Intent(Detector.this, smsService.class);
