@@ -135,7 +135,7 @@ public class smsService extends Service implements LocationListener  {
         
         //Toast.makeText(this, "Alarm destroyed ...", Toast.LENGTH_LONG).show();
           super.onDestroy();
-          Toast.makeText(this, "Service destroyed ...", Toast.LENGTH_LONG).show();
+          Toast.makeText(this, "Service END ...", Toast.LENGTH_LONG).show();
     }
     
     private void showRecordingNotification(){

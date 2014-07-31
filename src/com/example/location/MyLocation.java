@@ -101,7 +101,7 @@ GooglePlayServicesClient.OnConnectionFailedListener, LocationListener, com.googl
 
 	@Override
 	public void onConnected(Bundle arg0) {
-		Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
 		mLocationClient.requestLocationUpdates(mLocationRequest, this);
 		
 	}

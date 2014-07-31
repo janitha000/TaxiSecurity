@@ -1,46 +1,67 @@
 
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="com.example.taxisecurity.MainActivity"
-     
     tools:ignore="MergeRootFrame" >
 
- 
     <Button
         android:id="@+id/Button01"
-        android:layout_width="222dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        android:text="@string/time_allocator" />
-    
-     <Button
-        android:id="@+id/Button02"
-        android:layout_width="214dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="150dp"
-        android:text="@string/averse" />
+        android:background="@drawable/button_shape"
+        android:drawableLeft="@drawable/icon_time"
+        android:text="@string/time_allocator"
+        android:textColor="#ffffff" />
+    
+     <Button
+         android:id="@+id/Button02"
+         android:layout_width="280dp"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         android:layout_marginTop="200dp"
+         android:background="@drawable/button_shape"
+         android:drawableLeft="@drawable/ic_destination"
+         android:text="@string/averse"
+         android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/Button03"
-        android:layout_width="216dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/button_shape"
+        android:drawableLeft="@drawable/icon_help"
+        android:text="@string/help"
+        android:textColor="#ffffff" />
+    
+    <Button
+        android:id="@+id/shake"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="300dp"
-        android:text="@string/help" />
+        android:background="@drawable/button_shape"
+        android:drawableLeft="@drawable/icon_shake"
+        android:text="@string/shake_detector"
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/Button04"
-        android:layout_width="213dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="200dp"
-        android:text="@string/police_details" />
+        android:layout_marginTop="250dp"
+        android:background="@drawable/button_shape"
+        android:drawableLeft="@drawable/icon_police"
+        android:text="@string/police_details"
+        android:textColor="#ffffff" />
 
   <!--   <Button
         android:id="@+id/button1"
@@ -80,13 +101,7 @@
         android:layout_gravity="bottom"
         android:text="Register" /> -->
     
-    <Button
-        android:id="@+id/shake"
-        android:layout_width="212dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="250dp"
-        android:text="Shake Detector" />
+    
 
 </FrameLayout>
 

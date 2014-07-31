@@ -140,8 +140,8 @@ public class timeAllocatorActivity extends Activity  {
 	        
 	        serviceintent = new Intent(timeAllocatorActivity.this,MyService.class).putExtra("total", totalTime);
 			startService(serviceintent);
-			Toast.makeText(timeAllocatorActivity.this, "Start Service from main",
-					Toast.LENGTH_LONG).show();
+//			Toast.makeText(timeAllocatorActivity.this, "Start Service from main",
+//					Toast.LENGTH_LONG).show();
 					
 		}
 		char c=(char) minutes;
@@ -358,8 +358,8 @@ public class timeAllocatorActivity extends Activity  {
 			     dataIntent.putExtra("total", totalTime);
 			     serviceintent = new Intent(timeAllocatorActivity.this,MyService.class).putExtra("total", totalTime);
 			     startService(serviceintent);
-				 Toast.makeText(timeAllocatorActivity.this, "Start Service again from main",
-							Toast.LENGTH_LONG).show();
+//				 Toast.makeText(timeAllocatorActivity.this, "Start Service again from main",
+//							Toast.LENGTH_LONG).show();
  				 System.out.println("flag value after click  "+flag);
  				 flag=2;
 				

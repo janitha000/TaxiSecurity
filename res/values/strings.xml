@@ -37,7 +37,7 @@
     <string name="mobile_no4">Mobile No</string> 
     <string name="Save2">Save</string>
     <string name="aboutdetail"><p>We are currently undergraduates at university of Colombo school of computing. As a team with six members we planned to build this application as a solution to the life threatening situations around today\s transpotation methods. Passengers who can assure about their security using this application inside the Colombo district. So we try to do our best as a aid to passengers through this application and this is also implementing forward.</p>\n\n<font size="24" ><b>Our Team</b></font>\n\n &#8226; J.I.B.Tennakoone - janitha000@gmail.com\n &#8226; Vindya Hettige - vindihh@gmail.com\n &#8226; Pasadhi Munasighe - pasadi.munasinghe@gmail.com\n &#8226; Y.S.Perera - ysperera@yahoo.com\n &#8226; Samith Ravishana - sravishana@gmail.com\n &#8226; Nadeeka Priyadharshani - nadeeka.ieee@gmail.com/n/n/n</string>
-
+    <string name="shake_detector">Shake Detector</string>
     <string name="helpDes"><font size="24" ><b>Chosen Contacts </b></font>\n
         <p>Chosen Contact 1 and Chosen Contact 2 will be the contacts when in an emergency the SMS will be sent. 
             Emergency sms will be contained your last known location as a GPS location.</p>\n\n </string>
